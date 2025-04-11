@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages (Main Branch Root)
 on:
   push:
     branches:
-      - master
+      - master  # ✅ You're using master, not main
 
 jobs:
   deploy:
@@ -19,24 +19,30 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "No package-lock.json found. Falling back to npm install."
+            npm install
+          fi
 
       - name: Build the project
         run: npm run build
 
-      - name: Deploy to root of main
+      - name: Deploy build to root of master branch
         run: |
-          # Allow advanced glob patterns
+          # Enable extended globbing for cleanup
           shopt -s extglob
-          
-          # Clean all except .git, .github, and dist
+
+          # Remove everything except .git, .github, and dist
           find . -maxdepth 1 ! -name '.' ! -name '.git' ! -name '.github' ! -name 'dist' -exec rm -rf {} +
 
-          # Move built files to root
+          # Move built files to root and remove dist
           cp -r dist/* .
           rm -rf dist
 
-          # Commit and push
+          # Commit and push only if there are changes
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
