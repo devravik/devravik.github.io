@@ -1,7 +1,7 @@
 export const site = {
     hero: {
         name: "Ravi K Gupta",
-        title: "Senior Backend Engineer",
+        title: "Backend Systems Engineer · Multi-Tenant SaaS Architecture",
         tagline:
             "Laravel & Go backend engineer focused on SaaS products that have to stay fast and predictable.",
         location: "Delhi, India",
@@ -14,7 +14,7 @@ export const site = {
         actions: [
             {
                 label: "Email",
-                href: "mailto:dev.ravik@gmail.com",
+                href: "mailto:dev.ravikgupt@gmail.com",
             },
             {
                 label: "LinkedIn",
@@ -78,7 +78,7 @@ export const site = {
             {
                 name: "Cloud, DevOps & Reliability",
                 items: [
-                    "AWS & DigitalOcean",
+                    "AWS (S3, EC2, SES, RDS), DigitalOcean, Vercel",
                     "Docker & containers",
                     "GitHub Actions / CI/CD",
                     "Caching layers and Redis",
@@ -96,26 +96,29 @@ export const site = {
         heading: "Featured Project",
         projects: [
             {
-                name: "AttendAssist",
-                role: "Independent Software Developer · Side Project",
-                period: "Jan 2025 - Present · Remote",
+                name: "Genexr Analytics",
+                role: "Senior Backend Engineer",
+                period: "2025 - Present",
                 description:
-                    "Mobile app for tracking attendance. I built the backend and APIs, wired up authentication, and took it all the way to the Play Store.",
+                    "Multi-tenant analytics platform that sits behind other SaaS products. I’m responsible for the API design, data model, and tenant isolation strategy so each customer gets clean dashboards and exports without ever seeing anyone else’s data.",
                 bullets: [
-                    "Designed and implemented the backend APIs and auth flows.",
-                    "Set up CI/CD and handled Play Store builds and releases.",
-                    "Looked after the full lifecycle from the first prototype to production.",
+                    "Designed the event and metrics model to keep writes simple and reads fast.",
+                    "Built Go (Fiber) services behind a small, well-documented HTTP API.",
+                    "Implemented tenant-aware routing, auth, and data isolation for all queries.",
+                    "Added background jobs for aggregations, scheduled reports, and CSV exports.",
+                    "Shaped the PostgreSQL schema specifically for analytics-style workloads.",
                 ],
                 techStack: [
-                    "React Native (Expo)",
-                    "Laravel / Go APIs",
-                    "CI/CD",
-                    "Play Store",
+                    "Go (Fiber) services",
+                    "Next.js reporting dashboard",
+                    "PostgreSQL analytics schema",
+                    "Multi-tenant routing & auth",
+                    "Background jobs & exports",
                 ],
                 links: [
                     {
-                        label: "View on Play Store",
-                        href: "https://play.google.com/store/apps/details?id=com.attendassist.app",
+                        label: "Genexr Analytics",
+                        href: "https://genexr.com",
                     },
                 ],
             },
@@ -268,7 +271,7 @@ export const site = {
             {
                 name: "Top Places India",
                 category: "Product",
-                role: "Senior Backend Engineer (Freelance)",
+                role: "Senior Backend Engineer",
                 period: "2026",
                 description:
                     "Travel discovery platform that helps people explore Indian destinations, itineraries, and lesser-known spots in one place.",
@@ -298,12 +301,12 @@ export const site = {
                 location: "Delhi, India · Remote",
                 period: "Oct 2018 - Present",
                 summary:
-                    "Lead backend engineer across several client products — usually brought in to design the first version of the system and then keep it healthy as traffic and scope grow.",
+        "Lead backend engineer across several client products — responsible for backend direction, architecture, and keeping systems healthy as traffic and scope grow.",
                 bullets: [
-                    "Designed backend architecture and data models for a mix of SaaS products and internal tools.",
+        "Responsible for backend architecture, data modelling, and long-term system direction across multiple SaaS products and internal tools.",
                     "Built and maintained REST APIs in Laravel and Go (Fiber), keeping contracts stable while features evolved.",
                     "Introduced tenant isolation patterns and worked on multi-tenant setups where products needed to serve many customers safely.",
-                    "Improved performance with better indexing, query rewrites, and some honest benchmarking instead of guessing.",
+                    "Reduced API response times and heavy report queries through better indexing, query rewrites, and benchmarking.",
                     "Set up background workers, queues, and Redis so slow work didn’t block the UI.",
                     "Integrated payment providers and other third‑party APIs in a way that failed predictably, not randomly.",
                     "Managed deployments using GitHub CI/CD, Laravel Forge, AWS containers, DigitalOcean App Platform, and Vercel.",
@@ -327,21 +330,6 @@ export const site = {
                     "AWS",
                     "DigitalOcean",
                 ],
-            },
-            {
-                company: "AttendAssist (Side Project)",
-                title: "Independent Software Developer · Part-time",
-                location: "Remote",
-                period: "Jan 2025 - Present",
-                summary:
-                    "Solo developer on a mobile attendance app — from backend design to app releases and updates.",
-                bullets: [
-                    "Built and launched a React Native (Expo) app for attendance tracking.",
-                    "Designed backend APIs and the authentication system.",
-                    "Set up CI/CD and handled the Play Store deployment process.",
-                    "Looked after the app lifecycle from early test builds to production users.",
-                ],
-                techStack: ["React Native (Expo)", "Laravel / Go APIs", "CI/CD"],
             },
             {
                 company: "Infoicon Technologies",
@@ -416,7 +404,7 @@ export const site = {
 
     contact: {
         heading: "Contact",
-        email: "dev.ravik@gmail.com",
+        email: "dev.ravikgupt@gmail.com",
         location: "Delhi, India",
         openToWork: true,
         links: [
@@ -427,6 +415,14 @@ export const site = {
             {
                 label: "GitHub",
                 href: "https://github.com/devravik",
+            },
+            {
+                label: "StackOverflow",
+                href: "https://stackoverflow.com/users/3894259/k-ravi",
+            },
+            {
+                label: "Instagram",
+                href: "https://instagram.com/kravishots",
             },
         ],
     },
