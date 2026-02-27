@@ -385,7 +385,7 @@ img {
 }
 
 .body-text {
-  margin: 0 0 10px;
+  margin: 10px;
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text);
@@ -480,7 +480,7 @@ img {
 }
 
 .tag-row {
-  margin-top: 10px;
+  margin: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -637,6 +637,12 @@ img {
   gap: 16px;
 }
 
+.contributions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
 .project-card {
   padding: 0 0 14px;
   border-radius: var(--radius-md);
@@ -650,7 +656,7 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 8px;
+  margin: 8px;
 }
 
 .project-title {

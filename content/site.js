@@ -125,6 +125,59 @@ export const site = {
         ],
     },
 
+    contributions: {
+        heading: "Open Source Contributions",
+        items: [
+            {
+                name: "Laravel Licensing",
+                description:
+                    "A production-ready Laravel package for generating, managing, activating, and validating software licenses directly inside your application. License keys are hashed before storage (never plaintext in the database), activations are seat-controlled, and the entire lifecycle creation, validation, activation, revocation, and expiry is covered by typed exceptions and dispatchable events.",
+                version: "1.0.0",
+                stats: {
+                    downloads: "1+",
+                    phpVersion: "PHP ^8.1",
+                    license: "MIT",
+                    tests: "Covered",
+                },
+                techStack: [
+                    "Laravel 10/11/12",
+                    "Bcrypt key hashing",
+                    "Seat-based activations",
+                    "Polymorphic ownership",
+                    "Event-driven architecture",
+                ],
+                links: [
+                    {
+                        label: "Packagist",
+                        href: "https://packagist.org/packages/devravik/laravel-licensing",
+                    },
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/laravel-licensing",
+                    },
+                ],
+            },
+            {
+                name: "Laravel Licensing Starter",
+                description:
+                    "A starter kit demonstrating devravik/laravel-licensing - a Laravel package for generating, managing, activating, and validating software licenses. This project combines Laravel Breeze (authentication) with a full license management dashboard so you can see the complete workflow in action.",
+                techStack: [
+                    "Laravel Breeze",
+                    "License management dashboard",
+                    "Full workflow demonstration",
+                    "API endpoints",
+                    "Demo data & examples",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/laravel-licensing-starter",
+                    },
+                ],
+            },
+        ],
+    },
+
     projects: {
         heading: "Projects",
         items: [

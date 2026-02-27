@@ -15,6 +15,7 @@ if (root) {
           <nav class="topbar-nav">
             <a href="#about">About</a>
             <a href="#tech">Tech</a>
+            <a href="#contributions">Contributions</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
@@ -124,6 +125,53 @@ if (root) {
                       .map((s) => `<li class="chip">${s}</li>`)
                       .join("")}
                   </ul>
+                </article>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+        </section>
+
+        <section id="contributions" class="section">
+          <div class="section-inner">
+            <div class="section-header">
+              <h2 class="section-title">${site.contributions.heading}</h2>
+            </div>
+            <div class="contributions-grid">
+              ${site.contributions.items
+                .map(
+                  (contribution) => `
+                <article class="project-card">
+                  <header class="project-header">
+                    <div>
+                      <h3 class="project-title">${contribution.name}</h3>
+                      <p class="project-meta">
+                        ${contribution.version ? `v${contribution.version} · ` : ""}${
+                     contribution.stats
+                       ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
+                       : ""
+                   }
+                      </p>
+                    </div>
+                    <div class="project-links">
+                      ${contribution.links
+                        .map(
+                          (link) => `
+                        <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">
+                          ${link.label}
+                        </a>
+                      `
+                        )
+                        .join("")}
+                    </div>
+                  </header>
+                  <p class="body-text">${contribution.description}</p>
+                  <div class="tag-row">
+                    ${contribution.techStack
+                      .map((t) => `<span class="chip chip-soft">${t}</span>`)
+                      .join("")}
+                  </div>
                 </article>
               `
                 )
