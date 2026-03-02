@@ -175,6 +175,28 @@ export const site = {
                     },
                 ],
             },
+            {
+                name: "Laravel Extended Resources",
+                description:
+                    "Extended Resources is a small but powerful extension around Laravel API resources that lets you define multiple named formats using PHP 8 attributes, apply on-the-fly modifications to the serialized data, use convenience enhancements like only()/except(), and adjust the HTTP status code directly from the resource while still feeling native to Laravel.",
+                techStack: [
+                    "Laravel 10/11/12",
+                    "PHP 8.1+",
+                    "API Resources",
+                    "PHP 8 attributes",
+                    "Response helpers",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/extended-resources",
+                    },
+                    {
+                        label: "Packagist",
+                        href: "https://packagist.org/packages/devravik/extended-resources",
+                    },
+                ],
+            },
         ],
     },
 
