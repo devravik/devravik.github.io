@@ -339,7 +339,7 @@ export const site = {
                 links: [
                     {
                         label: "Play Store",
-                        href: "https://play.google.com/store/apps/details?id=com.attendassist.app",
+                        href: "https://play.google.com/store/apps/details?id=com.devravik.attendassist",
                     },
                 ],
             },
