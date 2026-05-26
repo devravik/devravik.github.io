@@ -215,6 +215,24 @@ export const site = {
                     },
                 ],
             },
+            {
+                name: "Go License API",
+                description:
+                    "High-performance, self-hosted license validation service built in Go. Covers everything from simple plugin licensing to large-scale SaaS enforcement: multi-tenant isolation, seat tracking, offline licenses (Ed25519), key rotation, webhooks, and audit logging. Validation runs entirely from an in-memory cache with no DB in the hot path, targeting sub-millisecond p95 latency.",
+                techStack: [
+                    "Go 1.21+",
+                    "PostgreSQL 14+",
+                    "Redis (optional L2 cache)",
+                    "Ed25519 offline signing",
+                    "Docker + Kubernetes",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/go-license-api",
+                    },
+                ],
+            },
         ],
     },
 
@@ -433,6 +451,29 @@ export const site = {
                     {
                         label: "GitHub",
                         href: "https://github.com/devravik/RedditRadar",
+                    },
+                ],
+            },
+            {
+                name: "Go License API",
+                category: "Open Source",
+                role: "Independent Software Developer",
+                period: "2025",
+                description:
+                    "High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps, plugins, and indie tools — handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification, webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the hot path.",
+                image: "./assets/projects/go-license-api-example.png",
+                techStack: [
+                    "Go 1.21+",
+                    "PostgreSQL 14+ (control plane only)",
+                    "Redis (optional L2 cache)",
+                    "Ed25519 offline license signing",
+                    "Worker pool + bounded queue",
+                    "Docker + Kubernetes",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/go-license-api",
                     },
                 ],
             },
