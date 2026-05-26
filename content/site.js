@@ -460,7 +460,7 @@ export const site = {
                 role: "Independent Software Developer",
                 period: "2025",
                 description:
-                    "High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps, plugins, and indie tools — handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification, webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the hot path.",
+                    "High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps, plugins, and indie tools - handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification, webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the hot path.",
                 image: "./assets/projects/go-license-api-example.png",
                 techStack: [
                     "Go 1.21+",
@@ -489,9 +489,9 @@ export const site = {
                 location: "Delhi, India · Remote",
                 period: "Oct 2018 - Present",
                 summary:
-        "Lead backend engineer across several client products - responsible for backend direction, architecture, and keeping systems healthy as traffic and scope grow.",
+                    "Lead backend engineer across several client products - responsible for backend direction, architecture, and keeping systems healthy as traffic and scope grow.",
                 bullets: [
-        "Responsible for backend architecture, data modelling, and long-term system direction across multiple SaaS products and internal tools.",
+                    "Responsible for backend architecture, data modelling, and long-term system direction across multiple SaaS products and internal tools.",
                     "Built and maintained REST APIs in Laravel and Go (Fiber), keeping contracts stable while features evolved.",
                     "Introduced tenant isolation patterns and worked on multi-tenant setups where products needed to serve many customers safely.",
                     "Reduced API response times and heavy report queries through better indexing, query rewrites, and benchmarking.",
