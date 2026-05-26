@@ -31,7 +31,7 @@ export const site = {
         heading: "About",
         paragraphs: [
             "I’ve been working on backend systems since 2014, mostly for SaaS products and web apps that can’t afford to fall over when traffic spikes.",
-            "Day to day I’m in Laravel and Go (Fiber): designing APIs, shaping data models, and fixing the parts that usually hurt first — slow queries, missing indexes, noisy background jobs, and brittle integrations.",
+            "Day to day I’m in Laravel and Go (Fiber): designing APIs, shaping data models, and fixing the parts that usually hurt first - slow queries, missing indexes, noisy background jobs, and brittle integrations.",
             "I like being close to the product and building backends that still make sense a few years later, not just for the next release. I’m open to remote backend roles and longer-term work with teams building real products.",
         ],
         focusAreas: [
@@ -197,6 +197,24 @@ export const site = {
                     },
                 ],
             },
+            {
+                name: "RedditRadar",
+                description:
+                    "Self-hosted Reddit lead discovery and AI analysis platform for engineers. Monitors subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before any LLM inference runs, and tracks outreach through a full pipeline - a lightweight alternative to expensive SaaS lead tools.",
+                techStack: [
+                    "Next.js 16 (App Router)",
+                    "Prisma 7 + PostgreSQL",
+                    "Tailwind CSS + shadcn/ui",
+                    "OpenAI / OpenRouter / Groq",
+                    "Reddit JSON API",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/RedditRadar",
+                    },
+                ],
+            },
         ],
     },
 
@@ -231,7 +249,7 @@ export const site = {
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
                 description:
-                    "Backend behind a large device repair business — handles bookings, job state, technician updates, and the operational reporting the team runs their day on.",
+                    "Backend behind a large device repair business - handles bookings, job state, technician updates, and the operational reporting the team runs their day on.",
                 image: "./assets/projects/fonefix-example-001.png",
                 techStack: [
                     "Workflow-driven backend design",
@@ -364,6 +382,60 @@ export const site = {
                     },
                 ],
             },
+            {
+                name: "KundaliLabs",
+                category: "Product",
+                role: "Independent Software Developer",
+                period: "2025 - Present",
+                description:
+                    "AI-powered Vedic astrology platform using Swiss Ephemeris for all calculations and GPT-4o for interpretations. Covers Janam Kundli, daily horoscope, Panchang, Dasha timeline, Kundli matching, and numerology across 10 Indian languages. Available as a live web app and a mobile app on the Play Store.",
+                image: "./assets/projects/kundalilabs-example.png",
+                techStack: [
+                    "FastAPI (Python) backend",
+                    "React + Vite frontend",
+                    "PostgreSQL",
+                    "Swiss Ephemeris for Jyotish calculations",
+                    "OpenAI GPT-4o for AI interpretations",
+                    "React Native mobile app",
+                ],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://kundalilabs.com",
+                    },
+                    {
+                        label: "Play Store",
+                        href: "https://play.google.com/store/apps/details?id=com.kundalilabs.app",
+                    },
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/kundalilabs",
+                    },
+                ],
+            },
+            {
+                name: "RedditRadar",
+                category: "Open Source",
+                role: "Independent Software Developer",
+                period: "2025",
+                description:
+                    "Self-hosted Reddit lead discovery and AI analysis platform. Monitors configurable subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference runs, and tracks outreach through a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.",
+                image: "./assets/projects/redditradar-example.png",
+                techStack: [
+                    "Next.js 16 (App Router)",
+                    "Prisma 7 + PostgreSQL",
+                    "Tailwind CSS + shadcn/ui",
+                    "AI scoring via OpenAI / OpenRouter / Groq",
+                    "Reddit JSON API with rate-limit-aware pacing",
+                    "Docker + self-hosted deployment",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/RedditRadar",
+                    },
+                ],
+            },
         ],
     },
 
@@ -376,7 +448,7 @@ export const site = {
                 location: "Delhi, India · Remote",
                 period: "Oct 2018 - Present",
                 summary:
-        "Lead backend engineer across several client products — responsible for backend direction, architecture, and keeping systems healthy as traffic and scope grow.",
+        "Lead backend engineer across several client products - responsible for backend direction, architecture, and keeping systems healthy as traffic and scope grow.",
                 bullets: [
         "Responsible for backend architecture, data modelling, and long-term system direction across multiple SaaS products and internal tools.",
                     "Built and maintained REST APIs in Laravel and Go (Fiber), keeping contracts stable while features evolved.",
