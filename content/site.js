@@ -233,6 +233,25 @@ export const site = {
                     },
                 ],
             },
+            {
+                name: "TalkBridge",
+                description:
+                    "Real-time video calls with live AI-translated captions — no app, no account, just a link. Two people who speak different languages open a browser, share a link, and talk. Speech is transcribed via Deepgram Nova-2 with interim results and translated by Azure Cognitive Services in under 500ms end-to-end, overlaid as live captions on the video feed. Supports 10 languages with an LLM fallback for translation when Azure is unavailable.",
+                techStack: [
+                    "Go (Fiber) + Gorilla WebSocket",
+                    "Next.js 14, TypeScript, Tailwind CSS",
+                    "WebRTC P2P video and audio",
+                    "Deepgram Nova-2 streaming STT",
+                    "Azure Cognitive Services Translator",
+                    "PostgreSQL",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/TalkBridge",
+                    },
+                ],
+            },
         ],
     },
 
@@ -474,6 +493,29 @@ export const site = {
                     {
                         label: "GitHub",
                         href: "https://github.com/devravik/go-license-api",
+                    },
+                ],
+            },
+            {
+                name: "TalkBridge",
+                category: "Open Source",
+                role: "Independent Software Developer",
+                period: "2025",
+                description:
+                    "Real-time video calls with live AI-translated captions — no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50–150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
+                image: "./assets/projects/talkbridge-example.png",
+                techStack: [
+                    "Go (Fiber) + Gorilla WebSocket",
+                    "Next.js 14, TypeScript, Tailwind CSS",
+                    "WebRTC P2P (STUN/TURN)",
+                    "Deepgram Nova-2 streaming STT",
+                    "Azure Cognitive Services Translator",
+                    "PostgreSQL + Docker",
+                ],
+                links: [
+                    {
+                        label: "GitHub",
+                        href: "https://github.com/devravik/TalkBridge",
                     },
                 ],
             },
