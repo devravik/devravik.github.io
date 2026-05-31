@@ -1,10 +1,24 @@
 [
     {
+        "id": "kundlalabs",
+        "name": "KundaliLabs - Kundli, Panchang & Horoscope",
+        "description": "KundaliLabs is a free Kundli, Panchang & Horoscope app with advanced Vedic Astrology features.",
+        "bannerUrl": "https://devravik.github.io/assets/app-banners/kundlalabs-app-banner.png",
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.kundalilabs.app"
+    },
+    {
         "id": "wa-direct",
         "name": "WA Direct Chat & Tools",
         "description": "Send WA messages without saving numbers.",
         "bannerUrl": "https://devravik.github.io/assets/app-banners/wa-toolkit-app-banner.jpg",
-        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.your.wadirect"
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.devravik.directchattoolsforwhatsapp"
+    },
+    {
+        "id": "halomom",
+        "name": "Pregnancy & Baby Tracker - Halomom",
+        "description": "The Pregnancy & Baby Tracker App helps parents-to-be track pregnancy week by week, monitor fetal development, manage appointments, and plan for their baby's arrival with ease.",
+        "bannerUrl": "https://devravik.github.io/assets/app-banners/halomom-app-banner.jpg",
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.rk822827.HaloMom"
     },
     {
         "id": "daily-attendance",
