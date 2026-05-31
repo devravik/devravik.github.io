@@ -1,0 +1,16 @@
+[
+    {
+        "id": "wa-direct",
+        "name": "WA Direct Chat & Tools",
+        "description": "Send WA messages without saving numbers.",
+        "bannerUrl": "https://url-to-your-promotional-banner-image.jpg",
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.your.wadirect"
+    },
+    {
+        "id": "daily-attendance",
+        "name": "Daily Attendance App",
+        "description": "Track attendance offline easily.",
+        "bannerUrl": "https://url-to-your-promotional-banner-image-2.jpg",
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.your.attendance"
+    }
+]
