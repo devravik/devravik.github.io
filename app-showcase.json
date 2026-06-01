@@ -16,7 +16,7 @@
     {
         "id": "halomom",
         "name": "Pregnancy & Baby Tracker - Halomom",
-        "description": "The Pregnancy & Baby Tracker App helps parents-to-be track pregnancy week by week, monitor fetal development, manage appointments, and plan for their baby's arrival with ease.",
+        "description": "Monitor fetal development, manage appointments, and plan for their baby's arrival with ease.",
         "bannerUrl": "https://devravik.github.io/assets/app-banners/halomom-app-banner.jpg",
         "playStoreUrl": "https://play.google.com/store/apps/details?id=com.rk822827.HaloMom"
     },
