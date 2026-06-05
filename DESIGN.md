@@ -95,7 +95,7 @@ The atmosphere is calm and deliberate. Sections breathe. Typography is confident
 - Gold as a statement accent, never a fill
 - Poppins at four weights: hierarchy through contrast, not decoration
 - Cards that feel substantial, not lightweight
-- Section rhythm at 80px; hero at 72px top — breathing room is the design
+- Section rhythm at 80px; hero at 72px top - breathing room is the design
 - Shadows tinted to the navy hue, never neutral grey
 
 ## 2. Colors: The Register Palette
@@ -103,11 +103,11 @@ The atmosphere is calm and deliberate. Sections breathe. Typography is confident
 A restrained warm palette with a committed primary. Navy owns the authority surfaces; cream and parchment own the warmth; gold marks what matters.
 
 ### Primary
-- **Midnight Register Blue** (`#1C355E`): All primary interactive elements — nav, buttons, card headings, active states. The authoritative color. Never used at full intensity on light text backgrounds.
+- **Midnight Register Blue** (`#1C355E`): All primary interactive elements - nav, buttons, card headings, active states. The authoritative color. Never used at full intensity on light text backgrounds.
 - **Warm Brass Accent** (`#E8B76D`): Highlights, the gold CTA button, the tools-teaser heading labels. Used on ≤20% of any screen surface. Its warmth against the navy is the visual signature.
 
 ### Secondary
-- **Field Green** (`#4F9D7E`): Present status, paid confirmations, success states. Not a brand color — a semantic color. Used only where "complete" or "present" is the meaning.
+- **Field Green** (`#4F9D7E`): Present status, paid confirmations, success states. Not a brand color - a semantic color. Used only where "complete" or "present" is the meaning.
 
 ### Neutral
 - **Off-White Canvas** (`#FCFCFC`): Page background. Almost white; tinted fractionally toward the navy hue so it reads warm rather than clinical.
@@ -150,24 +150,24 @@ Depth through tinted shadows and surface layering, not heavy drop shadows. The s
 ## 5. Components
 
 ### Buttons
-Confident and rounded at 8px — not pill-shaped, not sharp. Three distinct roles.
+Confident and rounded at 8px - not pill-shaped, not sharp. Three distinct roles.
 - **Primary** (navy fill `#1C355E`, white text, 12px 24px padding): Primary conversion action. "Download Free."
 - **Outline** (transparent fill, navy stroke `2px solid #1C355E`, navy text): Secondary action adjacent to Primary. "See Screenshots."
-- **Gold** (gold fill `#E8B76D`, navy text): High-emphasis secondary conversion, used on dark (navy) backgrounds — the tools-teaser CTA and main download CTA. Never used adjacent to a Primary button.
+- **Gold** (gold fill `#E8B76D`, navy text): High-emphasis secondary conversion, used on dark (navy) backgrounds - the tools-teaser CTA and main download CTA. Never used adjacent to a Primary button.
 - **Hover:** Opacity 0.9 + translateY(-1px). 150ms transition, ease-out.
-- **Focus visible:** Navy outline-offset ring (2px navy, 2px offset). No decorative glow — keyboard navigators need clear contrast.
+- **Focus visible:** Navy outline-offset ring (2px navy, 2px offset). No decorative glow - keyboard navigators need clear contrast.
 
 ### Pillar Cards
 The four-pillar grid is the structural heart of the page. Cards are clickable, warm-parchment (`#F8F6F1`) background, 12px radius, 1px aged-paper border, 28px 20px padding. On hover: lifted shadow + 2px vertical rise. The "Learn more →" label adopts navy weight on hover to signal interactivity.
 
 ### Feature Cards
-White background (`#ffffff`) distinguishes these from the parchment section behind them. Ambient shadow at rest. 12px radius. No hover state — these are informational, not interactive.
+White background (`#ffffff`) distinguishes these from the parchment section behind them. Ambient shadow at rest. 12px radius. No hover state - these are informational, not interactive.
 
 ### Navigation (Sticky)
-Off-white with 95% opacity and backdrop blur. Stays anchored to the top on scroll. Logo left, single CTA right. No secondary nav links — this is a single-page landing; the nav's only job is to re-expose the download action at any scroll depth.
+Off-white with 95% opacity and backdrop blur. Stays anchored to the top on scroll. Logo left, single CTA right. No secondary nav links - this is a single-page landing; the nav's only job is to re-expose the download action at any scroll depth.
 
 ### Trust Strip
-Full-width navy background, white text. Three-column centered layout. Icon 28px. Strong label 15px/600 + supporting line 13px/0.75 opacity. This is the primary "quick scan" element — a reader who glances once should absorb: offline, no account, free.
+Full-width navy background, white text. Three-column centered layout. Icon 28px. Strong label 15px/600 + supporting line 13px/0.75 opacity. This is the primary "quick scan" element - a reader who glances once should absorb: offline, no account, free.
 
 ### Screenshot Strip
 Horizontal scroll gallery. Fixed height 400px per thumbnail, 180px wide, `object-fit: contain` with parchment background fill (handles the varied aspect ratios in the screenshot set). Cards at 12px radius with lifted shadow.

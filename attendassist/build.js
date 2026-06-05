@@ -12,7 +12,7 @@ const ASSETS = '/assets/attendassist';
 const PAGES = [
   {
     slug: '',
-    title: 'AttendAssist — Attendance, Payroll, Rent & Classroom App',
+    title: 'AttendAssist - Attendance, Payroll, Rent & Classroom App',
     description: 'Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud.',
     canonical: `${BASE_URL}/attendassist/`,
     ogImage: `${BASE_URL}${ASSETS}/attendance-app-banner.png`,
@@ -30,7 +30,7 @@ const PAGES = [
 ];
 
 // ─── Icons (Lucide-compatible inline SVG, 24×24 viewBox) ─────────────────────
-// Only the subset used on this page — zero CDN dependency.
+// Only the subset used on this page - zero CDN dependency.
 
 const ICONS = {
   'smartphone': '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
@@ -62,7 +62,7 @@ function heroSection() {
     <div class="container hero-inner">
       <div class="hero-text">
         <h1>Attendance. Payroll. Rent.<br>Classroom. One app.</h1>
-        <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers — track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
+        <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers - track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
         <div class="hero-actions">
           <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Free on Play Store</a>
           <a href="#screenshots" class="btn btn-outline">See Screenshots</a>
@@ -114,13 +114,13 @@ function pillarsSection() {
     {
       icon: 'building-2',
       title: 'Rent &amp; Tenant',
-      sub: 'Monthly rent tracking, security deposit, yearly summaries — per tenant.',
+      sub: 'Monthly rent tracking, security deposit, yearly summaries - per tenant.',
       href: '/attendassist/rent-management-app/',
     },
     {
       icon: 'graduation-cap',
       title: 'Classroom',
-      sub: 'Bulk attendance, fee collection, student roll numbers — built for tutors and coaching centers.',
+      sub: 'Bulk attendance, fee collection, student roll numbers - built for tutors and coaching centers.',
       href: '/attendassist/classroom-management-app/',
     },
   ];
@@ -128,7 +128,7 @@ function pillarsSection() {
   <section class="pillars">
     <div class="container">
       <h2>Everything you manage, in one app</h2>
-      <p class="section-sub">Three entity types — Household, Business, Classroom — unified in a single interface.</p>
+      <p class="section-sub">Three entity types - Household, Business, Classroom - unified in a single interface.</p>
       <div class="pillars-grid stagger-grid">
         ${pillars.map(p => `
         <a class="pillar-card" href="${p.href}">
@@ -152,12 +152,12 @@ function featuresSection() {
     {
       icon: 'layout-grid',
       title: 'All-in-One',
-      body: 'Attendance, payroll, rent, classroom, to-do list, and 28 financial tools — one app, nothing to install separately.',
+      body: 'Attendance, payroll, rent, classroom, to-do list, and 28 financial tools - one app, nothing to install separately.',
     },
     {
       icon: 'calculator',
       title: '28 Free Tools',
-      body: 'SIP, FD, EMI, GST, unit converter, salary calculator — a full financial toolkit included at no extra cost.',
+      body: 'SIP, FD, EMI, GST, unit converter, salary calculator - a full financial toolkit included at no extra cost.',
     },
     {
       icon: 'database',
@@ -172,7 +172,7 @@ function featuresSection() {
     {
       icon: 'users',
       title: '40 Ready-to-Use Roles',
-      body: '14 household roles (maid, cook, driver…) and 26 business roles — get started instantly.',
+      body: '14 household roles (maid, cook, driver…) and 26 business roles - get started instantly.',
     },
   ];
   return `
@@ -192,20 +192,20 @@ function featuresSection() {
 }
 
 const SCREENSHOTS = [
-  { file: 'Screenshot_dashboard.png',           label: 'Dashboard overview' },
-  { file: 'Screenshot_stafflist.png',           label: 'Staff list' },
-  { file: 'Screenshot_add_staff_type.png',      label: 'Add staff' },
-  { file: 'Screenshot_attendance_screen.png',   label: 'Attendance calendar' },
+  { file: 'Screenshot_dashboard.png', label: 'Dashboard overview' },
+  { file: 'Screenshot_stafflist.png', label: 'Staff list' },
+  { file: 'Screenshot_add_staff_type.png', label: 'Add staff' },
+  { file: 'Screenshot_attendance_screen.png', label: 'Attendance calendar' },
   { file: 'Screenshot_classroom_dashboard.png', label: 'Classroom view' },
-  { file: 'Screenshot_tenant_detail.png',       label: 'Tenant management' },
-  { file: 'Screenshot_tools_index.png',         label: 'Financial tools' },
-  { file: 'Screenshot_settings.png',            label: 'Settings' },
-  { file: 'Screenshot_sip_calc.png',            label: 'SIP calculator' },
-  { file: 'Screenshot_unit_converter.png',      label: 'Unit converter' },
-  { file: 'Screenshot_home_loan_calc.png',      label: 'Home loan calculator' },
-  { file: 'Screenshot_age_calc.png',            label: 'Age calculator' },
-  { file: 'Screenshot_gst_calc.png',            label: 'GST calculator' },
-  { file: 'Screenshot_date_diff_calc.png',      label: 'Date difference' },
+  { file: 'Screenshot_tenant_detail.png', label: 'Tenant management' },
+  { file: 'Screenshot_tools_index.png', label: 'Financial tools' },
+  { file: 'Screenshot_settings.png', label: 'Settings' },
+  { file: 'Screenshot_sip_calc.png', label: 'SIP calculator' },
+  { file: 'Screenshot_unit_converter.png', label: 'Unit converter' },
+  { file: 'Screenshot_home_loan_calc.png', label: 'Home loan calculator' },
+  { file: 'Screenshot_age_calc.png', label: 'Age calculator' },
+  { file: 'Screenshot_gst_calc.png', label: 'GST calculator' },
+  { file: 'Screenshot_date_diff_calc.png', label: 'Date difference' },
 ];
 
 function screenshotsSection() {
@@ -218,7 +218,7 @@ function screenshotsSection() {
     <div class="screenshots-scroll">
       ${SCREENSHOTS.map(s => `
       <figure class="screenshot-item">
-        <img src="${ASSETS}/${s.file}" alt="AttendAssist — ${s.label}" loading="lazy" width="180" />
+        <img src="${ASSETS}/${s.file}" alt="AttendAssist - ${s.label}" loading="lazy" width="180" />
         <figcaption>${s.label}</figcaption>
       </figure>`).join('')}
     </div>
@@ -650,7 +650,7 @@ function generate() {
     fs.writeFileSync(outPath, template(page), 'utf8');
     console.log(`✓  ${outPath.replace(process.cwd() + '/', '')}`);
   }
-  console.log(`\nDone — ${PAGES.length} page(s) generated.`);
+  console.log(`\nDone - ${PAGES.length} page(s) generated.`);
 }
 
 if (require.main === module) generate();

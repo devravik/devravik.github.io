@@ -1,8 +1,8 @@
-# AttendAssist Landing Page — Implementation Plan
+# AttendAssist Landing Page - Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create `attendassist/build.js` — a zero-dependency Node.js static site generator — and run it to produce the main `/attendassist/index.html` landing page covering all 4 app pillars with the navy/gold design system.
+**Goal:** Create `attendassist/build.js` - a zero-dependency Node.js static site generator - and run it to produce the main `/attendassist/index.html` landing page covering all 4 app pillars with the navy/gold design system.
 
 **Architecture:** A single `build.js` file holds a `PAGES[]` array of page configs and a `template(page)` function using template literals. Running `node attendassist/build.js` writes `index.html` files into the correct directory. The landing page has 7 sections: hero, trust strip, pillars grid, features grid, screenshots scroll, tools teaser, and download CTA.
 
@@ -15,7 +15,7 @@
 | Action | Path | Purpose |
 |--------|------|---------|
 | Create | `attendassist/build.js` | Build script: page configs + template + section renderers + file writer |
-| Generate | `attendassist/index.html` | Output — main landing page at `/attendassist/` |
+| Generate | `attendassist/index.html` | Output - main landing page at `/attendassist/` |
 
 ---
 
@@ -43,7 +43,7 @@ const ASSETS = '/assets/attendassist';
 const PAGES = [
   {
     slug: '',
-    title: 'AttendAssist — Attendance, Payroll, Rent & Classroom App',
+    title: 'AttendAssist - Attendance, Payroll, Rent & Classroom App',
     description: 'Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud.',
     canonical: `${BASE_URL}/attendassist/`,
     ogImage: `${BASE_URL}${ASSETS}/attendance-app-banner.png`,
@@ -67,7 +67,7 @@ function heroSection() {
     <div class="container hero-inner">
       <div class="hero-text">
         <h1>Attendance. Payroll. Rent.<br>Classroom. One app.</h1>
-        <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers — track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
+        <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers - track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
         <div class="hero-actions">
           <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener">Download Free on Play Store</a>
           <a href="#screenshots" class="btn btn-outline">See Screenshots</a>
@@ -119,13 +119,13 @@ function pillarsSection() {
     {
       icon: '🏘️',
       title: 'Rent & Tenant',
-      sub: 'Monthly rent tracking, security deposit, yearly summaries — per tenant.',
+      sub: 'Monthly rent tracking, security deposit, yearly summaries - per tenant.',
       href: '/attendassist/rent-management-app/',
     },
     {
       icon: '📚',
       title: 'Classroom',
-      sub: 'Bulk attendance, fee collection, student roll numbers — built for tutors and coaching centers.',
+      sub: 'Bulk attendance, fee collection, student roll numbers - built for tutors and coaching centers.',
       href: '/attendassist/classroom-management-app/',
     },
   ];
@@ -133,7 +133,7 @@ function pillarsSection() {
   <section class="pillars">
     <div class="container">
       <h2>Everything you manage, in one app</h2>
-      <p class="section-sub">Three entity types — Household, Business, Classroom — unified in a single interface.</p>
+      <p class="section-sub">Three entity types - Household, Business, Classroom - unified in a single interface.</p>
       <div class="pillars-grid">
         ${pillars.map(p => `
         <a class="pillar-card" href="${p.href}">
@@ -157,12 +157,12 @@ function featuresSection() {
     {
       icon: '📦',
       title: 'All-in-One',
-      body: 'Attendance, payroll, rent, classroom, to-do list, and 28 financial tools — one app, nothing to install separately.',
+      body: 'Attendance, payroll, rent, classroom, to-do list, and 28 financial tools - one app, nothing to install separately.',
     },
     {
       icon: '📊',
       title: '28 Free Tools',
-      body: 'SIP, FD, EMI, GST, unit converter, salary calculator — a full financial toolkit included at no extra cost.',
+      body: 'SIP, FD, EMI, GST, unit converter, salary calculator - a full financial toolkit included at no extra cost.',
     },
     {
       icon: '💾',
@@ -177,7 +177,7 @@ function featuresSection() {
     {
       icon: '🎯',
       title: '40 Ready-to-Use Roles',
-      body: '14 household roles (maid, cook, driver…) and 26 business roles with icons — get started instantly.',
+      body: '14 household roles (maid, cook, driver…) and 26 business roles with icons - get started instantly.',
     },
   ];
   return `
@@ -223,7 +223,7 @@ function screenshotsSection() {
     <div class="screenshots-scroll">
       ${SCREENSHOTS.map(s => `
       <figure class="screenshot-item">
-        <img src="${ASSETS}/${s.file}" alt="AttendAssist — ${s.label}" loading="lazy" width="180" />
+        <img src="${ASSETS}/${s.file}" alt="AttendAssist - ${s.label}" loading="lazy" width="180" />
         <figcaption>${s.label}</figcaption>
       </figure>`).join('')}
     </div>
@@ -524,7 +524,7 @@ function generate() {
     fs.writeFileSync(outPath, template(page), 'utf8');
     console.log(`✓  ${outPath.replace(process.cwd() + '/', '')}`);
   }
-  console.log(`\nDone — ${PAGES.length} page(s) generated.`);
+  console.log(`\nDone - ${PAGES.length} page(s) generated.`);
 }
 
 generate();
@@ -547,7 +547,7 @@ Expected output:
 ```
 ✓  attendassist/index.html
 
-Done — 1 page(s) generated.
+Done - 1 page(s) generated.
 ```
 
 - [ ] **Step 2: Verify the file was created**

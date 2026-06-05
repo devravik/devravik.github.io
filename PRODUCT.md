@@ -20,7 +20,7 @@ brand
 
 ## Product Purpose
 
-AttendAssist is a free Android app that replaces the paper register and the spreadsheet for people managing staff, tenants, or students. It stores everything locally — no account, no cloud, no subscription — while covering four management contexts (household, business, classroom, rental) that every other app handles separately.
+AttendAssist is a free Android app that replaces the paper register and the spreadsheet for people managing staff, tenants, or students. It stores everything locally - no account, no cloud, no subscription - while covering four management contexts (household, business, classroom, rental) that every other app handles separately.
 
 Success: a visitor reads the landing page, immediately recognizes their specific use case (maid tracker, rent collector, student roll), and downloads the app with confidence that it will handle their exact problem without hassle or hidden cost.
 
