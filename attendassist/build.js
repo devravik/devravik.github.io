@@ -12,7 +12,7 @@ const ASSETS = '/assets/attendassist';
 const PAGES = [
   {
     slug: '',
-    title: 'AttendAssist — Attendance, Payroll, Rent &amp; Classroom App',
+    title: 'AttendAssist — Attendance, Payroll, Rent & Classroom App',
     description: 'Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud.',
     canonical: `${BASE_URL}/attendassist/`,
     ogImage: `${BASE_URL}${ASSETS}/attendance-app-banner.png`,
@@ -378,7 +378,7 @@ const CSS = `
     scrollbar-width: thin; scrollbar-color: var(--border) transparent;
   }
   .screenshot-item { flex: 0 0 auto; text-align: center; }
-  .screenshot-item img { border-radius: var(--radius-md); box-shadow: var(--shadow-md); width: 180px; height: auto; }
+  .screenshot-item img { border-radius: var(--radius-md); box-shadow: var(--shadow-md); width: 180px; height: 400px; object-fit: contain; background: var(--card-bg); }
   .screenshot-item figcaption { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
 
   .tools-teaser { padding: 80px 0; background: var(--navy); color: #fff; }
@@ -431,6 +431,12 @@ const CSS = `
   }
 `;
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function escAttr(s) {
+  return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
 // ─── HTML template ────────────────────────────────────────────────────────────
 
 const SECTION_RENDERERS = {
@@ -458,17 +464,17 @@ function template(page) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${page.title}</title>
-  <meta name="description" content="${page.description}" />
+  <title>${escAttr(page.title)}</title>
+  <meta name="description" content="${escAttr(page.description)}" />
   <link rel="canonical" href="${page.canonical}" />
-  <meta property="og:title" content="${page.title}" />
-  <meta property="og:description" content="${page.description}" />
+  <meta property="og:title" content="${escAttr(page.title)}" />
+  <meta property="og:description" content="${escAttr(page.description)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${page.canonical}" />
   <meta property="og:image" content="${page.ogImage}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${page.title}" />
-  <meta name="twitter:description" content="${page.description}" />
+  <meta name="twitter:title" content="${escAttr(page.title)}" />
+  <meta name="twitter:description" content="${escAttr(page.description)}" />
   <meta name="twitter:image" content="${page.ogImage}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
