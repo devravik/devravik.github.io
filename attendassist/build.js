@@ -29,6 +29,31 @@ const PAGES = [
   },
 ];
 
+// ─── Icons (Lucide-compatible inline SVG, 24×24 viewBox) ─────────────────────
+// Only the subset used on this page — zero CDN dependency.
+
+const ICONS = {
+  'smartphone':      '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
+  'lock':            '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  'tag':             '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>',
+  'house':           '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  'clipboard-list':  '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" x2="16" y1="11" y2="11"/><line x1="12" x2="16" y1="15" y2="15"/><line x1="8" x2="8.01" y1="11" y2="11"/><line x1="8" x2="8.01" y1="15" y2="15"/>',
+  'building-2':      '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+  'graduation-cap':  '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+  'shield-check':    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+  'layout-grid':     '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+  'calculator':      '<rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>',
+  'database':        '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>',
+  'bell':            '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  'users':           '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+};
+
+function icon(name, size = 24) {
+  const paths = ICONS[name];
+  if (!paths) throw new Error(`Unknown icon: "${name}"`);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+}
+
 // ─── Section renderers ────────────────────────────────────────────────────────
 
 function heroSection() {
@@ -53,16 +78,16 @@ function heroSection() {
 
 function trustStripSection() {
   const badges = [
-    { icon: '📴', title: '100% Offline', sub: 'No internet required, ever' },
-    { icon: '🔒', title: 'No Account Needed', sub: 'Zero sign-up, zero email' },
-    { icon: '🆓', title: 'Completely Free', sub: 'No ads, no subscriptions' },
+    { icon: 'smartphone', title: '100% Offline', sub: 'No internet required, ever' },
+    { icon: 'lock',       title: 'No Account Needed', sub: 'Zero sign-up, zero email' },
+    { icon: 'tag',        title: 'Completely Free', sub: 'No ads, no subscriptions' },
   ];
   return `
   <section class="trust-strip" aria-label="Key features: offline, private, free">
     <div class="container trust-inner">
       ${badges.map(b => `
       <div class="trust-badge">
-        <span class="trust-icon">${b.icon}</span>
+        <span class="trust-icon">${icon(b.icon, 28)}</span>
         <div>
           <strong>${b.title}</strong>
           <span>${b.sub}</span>
@@ -75,25 +100,25 @@ function trustStripSection() {
 function pillarsSection() {
   const pillars = [
     {
-      icon: '🏠',
+      icon: 'house',
       title: 'Household Staff',
       sub: 'Track maids, cooks, drivers, and more. Daily attendance + salary history per person.',
       href: '/attendassist/household-staff-attendance/',
     },
     {
-      icon: '📋',
+      icon: 'clipboard-list',
       title: 'Attendance &amp; Payroll',
       sub: 'Mark daily status, export monthly CSV, record salary, bonus, and advance payments.',
       href: '/attendassist/staff-attendance-app/',
     },
     {
-      icon: '🏘️',
+      icon: 'building-2',
       title: 'Rent &amp; Tenant',
       sub: 'Monthly rent tracking, security deposit, yearly summaries — per tenant.',
       href: '/attendassist/rent-management-app/',
     },
     {
-      icon: '📚',
+      icon: 'graduation-cap',
       title: 'Classroom',
       sub: 'Bulk attendance, fee collection, student roll numbers — built for tutors and coaching centers.',
       href: '/attendassist/classroom-management-app/',
@@ -107,7 +132,7 @@ function pillarsSection() {
       <div class="pillars-grid">
         ${pillars.map(p => `
         <a class="pillar-card" href="${p.href}">
-          <span class="pillar-icon">${p.icon}</span>
+          <span class="pillar-icon">${icon(p.icon, 32)}</span>
           <h3>${p.title}</h3>
           <p>${p.sub}</p>
           <span class="pillar-link">Learn more →</span>
@@ -120,34 +145,34 @@ function pillarsSection() {
 function featuresSection() {
   const usps = [
     {
-      icon: '🔐',
+      icon: 'shield-check',
       title: 'Privacy First',
       body: 'All data lives on your device in SQLite. No servers, no cloud, no tracking. Your staff and tenant data never leaves your phone.',
     },
     {
-      icon: '📦',
+      icon: 'layout-grid',
       title: 'All-in-One',
       body: 'Attendance, payroll, rent, classroom, to-do list, and 28 financial tools — one app, nothing to install separately.',
     },
     {
-      icon: '📊',
+      icon: 'calculator',
       title: '28 Free Tools',
       body: 'SIP, FD, EMI, GST, unit converter, salary calculator — a full financial toolkit included at no extra cost.',
     },
     {
-      icon: '💾',
+      icon: 'database',
       title: 'Full Data Portability',
       body: 'Export everything as JSON, import onto any device. Switch phones without losing a single record.',
     },
     {
-      icon: '⚡',
+      icon: 'bell',
       title: 'Smart Reminders',
       body: "Background notifications if attendance hasn't been marked within 2+ hours of the usual arrival time.",
     },
     {
-      icon: '🎯',
+      icon: 'users',
       title: '40 Ready-to-Use Roles',
-      body: '14 household roles (maid, cook, driver…) and 26 business roles with icons — get started instantly.',
+      body: '14 household roles (maid, cook, driver…) and 26 business roles — get started instantly.',
     },
   ];
   return `
@@ -157,7 +182,7 @@ function featuresSection() {
       <div class="features-grid">
         ${usps.map(u => `
         <div class="feature-card">
-          <span class="feature-icon">${u.icon}</span>
+          <span class="feature-icon">${icon(u.icon, 28)}</span>
           <h3>${u.title}</h3>
           <p>${u.body}</p>
         </div>`).join('')}
@@ -342,7 +367,7 @@ const CSS = `
   .trust-strip { background: var(--navy); padding: 24px 0; }
   .trust-inner { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
   .trust-badge { display: flex; align-items: center; gap: 12px; color: #fff; }
-  .trust-icon { font-size: 28px; }
+  .trust-icon { display: flex; flex-shrink: 0; }
   .trust-badge strong { display: block; font-size: 15px; font-weight: 600; }
   .trust-badge span { font-size: 13px; opacity: .75; }
 
@@ -361,7 +386,7 @@ const CSS = `
   }
   .pillar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
   .pillar-card:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
-  .pillar-icon { font-size: 32px; }
+  .pillar-icon { display: flex; color: var(--navy); }
   .pillar-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
   .pillar-card p { font-size: 14px; color: var(--text-muted); flex: 1; }
   .pillar-link { font-size: 13px; font-weight: 600; color: var(--navy); margin-top: 4px; display: inline-block; transition: transform .15s ease-out; }
@@ -373,7 +398,7 @@ const CSS = `
     background: #fff; border: 1px solid var(--border);
     border-radius: var(--radius-md); padding: 28px 24px; box-shadow: var(--shadow-sm);
   }
-  .feature-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .feature-icon { display: block; color: var(--navy); margin-bottom: 16px; }
   .feature-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
   .feature-card p { font-size: 14px; color: var(--text-muted); }
 
