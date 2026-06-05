@@ -192,20 +192,20 @@ function featuresSection() {
 }
 
 const SCREENSHOTS = [
-  { file: 'scr1.jpeg', label: 'Dashboard overview' },
-  { file: 'scr2.jpeg', label: 'Staff list' },
-  { file: 'scr3.jpeg', label: 'Add staff' },
-  { file: 'scr4.jpeg', label: 'Attendance calendar' },
-  { file: 'scr5.jpeg', label: 'Monthly stats' },
-  { file: 'scr6.jpeg', label: 'Payroll view' },
-  { file: 'scr7.jpeg', label: 'Add payment' },
-  { file: 'scr8.jpeg', label: 'Tenant management' },
-  { file: 'scr9.jpeg', label: 'Rent history' },
-  { file: 'scr10.jpeg', label: 'Classroom view' },
-  { file: 'scr11.jpeg', label: 'Student attendance' },
-  { file: 'scr12.jpeg', label: 'Financial tools' },
-  { file: 'scr12a.jpeg', label: 'Calculator' },
-  { file: 'scr14.jpeg', label: 'Settings' },
+  { file: 'Screenshot_dashboard.png',           label: 'Dashboard overview' },
+  { file: 'Screenshot_stafflist.png',           label: 'Staff list' },
+  { file: 'Screenshot_add_staff_type.png',      label: 'Add staff' },
+  { file: 'Screenshot_attendance_screen.png',   label: 'Attendance calendar' },
+  { file: 'Screenshot_classroom_dashboard.png', label: 'Classroom view' },
+  { file: 'Screenshot_tenant_detail.png',       label: 'Tenant management' },
+  { file: 'Screenshot_tools_index.png',         label: 'Financial tools' },
+  { file: 'Screenshot_settings.png',            label: 'Settings' },
+  { file: 'Screenshot_sip_calc.png',            label: 'SIP calculator' },
+  { file: 'Screenshot_unit_converter.png',      label: 'Unit converter' },
+  { file: 'Screenshot_home_loan_calc.png',      label: 'Home loan calculator' },
+  { file: 'Screenshot_age_calc.png',            label: 'Age calculator' },
+  { file: 'Screenshot_gst_calc.png',            label: 'GST calculator' },
+  { file: 'Screenshot_date_diff_calc.png',      label: 'Date difference' },
 ];
 
 function screenshotsSection() {
