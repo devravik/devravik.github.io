@@ -33,19 +33,19 @@ const PAGES = [
 // Only the subset used on this page — zero CDN dependency.
 
 const ICONS = {
-  'smartphone':      '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
-  'lock':            '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
-  'tag':             '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>',
-  'house':           '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
-  'clipboard-list':  '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" x2="16" y1="11" y2="11"/><line x1="12" x2="16" y1="15" y2="15"/><line x1="8" x2="8.01" y1="11" y2="11"/><line x1="8" x2="8.01" y1="15" y2="15"/>',
-  'building-2':      '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
-  'graduation-cap':  '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
-  'shield-check':    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
-  'layout-grid':     '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
-  'calculator':      '<rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>',
-  'database':        '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>',
-  'bell':            '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
-  'users':           '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  'smartphone': '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>',
+  'lock': '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  'tag': '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>',
+  'house': '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  'clipboard-list': '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" x2="16" y1="11" y2="11"/><line x1="12" x2="16" y1="15" y2="15"/><line x1="8" x2="8.01" y1="11" y2="11"/><line x1="8" x2="8.01" y1="15" y2="15"/>',
+  'building-2': '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+  'graduation-cap': '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+  'shield-check': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+  'layout-grid': '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+  'calculator': '<rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>',
+  'database': '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>',
+  'bell': '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  'users': '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
 };
 
 function icon(name, size = 24) {
@@ -79,8 +79,8 @@ function heroSection() {
 function trustStripSection() {
   const badges = [
     { icon: 'smartphone', title: '100% Offline', sub: 'No internet required, ever' },
-    { icon: 'lock',       title: 'No Account Needed', sub: 'Zero sign-up, zero email' },
-    { icon: 'tag',        title: 'Completely Free', sub: 'No ads, no subscriptions' },
+    { icon: 'lock', title: 'No Account Needed', sub: 'Zero sign-up, zero email' },
+    { icon: 'tag', title: 'Completely Free', sub: 'No ads, no subscriptions' },
   ];
   return `
   <section class="trust-strip" aria-label="Key features: offline, private, free">
@@ -129,7 +129,7 @@ function pillarsSection() {
     <div class="container">
       <h2>Everything you manage, in one app</h2>
       <p class="section-sub">Three entity types — Household, Business, Classroom — unified in a single interface.</p>
-      <div class="pillars-grid">
+      <div class="pillars-grid stagger-grid">
         ${pillars.map(p => `
         <a class="pillar-card" href="${p.href}">
           <span class="pillar-icon">${icon(p.icon, 32)}</span>
@@ -179,7 +179,7 @@ function featuresSection() {
   <section class="features">
     <div class="container">
       <h2>Built for the way you actually work</h2>
-      <div class="features-grid">
+      <div class="features-grid stagger-grid">
         ${usps.map(u => `
         <div class="feature-card">
           <span class="feature-icon">${icon(u.icon, 28)}</span>
@@ -192,20 +192,20 @@ function featuresSection() {
 }
 
 const SCREENSHOTS = [
-  { file: 'scr1.jpeg',   label: 'Dashboard overview' },
-  { file: 'scr2.jpeg',   label: 'Staff list' },
-  { file: 'scr3.jpeg',   label: 'Add staff' },
-  { file: 'scr4.jpeg',   label: 'Attendance calendar' },
-  { file: 'scr5.jpeg',   label: 'Monthly stats' },
-  { file: 'scr6.jpeg',   label: 'Payroll view' },
-  { file: 'scr7.jpeg',   label: 'Add payment' },
-  { file: 'scr8.jpeg',   label: 'Tenant management' },
-  { file: 'scr9.jpeg',   label: 'Rent history' },
-  { file: 'scr10.jpeg',  label: 'Classroom view' },
-  { file: 'scr11.jpeg',  label: 'Student attendance' },
-  { file: 'scr12.jpeg',  label: 'Financial tools' },
+  { file: 'scr1.jpeg', label: 'Dashboard overview' },
+  { file: 'scr2.jpeg', label: 'Staff list' },
+  { file: 'scr3.jpeg', label: 'Add staff' },
+  { file: 'scr4.jpeg', label: 'Attendance calendar' },
+  { file: 'scr5.jpeg', label: 'Monthly stats' },
+  { file: 'scr6.jpeg', label: 'Payroll view' },
+  { file: 'scr7.jpeg', label: 'Add payment' },
+  { file: 'scr8.jpeg', label: 'Tenant management' },
+  { file: 'scr9.jpeg', label: 'Rent history' },
+  { file: 'scr10.jpeg', label: 'Classroom view' },
+  { file: 'scr11.jpeg', label: 'Student attendance' },
+  { file: 'scr12.jpeg', label: 'Financial tools' },
   { file: 'scr12a.jpeg', label: 'Calculator' },
-  { file: 'scr14.jpeg',  label: 'Settings' },
+  { file: 'scr14.jpeg', label: 'Settings' },
 ];
 
 function screenshotsSection() {
@@ -443,6 +443,97 @@ const CSS = `
   .footer-links { display: flex; gap: 20px; }
   .footer-links a:hover, .footer-inner a:hover { color: var(--navy); }
 
+  /* ─── Visual depth ──────────────────────────────────────────────────── */
+  .hero {
+    background:
+      radial-gradient(ellipse 70% 60% at 75% 50%, rgba(232,183,109,.11) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 5% 90%, rgba(28,53,94,.06) 0%, transparent 55%);
+  }
+  .hero-image { position: relative; }
+  .hero-image::before {
+    content: ''; position: absolute; inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(232,183,109,.2) 0%, transparent 68%);
+    border-radius: var(--radius-lg); z-index: 0; pointer-events: none;
+  }
+  .hero-image img { position: relative; z-index: 1; }
+  .cta-section {
+    background:
+      radial-gradient(ellipse 60% 100% at 50% 50%, rgba(232,183,109,.07) 0%, transparent 60%),
+      var(--card-bg);
+  }
+  .tools-teaser {
+    background:
+      radial-gradient(ellipse 55% 90% at 95% 10%, rgba(232,183,109,.1) 0%, transparent 55%),
+      var(--navy);
+  }
+
+  /* ─── Keyframes ─────────────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0.4deg); }
+    50%       { transform: translateY(-10px) rotate(-0.4deg); }
+  }
+
+  /* ─── Hero entrance ──────────────────────────────────────────────────── */
+  .hero-text h1   { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
+  .hero-sub       { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s  both; }
+  .hero-actions   { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
+  .hero-note      { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.45s both; }
+  .hero-image     { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+  .hero-image img { animation: float 5s ease-in-out 1.2s infinite; }
+
+  /* Trust badges stagger in */
+  .trust-badge                { animation: fadeUp 0.55s cubic-bezier(0.16,1,0.3,1) both; }
+  .trust-badge:nth-child(1)   { animation-delay: 0.05s; }
+  .trust-badge:nth-child(2)   { animation-delay: 0.18s; }
+  .trust-badge:nth-child(3)   { animation-delay: 0.31s; }
+
+  /* ─── Scroll-reveal ──────────────────────────────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .stagger-grid > * {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1);
+  }
+  .stagger-grid.in-view > *:nth-child(1) { transition-delay: 0ms;   }
+  .stagger-grid.in-view > *:nth-child(2) { transition-delay: 80ms;  }
+  .stagger-grid.in-view > *:nth-child(3) { transition-delay: 160ms; }
+  .stagger-grid.in-view > *:nth-child(4) { transition-delay: 240ms; }
+  .stagger-grid.in-view > *:nth-child(5) { transition-delay: 320ms; }
+  .stagger-grid.in-view > *:nth-child(6) { transition-delay: 400ms; }
+  .stagger-grid.in-view > * { opacity: 1; transform: translateY(0); }
+
+  /* ─── Interaction upgrades ───────────────────────────────────────────── */
+  .btn-primary { position: relative; overflow: hidden; }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.18) 50%, transparent 65%);
+    transform: translateX(-200%); transition: transform 0.45s ease; pointer-events: none;
+  }
+  .btn-primary:hover::after { transform: translateX(200%); }
+  .pillar-icon { transition: color 0.2s ease; }
+  .pillar-card:hover .pillar-icon { color: var(--gold); }
+  .feature-card { position: relative; overflow: hidden; }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--navy), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .screenshot-item { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+  .screenshot-item:hover { transform: scale(1.04) translateY(-4px); }
+  .tool-category { transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+  .tool-category:hover {
+    background: rgba(255,255,255,.13); border-color: rgba(232,183,109,.35); transform: translateY(-2px);
+  }
+
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-image { order: -1; }
@@ -530,6 +621,21 @@ function template(page) {
   </nav>
   ${sectionsHtml}
   ${jsonLd(page)}
+  <script>
+  (function(){
+    var els=document.querySelectorAll('.stagger-grid,.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){el.classList.add('in-view');});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el);});
+  })();
+  </script>
 </body>
 </html>`;
 }
