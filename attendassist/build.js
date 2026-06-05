@@ -969,4 +969,52 @@ function generate() {
   console.log(`\nDone - ${PAGES.length + SUB_PAGES.length} page(s) generated.`);
 }
 
-if (require.main === module) generate();
+function generateSitemap() {
+  const SITE = BASE_URL;
+  const now = new Date().toISOString().split('T')[0];
+
+  const rootUrls = [
+    { loc: `${SITE}/`, prio: '1.0' },
+    { loc: `${SITE}/privacy-policy-wa-direct-chat-tools.html`, prio: '0.5' },
+  ];
+
+  const aaUrls = PAGES.map(p => ({
+    loc: `${SITE}/attendassist/${p.slug}`,
+    prio: '0.9',
+  }));
+  for (const p of SUB_PAGES) {
+    aaUrls.push({
+      loc: `${SITE}/attendassist/${p.slug}/`,
+      prio: p.slug.startsWith('blog/') ? '0.6' : p.slug.startsWith('vs-') ? '0.5' : '0.7',
+    });
+  }
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${[...rootUrls, ...aaUrls].map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${now}</lastmod>
+    <priority>${u.prio}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+  const sitemapPath = path.join(ROOT, '..', 'sitemap.xml');
+  fs.writeFileSync(sitemapPath, xml, 'utf8');
+  console.log(`✓  sitemap.xml (${rootUrls.length + aaUrls.length} URLs)`);
+}
+
+function updateRobots() {
+  const robotsPath = path.join(ROOT, '..', 'robots.txt');
+  let robots = fs.readFileSync(robotsPath, 'utf8');
+  if (!robots.includes('Sitemap:')) {
+    robots += `\nSitemap: ${BASE_URL}/sitemap.xml\n`;
+    fs.writeFileSync(robotsPath, robots, 'utf8');
+    console.log('✓  robots.txt updated with Sitemap directive');
+  }
+}
+
+if (require.main === module) {
+  generate();
+  generateSitemap();
+  updateRobots();
+}
