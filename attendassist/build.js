@@ -2,10 +2,16 @@
 const fs = require('fs');
 const path = require('path');
 
+const SUB_PAGES = require('./page-data.js');
+const { generateSeoArticle, generateFaqSection } = require('./seo-generator.js');
+
 const ROOT = __dirname;
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.devravik.attendassist';
 const BASE_URL = 'https://devravik.github.io';
 const ASSETS = '/assets/attendassist';
+const PLAY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
+const PLAY_ICON_SM = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
+const CTA_TEXT = `${PLAY_ICON} Download Free on Play Store`;
 
 // ─── Page configs ─────────────────────────────────────────────────────────────
 
@@ -64,7 +70,7 @@ function heroSection() {
         <h1>Attendance. Payroll. Rent.<br>Classroom. One app.</h1>
         <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers - track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
         <div class="hero-actions">
-          <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Free on Play Store</a>
+          <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${PLAY_ICON} Download Free on Play Store</a>
           <a href="#screenshots" class="btn btn-outline">See Screenshots</a>
         </div>
         <p class="hero-note">No ads &middot; No subscriptions &middot; No account required</p>
@@ -241,7 +247,7 @@ function toolsTeaserSection() {
           <h2>28 financial tools. Free.</h2>
           <p class="section-sub">Usually sold as separate apps. Included in AttendAssist at no cost.</p>
         </div>
-        <a href="${PLAY_STORE_URL}" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Get the App</a>
+        <a href="${PLAY_STORE_URL}" class="btn btn-gold" target="_blank" rel="noopener noreferrer">${PLAY_ICON} Get the App</a>
       </div>
       <div class="tools-grid">
         ${categories.map(c => `
@@ -263,7 +269,7 @@ function ctaSection() {
         <h2>Start tracking in 30 seconds</h2>
         <p>Free download. No account. Works offline from day one.</p>
       </div>
-      <a href="${PLAY_STORE_URL}" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Download on Play Store</a>
+      <a href="${PLAY_STORE_URL}" class="btn btn-gold" target="_blank" rel="noopener noreferrer">${PLAY_ICON} Download on Play Store</a>
     </div>
   </section>`;
 }
@@ -271,16 +277,314 @@ function ctaSection() {
 function footerSection() {
   return `
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© 2026 <a href="https://devravik.github.io">devravik</a></span>
-      <nav class="footer-links">
-        <a href="https://devravik.github.io">Portfolio</a>
-        <a href="${PLAY_STORE_URL}" target="_blank" rel="noopener noreferrer">Play Store</a>
-        <a href="https://buymeacoffee.com/devravik" target="_blank" rel="noopener noreferrer">Donate</a>
-      </nav>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AttendAssist</h4>
+          <a href="/attendassist/">Home</a>
+          <a href="/attendassist/features/">Features</a>
+          <a href="/attendassist/screenshots/">Screenshots</a>
+          <a href="/attendassist/faq/">FAQ</a>
+          <a href="/attendassist/download/">Download</a>
+          <a href="/attendassist/privacy-first/">Privacy</a>
+          <a href="/attendassist/offline-app/">Offline App</a>
+          <a href="/attendassist/free-app/">Free App</a>
+        </div>
+        <div class="footer-col">
+          <h4>Household Staff</h4>
+          <a href="/attendassist/household-staff-attendance/">Overview</a>
+          <a href="/attendassist/maid-attendance-app/">Maid</a>
+          <a href="/attendassist/driver-attendance-app/">Driver</a>
+          <a href="/attendassist/cook-attendance-app/">Cook</a>
+          <a href="/attendassist/nanny-attendance-app/">Nanny</a>
+          <a href="/attendassist/gardener-attendance-app/">Gardener</a>
+          <a href="/attendassist/household-payroll/">Household Payroll</a>
+          <a href="/attendassist/domestic-helper-management/">Domestic Help</a>
+        </div>
+        <div class="footer-col">
+          <h4>Attendance &amp; Payroll</h4>
+          <a href="/attendassist/staff-attendance-app/">Staff Attendance</a>
+          <a href="/attendassist/employee-attendance-app/">Employee Attendance</a>
+          <a href="/attendassist/offline-attendance-app/">Offline Tracking</a>
+          <a href="/attendassist/digital-attendance-register/">Digital Register</a>
+          <a href="/attendassist/attendance-tracker/">Tracker</a>
+          <a href="/attendassist/payroll-management/">Payroll</a>
+          <a href="/attendassist/salary-tracker/">Salary Tracker</a>
+          <a href="/attendassist/payroll-with-attendance/">Payroll + Attendance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rent &amp; Classroom</h4>
+          <a href="/attendassist/rent-management-app/">Rent Management</a>
+          <a href="/attendassist/tenant-management-app/">Tenant Management</a>
+          <a href="/attendassist/rent-collection-tracker/">Rent Collection</a>
+          <a href="/attendassist/classroom-management-app/">Classroom</a>
+          <a href="/attendassist/student-attendance-app/">Student Attendance</a>
+          <a href="/attendassist/coaching-center-management/">Coaching Center</a>
+          <a href="/attendassist/tuition-fee-tracker/">Fee Tracker</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools &amp; More</h4>
+          <a href="/attendassist/financial-calculators/">Financial Tools</a>
+          <a href="/attendassist/sip-calculator/">SIP Calculator</a>
+          <a href="/attendassist/emi-calculator/">EMI Calculator</a>
+          <a href="/attendassist/gst-calculator/">GST Calculator</a>
+          <a href="/attendassist/unit-converter/">Unit Converter</a>
+          <a href="/attendassist/vs-excel/">vs Excel</a>
+          <a href="/attendassist/blog/best-offline-attendance-app/">Blog</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 <a href="https://devravik.github.io">devravik</a> &middot; <a href="${PLAY_STORE_URL}" target="_blank" rel="noopener noreferrer">${PLAY_ICON_SM} Play Store</a> &middot; <a href="https://buymeacoffee.com/devravik" target="_blank" rel="noopener noreferrer">Donate</a></span>
+      </div>
     </div>
   </footer>`;
 }
+
+// ─── Sub-page section renderers ────────────────────────────────────────────────
+
+function subHeroSection(page) {
+  const bullets = (page.bullets || []).map(b => `<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> ${b}</li>`).join('');
+  return `
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>${page.h1}</h1>
+        <p class="hero-sub">${page.sub}</p>
+        <div class="hero-actions">
+          <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${CTA_TEXT}</a>
+        </div>
+        <ul class="hero-bullets">${bullets}</ul>
+      </div>
+      <div class="hero-image">
+        <img src="${ASSETS}/attendance-app-banner.png" alt="AttendAssist app screenshot" width="480" height="234" loading="eager" />
+      </div>
+    </div>
+  </section>`;
+}
+
+function subFeaturesSection(page) {
+  const feats = (page.features || []).map(f => `
+    <div class="feature-card">
+      <h3>${f.title}</h3>
+      <p>${f.body}</p>
+    </div>`).join('');
+  return `
+  <section class="features">
+    <div class="container">
+      <h2>Key features</h2>
+      <p class="section-sub">Everything you need to manage ${page.category === 'household' ? 'household staff' : page.category === 'attendance' ? 'attendance' : page.category === 'payroll' ? 'payroll' : page.category === 'tenants' ? 'tenants and rent' : page.category === 'classroom' ? 'classroom' : page.category === 'business' ? 'employees' : page.category === 'tools' ? 'your finances' : ''} effectively.</p>
+      <div class="features-grid stagger-grid">
+        ${feats}
+      </div>
+    </div>
+  </section>`;
+}
+
+function subTrustStripSection() {
+  return trustStripSection();
+}
+
+const PILLAR_LINKS = [
+  { href: '/attendassist/household-staff-attendance/', title: 'Household Staff', sub: 'Track maids, drivers, cooks, and nannies. Daily attendance & salary per person.' },
+  { href: '/attendassist/staff-attendance-app/', title: 'Attendance & Payroll', sub: 'Mark daily status, export CSV, manage salary, bonus, and advance payments.' },
+  { href: '/attendassist/rent-management-app/', title: 'Rent & Tenant', sub: 'Monthly rent tracking, security deposits, yearly summaries per tenant.' },
+  { href: '/attendassist/classroom-management-app/', title: 'Classroom', sub: 'Bulk attendance, fee collection, roll numbers for tutors and coaches.' },
+];
+
+function subPillarsSection() {
+  return `
+  <section class="pillars">
+    <div class="container">
+      <h2>Also available in AttendAssist</h2>
+      <p class="section-sub">AttendAssist covers four areas - explore the others:</p>
+      <div class="pillars-grid stagger-grid">
+        ${PILLAR_LINKS.map(p => `
+        <a class="pillar-card" href="${p.href}">
+          <h3>${p.title}</h3>
+          <p>${p.sub}</p>
+          <span class="pillar-link">Learn more →</span>
+        </a>`).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function subToolsTeaserSection() {
+  return toolsTeaserSection();
+}
+
+function subCtaSection() {
+  return ctaSection();
+}
+
+function subFooterSection() {
+  return `
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AttendAssist</h4>
+          <a href="/attendassist/">Home</a>
+          <a href="/attendassist/features/">Features</a>
+          <a href="/attendassist/screenshots/">Screenshots</a>
+          <a href="/attendassist/faq/">FAQ</a>
+          <a href="/attendassist/download/">Download</a>
+          <a href="/attendassist/privacy-first/">Privacy</a>
+          <a href="/attendassist/offline-app/">Offline App</a>
+          <a href="/attendassist/free-app/">Free App</a>
+        </div>
+        <div class="footer-col">
+          <h4>Household Staff</h4>
+          <a href="/attendassist/household-staff-attendance/">Overview</a>
+          <a href="/attendassist/maid-attendance-app/">Maid</a>
+          <a href="/attendassist/driver-attendance-app/">Driver</a>
+          <a href="/attendassist/cook-attendance-app/">Cook</a>
+          <a href="/attendassist/nanny-attendance-app/">Nanny</a>
+          <a href="/attendassist/gardener-attendance-app/">Gardener</a>
+          <a href="/attendassist/household-payroll/">Household Payroll</a>
+          <a href="/attendassist/domestic-helper-management/">Domestic Help</a>
+        </div>
+        <div class="footer-col">
+          <h4>Attendance &amp; Payroll</h4>
+          <a href="/attendassist/staff-attendance-app/">Staff Attendance</a>
+          <a href="/attendassist/employee-attendance-app/">Employee Attendance</a>
+          <a href="/attendassist/offline-attendance-app/">Offline Tracking</a>
+          <a href="/attendassist/digital-attendance-register/">Digital Register</a>
+          <a href="/attendassist/attendance-tracker/">Tracker</a>
+          <a href="/attendassist/payroll-management/">Payroll</a>
+          <a href="/attendassist/salary-tracker/">Salary Tracker</a>
+          <a href="/attendassist/payroll-with-attendance/">Payroll + Attendance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rent &amp; Classroom</h4>
+          <a href="/attendassist/rent-management-app/">Rent Management</a>
+          <a href="/attendassist/tenant-management-app/">Tenant Management</a>
+          <a href="/attendassist/rent-collection-tracker/">Rent Collection</a>
+          <a href="/attendassist/classroom-management-app/">Classroom</a>
+          <a href="/attendassist/student-attendance-app/">Student Attendance</a>
+          <a href="/attendassist/coaching-center-management/">Coaching Center</a>
+          <a href="/attendassist/tuition-fee-tracker/">Fee Tracker</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools &amp; More</h4>
+          <a href="/attendassist/financial-calculators/">Financial Tools</a>
+          <a href="/attendassist/sip-calculator/">SIP Calculator</a>
+          <a href="/attendassist/emi-calculator/">EMI Calculator</a>
+          <a href="/attendassist/gst-calculator/">GST Calculator</a>
+          <a href="/attendassist/unit-converter/">Unit Converter</a>
+          <a href="/attendassist/vs-excel/">vs Excel</a>
+          <a href="/attendassist/blog/best-offline-attendance-app/">Blog</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 <a href="https://devravik.github.io">devravik</a> &middot; <a href="${PLAY_STORE_URL}" target="_blank" rel="noopener noreferrer">${PLAY_ICON_SM} Play Store</a> &middot; <a href="https://buymeacoffee.com/devravik" target="_blank" rel="noopener noreferrer">Donate</a></span>
+      </div>
+    </div>
+  </footer>`;
+}
+
+const SUB_SECTION_RENDERERS = {
+  hero: subHeroSection,
+  trust_strip: subTrustStripSection,
+  pillars: subPillarsSection,
+  features: subFeaturesSection,
+  screenshots: screenshotsSection,
+  tools_teaser: subToolsTeaserSection,
+  seo_article: generateSeoArticle,
+  faq_section: generateFaqSection,
+  cta: subCtaSection,
+  footer: subFooterSection,
+};
+
+function subSections(page) {
+  const defaultSections = ['hero', 'trust_strip', 'features', 'pillars', 'tools_teaser', 'seo_article', 'faq_section', 'cta', 'footer'];
+  return defaultSections.map(type => {
+    const renderer = SUB_SECTION_RENDERERS[type];
+    if (!renderer) throw new Error(`Unknown sub-section type: "${type}"`);
+    return renderer(page);
+  }).join('\n');
+}
+
+function subTemplate(page) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escAttr(page.title)}</title>
+  <meta name="description" content="${escAttr(page.description)}" />
+  <link rel="canonical" href="${BASE_URL}/attendassist/${page.slug}/" />
+  <meta property="og:title" content="${escAttr(page.title)}" />
+  <meta property="og:description" content="${escAttr(page.description)}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${BASE_URL}/attendassist/${page.slug}/" />
+  <meta property="og:image" content="${BASE_URL}${ASSETS}/attendance-app-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${escAttr(page.title)}" />
+  <meta name="twitter:description" content="${escAttr(page.description)}" />
+  <meta name="twitter:image" content="${BASE_URL}${ASSETS}/attendance-app-banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>${CSS}${SUB_CSS}</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/attendassist/" aria-label="AttendAssist home">
+        <img class="nav-logo" src="${ASSETS}/attendance-app-logo.png" alt="AttendAssist logo" />
+        <span class="nav-wordmark">AttendAssist</span>
+      </a>
+      <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${CTA_TEXT}</a>
+    </div>
+  </nav>
+  ${subSections(page)}
+  <script>
+  (function(){
+    var els=document.querySelectorAll('.stagger-grid,.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){el.classList.add('in-view');});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el);});
+  })();
+  </script>
+</body>
+</html>`;
+}
+
+const SUB_CSS = `
+  .hero-bullets { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .hero-bullets li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); }
+  .hero-bullets svg { flex-shrink: 0; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .btn { gap: 8px; }
+  .btn svg { flex-shrink: 0; }
+  .footer-bottom a svg { vertical-align: middle; margin-right: 3px; }
+  @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+  .seo-article { padding: 80px 0; background: var(--bg); border-top: 1px solid var(--border); }
+  .seo-inner { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+  .seo-inner h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin: 0 0 16px; }
+  .seo-inner h3 { font-size: 20px; font-weight: 600; color: var(--navy); margin: 32px 0 12px; }
+  .seo-inner p { margin-bottom: 24px; }
+  .seo-inner ul { margin: 0 0 24px 24px; }
+  .seo-inner li { margin-bottom: 8px; }
+  .seo-inner strong { color: var(--navy); }
+  .faq-section { padding: 80px 0; background: var(--card-bg); border-top: 1px solid var(--border); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-inner h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 32px; text-align: center; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; }
+  .faq-question { padding: 16px 20px; font-weight: 600; color: var(--navy); cursor: pointer; user-select: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--gold); }
+  .faq-item[open] .faq-question::after { content: '−'; }
+  .faq-answer { padding: 0 20px 20px; color: var(--text-muted); font-size: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; margin-top: 8px; padding-top: 16px; }
+`;
 
 // ─── JSON-LD ──────────────────────────────────────────────────────────────────
 
@@ -333,7 +637,7 @@ const CSS = `
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
   .btn {
-    display: inline-flex; align-items: center; justify-content: center;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     padding: 12px 24px; border-radius: var(--radius-sm); font-family: inherit;
     font-size: 15px; font-weight: 600; cursor: pointer;
     transition: opacity .15s, transform .15s ease-out; white-space: nowrap;
@@ -435,13 +739,14 @@ const CSS = `
   .cta-inner h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .cta-inner p { color: var(--text-muted); font-size: 15px; }
 
-  .site-footer { padding: 24px 0; border-top: 1px solid var(--border); }
-  .footer-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px; font-size: 14px; color: var(--text-muted);
-  }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a:hover, .footer-inner a:hover { color: var(--navy); }
+  .site-footer { padding: 48px 0 24px; border-top: 1px solid var(--border); background: var(--card-bg); }
+  .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; margin-bottom: 32px; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+  .footer-col a { display: block; font-size: 13px; color: var(--text-muted); padding: 3px 0; transition: color .15s; }
+  .footer-col a:hover { color: var(--navy); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; font-size: 13px; color: var(--text-muted); text-align: center; }
+  .footer-bottom a { color: var(--text-muted); }
+  .footer-bottom a:hover { color: var(--navy); }
 
   /* ─── Visual depth ──────────────────────────────────────────────────── */
   .hero {
@@ -534,6 +839,9 @@ const CSS = `
     background: rgba(255,255,255,.13); border-color: rgba(232,183,109,.35); transform: translateY(-2px);
   }
 
+  @media (max-width: 1000px) {
+    .footer-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-image { order: -1; }
@@ -549,6 +857,7 @@ const CSS = `
     .tools-grid { grid-template-columns: 1fr; }
     .trust-inner { flex-direction: column; align-items: flex-start; padding: 0 24px; }
     .cta-inner { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -616,7 +925,7 @@ function template(page) {
         <img class="nav-logo" src="${ASSETS}/attendance-app-logo.png" alt="AttendAssist logo" />
         <span class="nav-wordmark">AttendAssist</span>
       </a>
-      <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Free</a>
+      <a href="${PLAY_STORE_URL}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${PLAY_ICON_SM} Download Free</a>
     </div>
   </nav>
   ${sectionsHtml}
@@ -650,7 +959,14 @@ function generate() {
     fs.writeFileSync(outPath, template(page), 'utf8');
     console.log(`✓  ${outPath.replace(process.cwd() + '/', '')}`);
   }
-  console.log(`\nDone - ${PAGES.length} page(s) generated.`);
+  for (const page of SUB_PAGES) {
+    const dir = path.join(ROOT, page.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    const outPath = path.join(dir, 'index.html');
+    fs.writeFileSync(outPath, subTemplate(page), 'utf8');
+    console.log(`✓  ${outPath.replace(process.cwd() + '/', '')}`);
+  }
+  console.log(`\nDone - ${PAGES.length + SUB_PAGES.length} page(s) generated.`);
 }
 
 if (require.main === module) generate();

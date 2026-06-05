@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AttendAssist - Attendance, Payroll, Rent &amp; Classroom App</title>
-  <meta name="description" content="Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud." />
-  <link rel="canonical" href="https://devravik.github.io/attendassist/" />
-  <meta property="og:title" content="AttendAssist - Attendance, Payroll, Rent &amp; Classroom App" />
-  <meta property="og:description" content="Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud." />
+  <title>Household Staff Attendance App - Track Maids, Cooks &amp; Drivers</title>
+  <meta name="description" content="Track attendance for maids, cooks, drivers, nannies, gardeners, and more. Free offline household staff management app. No account needed." />
+  <link rel="canonical" href="https://devravik.github.io/attendassist/household-staff-attendance/" />
+  <meta property="og:title" content="Household Staff Attendance App - Track Maids, Cooks &amp; Drivers" />
+  <meta property="og:description" content="Track attendance for maids, cooks, drivers, nannies, gardeners, and more. Free offline household staff management app. No account needed." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://devravik.github.io/attendassist/" />
+  <meta property="og:url" content="https://devravik.github.io/attendassist/household-staff-attendance/" />
   <meta property="og:image" content="https://devravik.github.io/assets/attendassist/attendance-app-banner.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AttendAssist - Attendance, Payroll, Rent &amp; Classroom App" />
-  <meta name="twitter:description" content="Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud." />
+  <meta name="twitter:title" content="Household Staff Attendance App - Track Maids, Cooks &amp; Drivers" />
+  <meta name="twitter:description" content="Track attendance for maids, cooks, drivers, nannies, gardeners, and more. Free offline household staff management app. No account needed." />
   <meta name="twitter:image" content="https://devravik.github.io/assets/attendassist/attendance-app-banner.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -278,6 +278,32 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  .hero-bullets { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .hero-bullets li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); }
+  .hero-bullets svg { flex-shrink: 0; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .btn { gap: 8px; }
+  .btn svg { flex-shrink: 0; }
+  .footer-bottom a svg { vertical-align: middle; margin-right: 3px; }
+  @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+  .seo-article { padding: 80px 0; background: var(--bg); border-top: 1px solid var(--border); }
+  .seo-inner { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+  .seo-inner h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin: 0 0 16px; }
+  .seo-inner h3 { font-size: 20px; font-weight: 600; color: var(--navy); margin: 32px 0 12px; }
+  .seo-inner p { margin-bottom: 24px; }
+  .seo-inner ul { margin: 0 0 24px 24px; }
+  .seo-inner li { margin-bottom: 8px; }
+  .seo-inner strong { color: var(--navy); }
+  .faq-section { padding: 80px 0; background: var(--card-bg); border-top: 1px solid var(--border); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-inner h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 32px; text-align: center; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; }
+  .faq-question { padding: 16px 20px; font-weight: 600; color: var(--navy); cursor: pointer; user-select: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--gold); }
+  .faq-item[open] .faq-question::after { content: '−'; }
+  .faq-answer { padding: 0 20px 20px; color: var(--text-muted); font-size: 15px; line-height: 1.6; border-top: 1px solid #f0f0f0; margin-top: 8px; padding-top: 16px; }
 </style>
 </head>
 <body>
@@ -287,20 +313,19 @@
         <img class="nav-logo" src="/assets/attendassist/attendance-app-logo.png" alt="AttendAssist logo" />
         <span class="nav-wordmark">AttendAssist</span>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="6 3 20 12 6 21 6 3"/></svg> Download Free</a>
+      <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="6 3 20 12 6 21 6 3"/></svg> Download Free on Play Store</a>
     </div>
   </nav>
   
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <h1>Attendance. Payroll. Rent.<br>Classroom. One app.</h1>
-        <p class="hero-sub">AttendAssist replaces spreadsheets and paper registers - track staff, tenants, and students all offline, for free, with zero cloud dependency.</p>
+        <h1>Track all your household staff<br>in one place</h1>
+        <p class="hero-sub">Manage attendance and salary for maids, cooks, drivers, nannies, and other domestic helpers. 100% offline, no account, zero ads, no subscriptions.</p>
         <div class="hero-actions">
           <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polygon points="6 3 20 12 6 21 6 3"/></svg> Download Free on Play Store</a>
-          <a href="#screenshots" class="btn btn-outline">See Screenshots</a>
         </div>
-        <p class="hero-note">No ads &middot; No subscriptions &middot; No account required</p>
+        <ul class="hero-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> 100% offline - no internet required</li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> No account, no sign-up, no email, no cloud</li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Free forever - no ads, no subscriptions</li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Full data portability - export/import JSON</li></ul>
       </div>
       <div class="hero-image">
         <img src="/assets/attendassist/attendance-app-banner.png" alt="AttendAssist app screenshot" width="480" height="234" loading="eager" />
@@ -335,142 +360,59 @@
     </div>
   </section>
 
+  <section class="features">
+    <div class="container">
+      <h2>Key features</h2>
+      <p class="section-sub">Everything you need to manage household staff effectively.</p>
+      <div class="features-grid stagger-grid">
+        
+    <div class="feature-card">
+      <h3>Individual Attendance</h3>
+      <p>Daily check-in per staff member with status options - present, absent, leave, holiday, half-day, overtime. Background reminders if not marked.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Salary & Payments</h3>
+      <p>Record salary, bonus, advance, and arrears. View complete payment history for each domestic helper.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Role-based Profiles</h3>
+      <p>14 pre-configured household roles - maid, cook, driver, nanny, gardener, watchman, and more. Add custom roles as needed.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Monthly Reports</h3>
+      <p>Auto-generated monthly attendance summaries. Export to CSV for payroll calculation.</p>
+    </div>
+      </div>
+    </div>
+  </section>
+
   <section class="pillars">
     <div class="container">
-      <h2>Everything you manage, in one app</h2>
-      <p class="section-sub">Three entity types - Household, Business, Classroom - unified in a single interface.</p>
+      <h2>Also available in AttendAssist</h2>
+      <p class="section-sub">AttendAssist covers four areas - explore the others:</p>
       <div class="pillars-grid stagger-grid">
         
         <a class="pillar-card" href="/attendassist/household-staff-attendance/">
-          <span class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
           <h3>Household Staff</h3>
-          <p>Track maids, cooks, drivers, and more. Daily attendance + salary history per person.</p>
+          <p>Track maids, drivers, cooks, and nannies. Daily attendance & salary per person.</p>
           <span class="pillar-link">Learn more →</span>
         </a>
         <a class="pillar-card" href="/attendassist/staff-attendance-app/">
-          <span class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" x2="16" y1="11" y2="11"/><line x1="12" x2="16" y1="15" y2="15"/><line x1="8" x2="8.01" y1="11" y2="11"/><line x1="8" x2="8.01" y1="15" y2="15"/></svg></span>
-          <h3>Attendance &amp; Payroll</h3>
-          <p>Mark daily status, export monthly CSV, record salary, bonus, and advance payments.</p>
+          <h3>Attendance & Payroll</h3>
+          <p>Mark daily status, export CSV, manage salary, bonus, and advance payments.</p>
           <span class="pillar-link">Learn more →</span>
         </a>
         <a class="pillar-card" href="/attendassist/rent-management-app/">
-          <span class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>
-          <h3>Rent &amp; Tenant</h3>
-          <p>Monthly rent tracking, security deposit, yearly summaries - per tenant.</p>
+          <h3>Rent & Tenant</h3>
+          <p>Monthly rent tracking, security deposits, yearly summaries per tenant.</p>
           <span class="pillar-link">Learn more →</span>
         </a>
         <a class="pillar-card" href="/attendassist/classroom-management-app/">
-          <span class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
           <h3>Classroom</h3>
-          <p>Bulk attendance, fee collection, student roll numbers - built for tutors and coaching centers.</p>
+          <p>Bulk attendance, fee collection, roll numbers for tutors and coaches.</p>
           <span class="pillar-link">Learn more →</span>
         </a>
       </div>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="container">
-      <h2>Built for the way you actually work</h2>
-      <div class="features-grid stagger-grid">
-        
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-          <h3>Privacy First</h3>
-          <p>All data lives on your device in SQLite. No servers, no cloud, no tracking. Your staff and tenant data never leaves your phone.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
-          <h3>All-in-One</h3>
-          <p>Attendance, payroll, rent, classroom, to-do list, and 28 financial tools - one app, nothing to install separately.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></span>
-          <h3>28 Free Tools</h3>
-          <p>SIP, FD, EMI, GST, unit converter, salary calculator - a full financial toolkit included at no extra cost.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span>
-          <h3>Full Data Portability</h3>
-          <p>Export everything as JSON, import onto any device. Switch phones without losing a single record.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
-          <h3>Smart Reminders</h3>
-          <p>Background notifications if attendance hasn't been marked within 2+ hours of the usual arrival time.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <h3>40 Ready-to-Use Roles</h3>
-          <p>14 household roles (maid, cook, driver…) and 26 business roles - get started instantly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="screenshots" id="screenshots">
-    <div class="container">
-      <h2>See it in action</h2>
-      <p class="section-sub">Clean, warm design. One primary action per screen.</p>
-    </div>
-    <div class="screenshots-scroll">
-      
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_dashboard.png" alt="AttendAssist - Dashboard overview" loading="lazy" width="180" />
-        <figcaption>Dashboard overview</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_stafflist.png" alt="AttendAssist - Staff list" loading="lazy" width="180" />
-        <figcaption>Staff list</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_add_staff_type.png" alt="AttendAssist - Add staff" loading="lazy" width="180" />
-        <figcaption>Add staff</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_attendance_screen.png" alt="AttendAssist - Attendance calendar" loading="lazy" width="180" />
-        <figcaption>Attendance calendar</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_classroom_dashboard.png" alt="AttendAssist - Classroom view" loading="lazy" width="180" />
-        <figcaption>Classroom view</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_tenant_detail.png" alt="AttendAssist - Tenant management" loading="lazy" width="180" />
-        <figcaption>Tenant management</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_tools_index.png" alt="AttendAssist - Financial tools" loading="lazy" width="180" />
-        <figcaption>Financial tools</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_settings.png" alt="AttendAssist - Settings" loading="lazy" width="180" />
-        <figcaption>Settings</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_sip_calc.png" alt="AttendAssist - SIP calculator" loading="lazy" width="180" />
-        <figcaption>SIP calculator</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_unit_converter.png" alt="AttendAssist - Unit converter" loading="lazy" width="180" />
-        <figcaption>Unit converter</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_home_loan_calc.png" alt="AttendAssist - Home loan calculator" loading="lazy" width="180" />
-        <figcaption>Home loan calculator</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_age_calc.png" alt="AttendAssist - Age calculator" loading="lazy" width="180" />
-        <figcaption>Age calculator</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_gst_calc.png" alt="AttendAssist - GST calculator" loading="lazy" width="180" />
-        <figcaption>GST calculator</figcaption>
-      </figure>
-      <figure class="screenshot-item">
-        <img src="/assets/attendassist/Screenshot_date_diff_calc.png" alt="AttendAssist - Date difference" loading="lazy" width="180" />
-        <figcaption>Date difference</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -508,6 +450,94 @@
       </div>
     </div>
   </section>
+
+  <section class="seo-article">
+    <div class="container seo-inner">
+      
+      <h2>Why Choose a Dedicated App for Track all your household staff in one place?</h2>
+      <p>Track attendance for maids, cooks, drivers, nannies, gardeners, and more. Free offline household staff management app. No account needed. Managing household staff requires trust, clarity, and precise record-keeping. Whether you are tracking attendance for a maid, cook, driver, nanny, or gardener, maintaining a clear log of their presence and salary payments prevents disputes and ensures fair compensation. Relying on paper registers or memory often leads to mistakes, lost records, and confusion at the end of the month.</p>
+      <p>AttendAssist replaces traditional methods with a robust, digital-first approach to household staff management. The app is entirely offline, meaning your sensitive domestic helper data never leaves your device. You can log daily attendance with a single tap, track advances or bonuses accurately, and generate comprehensive monthly reports without any complex setup or required internet connection.</p>
+    
+      
+    <h3>Core Capabilities of Household Staff Attendance App</h3>
+    <p>Using a dedicated solution brings significant advantages. Here is what you get out of the box:</p>
+    <ul>
+      <li><strong>Individual Attendance:</strong> Daily check-in per staff member with status options - present, absent, leave, holiday, half-day, overtime. Background reminders if not marked.</li><li><strong>Salary & Payments:</strong> Record salary, bonus, advance, and arrears. View complete payment history for each domestic helper.</li><li><strong>Role-based Profiles:</strong> 14 pre-configured household roles - maid, cook, driver, nanny, gardener, watchman, and more. Add custom roles as needed.</li><li><strong>Monthly Reports:</strong> Auto-generated monthly attendance summaries. Export to CSV for payroll calculation.</li>
+    </ul>
+  
+      <h3>Why Privacy and Offline-First Matter</h3>
+      <p>In today's digital landscape, most applications require you to create accounts, verify emails, and sync your private data to cloud servers. AttendAssist takes a radically different approach. <strong>Privacy is not just a feature; it is the foundation.</strong> Your attendance records, payroll figures, and tenant details never leave your phone. The app operates with zero network requests, making it the best offline attendance app for remote areas, basements, or worksites with poor connectivity. Plus, you maintain full data portability with the ability to export all records to JSON or CSV formats at any time.</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container faq-inner">
+      <h2>Frequently Asked Questions about Household Staff Attendance App - Track Maids, Cooks & Drivers</h2>
+      <div class="faq-list">
+        
+    <details class="faq-item">
+      <summary class="faq-question">Is the Track all your household staff in one place app completely free?</summary>
+      <div class="faq-answer"><p>Yes, AttendAssist provides all Household Staff Attendance App - Track Maids, Cooks & Drivers features completely free of charge. There are no ads, no subscriptions, and no hidden in-app purchases.</p></div>
+    </details>
+  
+    <details class="faq-item">
+      <summary class="faq-question">Does tracking Household Staff Attendance App - Track Maids, Cooks & Drivers require an internet connection?</summary>
+      <div class="faq-answer"><p>No. Our app operates 100% offline. You can mark attendance, calculate salaries, and view reports for your household staff without any internet access.</p></div>
+    </details>
+  
+    <details class="faq-item">
+      <summary class="faq-question">Can I export the data from the Track all your household staff in one place tracker?</summary>
+      <div class="faq-answer"><p>Absolutely. You can export your staff attendance and payroll data directly to CSV or JSON formats at any time for easy backup or sharing.</p></div>
+    </details>
+  
+    <details class="faq-item">
+      <summary class="faq-question">Do I need to create an account to use the app?</summary>
+      <div class="faq-answer"><p>No account is required. We prioritize your privacy, meaning there is no sign-up, no email verification, and no cloud syncing. All data remains securely on your device.</p></div>
+    </details>
+  
+      </div>
+    </div>
+  </section>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the Track all your household staff in one place app completely free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AttendAssist provides all Household Staff Attendance App - Track Maids, Cooks & Drivers features completely free of charge. There are no ads, no subscriptions, and no hidden in-app purchases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does tracking Household Staff Attendance App - Track Maids, Cooks & Drivers require an internet connection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Our app operates 100% offline. You can mark attendance, calculate salaries, and view reports for your household staff without any internet access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export the data from the Track all your household staff in one place tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. You can export your staff attendance and payroll data directly to CSV or JSON formats at any time for easy backup or sharing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account to use the app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No account is required. We prioritize your privacy, meaning there is no sign-up, no email verification, and no cloud syncing. All data remains securely on your device."
+      }
+    }
+  ]
+}
+  </script>
 
   <section class="cta-section">
     <div class="container cta-inner">
@@ -582,19 +612,6 @@
       </div>
     </div>
   </footer>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "AttendAssist",
-  "operatingSystem": "Android",
-  "applicationCategory": "BusinessApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "url": "https://play.google.com/store/apps/details?id=com.devravik.attendassist",
-  "description": "Free offline app for tracking staff attendance, employee payroll, tenant rent, and classroom students. No account required. 100% private, zero cloud.",
-  "image": "https://devravik.github.io/assets/attendassist/attendance-app-banner.png"
-}
-</script>
   <script>
   (function(){
     var els=document.querySelectorAll('.stagger-grid,.reveal');

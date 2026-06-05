@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FD Calculator - Free Fixed Deposit Calculator</title>
+  <meta name="description"
+    content="Free FD calculator. Calculate fixed deposit maturity amount and interest earned. Offline." />
+  <link rel="canonical" href="https://devravik.github.io/attendassist/fd-calculator/" />
+  <meta property="og:title" content="FD Calculator - Free Fixed Deposit Calculator" />
+  <meta property="og:description"
+    content="Free FD calculator. Calculate fixed deposit maturity amount and interest earned. Offline." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://devravik.github.io/attendassist/fd-calculator/" />
+  <meta property="og:image" content="https://devravik.github.io/assets/attendassist/attendance-app-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FD Calculator - Free Fixed Deposit Calculator" />
+  <meta name="twitter:description"
+    content="Free FD calculator. Calculate fixed deposit maturity amount and interest earned. Offline." />
+  <meta name="twitter:image" content="https://devravik.github.io/assets/attendassist/attendance-app-banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C355E;
+      --gold: #E8B76D;
+      --bg: #FCFCFC;
+      --card-bg: #F8F6F1;
+      --green: #4F9D7E;
+      --border: #E3D5BF;
+      --cream: #E8DCC8;
+      --text: #1a1a2e;
+      --text-muted: #5a6070;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(28, 53, 94, .08);
+      --shadow-md: 0 4px 12px rgba(28, 53, 94, .12);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .15s, transform .15s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      opacity: .9;
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: var(--card-bg);
+      opacity: 1;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-gold:focus-visible {
+      outline-color: var(--gold);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(252, 252, 252, .95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .nav-wordmark {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-image img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      width: 100%;
+    }
+
+    .trust-strip {
+      background: var(--navy);
+      padding: 24px 0;
+    }
+
+    .trust-inner {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+
+    .trust-icon {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    .trust-badge strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .trust-badge span {
+      font-size: 13px;
+      opacity: .75;
+    }
+
+    .pillars {
+      padding: 80px 0;
+    }
+
+    .pillars h2,
+    .features h2,
+    .screenshots h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+      text-wrap: balance;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      transition: box-shadow .15s ease-out, transform .15s ease-out;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .pillar-card:focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    .pillar-icon {
+      display: flex;
+      color: var(--navy);
+    }
+
+    .pillar-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .pillar-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-top: 4px;
+      display: inline-block;
+      transition: transform .15s ease-out;
+    }
+
+    .pillar-card:hover .pillar-link {
+      transform: translateX(3px);
+    }
+
+    .features {
+      padding: 80px 0;
+      background: var(--card-bg);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-icon {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .screenshots {
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    .screenshots-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 8px 24px 20px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .screenshot-item {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .screenshot-item img {
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      width: 180px;
+      height: 400px;
+      object-fit: contain;
+      background: var(--card-bg);
+    }
+
+    .screenshot-item figcaption {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .tools-teaser {
+      padding: 80px 0;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .tools-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tools-teaser h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .tools-teaser .section-sub {
+      color: rgba(255, 255, 255, .7);
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .tool-category {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+    }
+
+    .tool-category h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .tool-category p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.7;
+    }
+
+    .cta-section {
+      padding: 72px 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-inner img {
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+
+    .cta-inner h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .cta-inner p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .site-footer {
+      padding: 48px 0 24px;
+      border-top: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 3px 0;
+      transition: color .15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--navy);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      color: var(--text-muted);
+    }
+
+    .footer-bottom a:hover {
+      color: var(--navy);
+    }
+
+    /* ─── Visual depth ──────────────────────────────────────────────────── */
+    .hero {
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 50%, rgba(232, 183, 109, .11) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 70% at 5% 90%, rgba(28, 53, 94, .06) 0%, transparent 55%);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse at center, rgba(232, 183, 109, .2) 0%, transparent 68%);
+      border-radius: var(--radius-lg);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-image img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section {
+      background:
+        radial-gradient(ellipse 60% 100% at 50% 50%, rgba(232, 183, 109, .07) 0%, transparent 60%),
+        var(--card-bg);
+    }
+
+    .tools-teaser {
+      background:
+        radial-gradient(ellipse 55% 90% at 95% 10%, rgba(232, 183, 109, .1) 0%, transparent 55%),
+        var(--navy);
+    }
+
+    /* ─── Keyframes ─────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0.4deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-0.4deg);
+      }
+    }
+
+    /* ─── Hero entrance ──────────────────────────────────────────────────── */
+    .hero-text h1 {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+
+    .hero-sub {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-actions {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    .hero-note {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+    }
+
+    .hero-image {
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+
+    .hero-image img {
+      animation: float 5s ease-in-out 1.2s infinite;
+    }
+
+    /* Trust badges stagger in */
+    .trust-badge {
+      animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .trust-badge:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .trust-badge:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    .trust-badge:nth-child(3) {
+      animation-delay: 0.31s;
+    }
+
+    /* ─── Scroll-reveal ──────────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-grid>* {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stagger-grid.in-view>*:nth-child(1) {
+      transition-delay: 0ms;
+    }
+
+    .stagger-grid.in-view>*:nth-child(2) {
+      transition-delay: 80ms;
+    }
+
+    .stagger-grid.in-view>*:nth-child(3) {
+      transition-delay: 160ms;
+    }
+
+    .stagger-grid.in-view>*:nth-child(4) {
+      transition-delay: 240ms;
+    }
+
+    .stagger-grid.in-view>*:nth-child(5) {
+      transition-delay: 320ms;
+    }
+
+    .stagger-grid.in-view>*:nth-child(6) {
+      transition-delay: 400ms;
+    }
+
+    .stagger-grid.in-view>* {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Interaction upgrades ───────────────────────────────────────────── */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .18) 50%, transparent 65%);
+      transform: translateX(-200%);
+      transition: transform 0.45s ease;
+      pointer-events: none;
+    }
+
+    .btn-primary:hover::after {
+      transform: translateX(200%);
+    }
+
+    .pillar-icon {
+      transition: color 0.2s ease;
+    }
+
+    .pillar-card:hover .pillar-icon {
+      color: var(--gold);
+    }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .screenshot-item {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .screenshot-item:hover {
+      transform: scale(1.04) translateY(-4px);
+    }
+
+    .tool-category {
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .tool-category:hover {
+      background: rgba(255, 255, 255, .13);
+      border-color: rgba(232, 183, 109, .35);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1000px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
+      }
+
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 26px;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 24px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .hero-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-bullets svg {
+      flex-shrink: 0;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn {
+      gap: 8px;
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+    }
+
+    .footer-bottom a svg {
+      vertical-align: middle;
+      margin-right: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .seo-article {
+      padding: 80px 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .seo-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .seo-inner h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 16px;
+    }
+
+    .seo-inner h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 32px 0 12px;
+    }
+
+    .seo-inner p {
+      margin-bottom: 24px;
+    }
+
+    .seo-inner ul {
+      margin: 0 0 24px 24px;
+    }
+
+    .seo-inner li {
+      margin-bottom: 8px;
+    }
+
+    .seo-inner strong {
+      color: var(--navy);
+    }
+
+    .faq-section {
+      padding: 80px 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-inner h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 16px 20px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--gold);
+    }
+
+    .faq-item[open] .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 8px;
+      padding-top: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/attendassist/" aria-label="AttendAssist home">
+        <img class="nav-logo" src="/assets/attendassist/attendance-app-logo.png" alt="AttendAssist logo" />
+        <span class="nav-wordmark">AttendAssist</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-primary"
+        target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0">
+          <polygon points="6 3 20 12 6 21 6 3" />
+        </svg> Download Free on Play Store</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Fixed deposit<br>calculator</h1>
+        <p class="hero-sub">Calculate FD maturity amount, interest earned, and effective yield. Simple and compound
+          interest.</p>
+        <div class="hero-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-primary"
+            target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0">
+              <polygon points="6 3 20 12 6 21 6 3" />
+            </svg> Download Free on Play Store</a>
+        </div>
+        <ul class="hero-bullets">
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> 100% offline - no internet required</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> No account, no sign-up, no email, no cloud</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> Free forever - no ads, no subscriptions</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> Full data portability - export/import JSON</li>
+        </ul>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/attendassist/attendance-app-banner.png" alt="AttendAssist app screenshot" width="480"
+          height="234" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Key features: offline, private, free">
+    <div class="container trust-inner">
+
+      <div class="trust-badge">
+        <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+            <path d="M12 18h.01" />
+          </svg></span>
+        <div>
+          <strong>100% Offline</strong>
+          <span>No internet required, ever</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg></span>
+        <div>
+          <strong>No Account Needed</strong>
+          <span>Zero sign-up, zero email</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+            <line x1="7" y1="7" x2="7.01" y2="7" />
+          </svg></span>
+        <div>
+          <strong>Completely Free</strong>
+          <span>No ads, no subscriptions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2>Key features</h2>
+      <p class="section-sub">Everything you need to manage your finances effectively.</p>
+      <div class="features-grid stagger-grid">
+
+        <div class="feature-card">
+          <h3>Maturity Amount</h3>
+          <p>Calculate the maturity amount for any fixed deposit. Adjust principal, rate, and tenure.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Interest Earned</h3>
+          <p>See total interest earned over the deposit period.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Compound Interest</h3>
+          <p>Supports quarterly, half-yearly, and yearly compounding.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Quick Comparison</h3>
+          <p>Compare returns across different tenures and interest rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="container">
+      <h2>Also available in AttendAssist</h2>
+      <p class="section-sub">AttendAssist covers four areas - explore the others:</p>
+      <div class="pillars-grid stagger-grid">
+
+        <a class="pillar-card" href="/attendassist/household-staff-attendance/">
+          <h3>Household Staff</h3>
+          <p>Track maids, drivers, cooks, and nannies. Daily attendance & salary per person.</p>
+          <span class="pillar-link">Learn more →</span>
+        </a>
+        <a class="pillar-card" href="/attendassist/staff-attendance-app/">
+          <h3>Attendance & Payroll</h3>
+          <p>Mark daily status, export CSV, manage salary, bonus, and advance payments.</p>
+          <span class="pillar-link">Learn more →</span>
+        </a>
+        <a class="pillar-card" href="/attendassist/rent-management-app/">
+          <h3>Rent & Tenant</h3>
+          <p>Monthly rent tracking, security deposits, yearly summaries per tenant.</p>
+          <span class="pillar-link">Learn more →</span>
+        </a>
+        <a class="pillar-card" href="/attendassist/classroom-management-app/">
+          <h3>Classroom</h3>
+          <p>Bulk attendance, fee collection, roll numbers for tutors and coaches.</p>
+          <span class="pillar-link">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-teaser">
+    <div class="container">
+      <div class="tools-header">
+        <div>
+          <h2>28 financial tools. Free.</h2>
+          <p class="section-sub">Usually sold as separate apps. Included in AttendAssist at no cost.</p>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-gold"
+          target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0">
+            <polygon points="6 3 20 12 6 21 6 3" />
+          </svg> Get the App</a>
+      </div>
+      <div class="tools-grid">
+
+        <div class="tool-category">
+          <h4>Investments</h4>
+          <p>SIP · Lumpsum · PPF · NPS · SWP · Goal Planner</p>
+        </div>
+        <div class="tool-category">
+          <h4>Loans &amp; EMI</h4>
+          <p>Home Loan · Car Loan · Bike Loan · Rent vs Buy</p>
+        </div>
+        <div class="tool-category">
+          <h4>Savings</h4>
+          <p>Fixed Deposit · Recurring Deposit · Retirement</p>
+        </div>
+        <div class="tool-category">
+          <h4>Everyday</h4>
+          <p>Salary · Compound Interest · Profit · Discount · Inflation</p>
+        </div>
+        <div class="tool-category">
+          <h4>Business Utilities</h4>
+          <p>GST · Cash Counter · Unit Converter · Age · Date Diff</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-article">
+    <div class="container seo-inner">
+
+      <h2>Maximizing Value with Fixed deposit calculator</h2>
+      <p>Free FD calculator. Calculate fixed deposit maturity amount and interest earned. Offline. Financial planning
+        and everyday calculations often require switching between multiple specialized apps. Whether you are calculating
+        the future value of a Systematic Investment Plan (SIP), estimating loan EMIs, figuring out GST for a business
+        invoice, or simply converting units, having all these tools in one place saves time and device storage.</p>
+      <p>AttendAssist includes a comprehensive suite of 28 built-in financial calculators and utilities at no extra
+        cost. From fixed deposit and salary calculators to age and date difference tools, everything runs instantly and
+        completely offline. There are no ads, no paywalls, and no data collection, making it the most private and
+        reliable calculator suite available on your mobile device.</p>
+
+
+      <h3>Core Capabilities of FD Calculator</h3>
+      <p>Using a dedicated solution brings significant advantages. Here is what you get out of the box:</p>
+      <ul>
+        <li><strong>Maturity Amount:</strong> Calculate the maturity amount for any fixed deposit. Adjust principal,
+          rate, and tenure.</li>
+        <li><strong>Interest Earned:</strong> See total interest earned over the deposit period.</li>
+        <li><strong>Compound Interest:</strong> Supports quarterly, half-yearly, and yearly compounding.</li>
+        <li><strong>Quick Comparison:</strong> Compare returns across different tenures and interest rates.</li>
+      </ul>
+
+      <h3>Why Privacy and Offline-First Matter</h3>
+      <p>In today's digital landscape, most applications require you to create accounts, verify emails, and sync your
+        private data to cloud servers. AttendAssist takes a radically different approach. <strong>Privacy is not just a
+          feature; it is the foundation.</strong> Your attendance records, payroll figures, and tenant details never
+        leave your phone. The app operates with zero network requests, making it the best offline attendance app for
+        remote areas, basements, or worksites with poor connectivity. Plus, you maintain full data portability with the
+        ability to export all records to JSON or CSV formats at any time.</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container faq-inner">
+      <h2>Frequently Asked Questions about FD Calculator - Free Fixed Deposit Calculator</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">Are all 28 tools, including the Fixed deposit calculator, completely free?
+          </summary>
+          <div class="faq-answer">
+            <p>Yes, every single tool-including the FD Calculator - Free Fixed Deposit Calculator-is included at no
+              additional cost. There are no subscriptions and no ads.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Does the Fixed deposit calculator require internet to run calculations?
+          </summary>
+          <div class="faq-answer">
+            <p>No. All financial calculations, currency conversions, and data processing happen locally on your device,
+              ensuring instant results without lag.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Is my financial data collected or tracked?</summary>
+          <div class="faq-answer">
+            <p>We do not collect, track, or sync any of your data. The app operates with zero network requests, so your
+              financial planning remains strictly confidential.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are all 28 tools, including the Fixed deposit calculator, completely free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, every single tool-including the FD Calculator - Free Fixed Deposit Calculator-is included at no additional cost. There are no subscriptions and no ads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Fixed deposit calculator require internet to run calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All financial calculations, currency conversions, and data processing happen locally on your device, ensuring instant results without lag."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my financial data collected or tracked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We do not collect, track, or sync any of your data. The app operates with zero network requests, so your financial planning remains strictly confidential."
+      }
+    }
+  ]
+}
+  </script>
+
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <img src="/assets/attendassist/attendance-app-logo.png" alt="AttendAssist logo" width="64" height="64" />
+      <div>
+        <h2>Start tracking in 30 seconds</h2>
+        <p>Free download. No account. Works offline from day one.</p>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" class="btn btn-gold"
+        target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0">
+          <polygon points="6 3 20 12 6 21 6 3" />
+        </svg> Download on Play Store</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AttendAssist</h4>
+          <a href="/attendassist/">Home</a>
+          <a href="/attendassist/features/">Features</a>
+          <a href="/attendassist/screenshots/">Screenshots</a>
+          <a href="/attendassist/faq/">FAQ</a>
+          <a href="/attendassist/download/">Download</a>
+          <a href="/attendassist/privacy-first/">Privacy</a>
+          <a href="/attendassist/offline-app/">Offline App</a>
+          <a href="/attendassist/free-app/">Free App</a>
+        </div>
+        <div class="footer-col">
+          <h4>Household Staff</h4>
+          <a href="/attendassist/household-staff-attendance/">Overview</a>
+          <a href="/attendassist/maid-attendance-app/">Maid</a>
+          <a href="/attendassist/driver-attendance-app/">Driver</a>
+          <a href="/attendassist/cook-attendance-app/">Cook</a>
+          <a href="/attendassist/nanny-attendance-app/">Nanny</a>
+          <a href="/attendassist/gardener-attendance-app/">Gardener</a>
+          <a href="/attendassist/household-payroll/">Household Payroll</a>
+          <a href="/attendassist/domestic-helper-management/">Domestic Help</a>
+        </div>
+        <div class="footer-col">
+          <h4>Attendance &amp; Payroll</h4>
+          <a href="/attendassist/staff-attendance-app/">Staff Attendance</a>
+          <a href="/attendassist/employee-attendance-app/">Employee Attendance</a>
+          <a href="/attendassist/offline-attendance-app/">Offline Tracking</a>
+          <a href="/attendassist/digital-attendance-register/">Digital Register</a>
+          <a href="/attendassist/attendance-tracker/">Tracker</a>
+          <a href="/attendassist/payroll-management/">Payroll</a>
+          <a href="/attendassist/salary-tracker/">Salary Tracker</a>
+          <a href="/attendassist/payroll-with-attendance/">Payroll + Attendance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rent &amp; Classroom</h4>
+          <a href="/attendassist/rent-management-app/">Rent Management</a>
+          <a href="/attendassist/tenant-management-app/">Tenant Management</a>
+          <a href="/attendassist/rent-collection-tracker/">Rent Collection</a>
+          <a href="/attendassist/classroom-management-app/">Classroom</a>
+          <a href="/attendassist/student-attendance-app/">Student Attendance</a>
+          <a href="/attendassist/coaching-center-management/">Coaching Center</a>
+          <a href="/attendassist/tuition-fee-tracker/">Fee Tracker</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools &amp; More</h4>
+          <a href="/attendassist/financial-calculators/">Financial Tools</a>
+          <a href="/attendassist/sip-calculator/">SIP Calculator</a>
+          <a href="/attendassist/emi-calculator/">EMI Calculator</a>
+          <a href="/attendassist/gst-calculator/">GST Calculator</a>
+          <a href="/attendassist/unit-converter/">Unit Converter</a>
+          <a href="/attendassist/vs-excel/">vs Excel</a>
+          <a href="/attendassist/blog/best-offline-attendance-app/">Blog</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 <a href="https://devravik.github.io">devravik</a> &middot; <a
+            href="https://play.google.com/store/apps/details?id=com.devravik.attendassist" target="_blank"
+            rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true" style="flex-shrink:0">
+              <polygon points="6 3 20 12 6 21 6 3" />
+            </svg> Play Store</a> &middot; <a href="https://buymeacoffee.com/devravik" target="_blank"
+            rel="noopener noreferrer">Donate</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.stagger-grid,.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+
+</html>
