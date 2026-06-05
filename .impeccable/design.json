@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-05T00:00:00Z",
+  "title": "Design System: AttendAssist",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "primary", "displayName": "Midnight Register Blue", "canonical": "oklch(28% 0.12 264)", "tonalRamp": ["#0a1524", "#101e37", "#1C355E", "#24448a", "#3a5faf", "#6b87cc", "#a8bde0", "#dde6f5"] },
+      "gold": { "role": "secondary", "displayName": "Warm Brass Accent", "canonical": "oklch(79% 0.1 67)", "tonalRamp": ["#1e0e00", "#3d2200", "#6e4200", "#a06520", "#c88a40", "#E8B76D", "#f0cfa0", "#faf5ee"] },
+      "bg": { "role": "neutral", "displayName": "Off-White Canvas", "canonical": "oklch(99% 0.005 264)", "tonalRamp": ["#e4e8f0", "#eceff6", "#f3f5fa", "#f7f8fc", "#FCFCFC", "#fefefe", "#fefefe", "#ffffff"] },
+      "card-bg": { "role": "neutral", "displayName": "Warm Parchment", "canonical": "oklch(97% 0.01 80)", "tonalRamp": ["#d9d0c0", "#e2dace", "#ece4d8", "#F8F6F1", "#faf8f5", "#fcfbf8", "#fefcfa", "#fffef9"] },
+      "green": { "role": "tertiary", "displayName": "Field Green", "canonical": "oklch(60% 0.1 155)", "tonalRamp": ["#0a2318", "#143d2c", "#1e5c40", "#2d7a57", "#4F9D7E", "#76b9a0", "#a8d5c5", "#d4ede7"] },
+      "border": { "role": "neutral", "displayName": "Aged Paper Border", "canonical": "oklch(87% 0.03 80)", "tonalRamp": ["#b8a890", "#c8b8a0", "#d8ccb8", "#E3D5BF", "#ece2d0", "#f2ecdf", "#f7f3ec", "#faf9f5"] },
+      "text": { "role": "neutral", "displayName": "Near-Black Ink", "canonical": "oklch(15% 0.02 270)", "tonalRamp": ["#0a0b12", "#111320", "#1a1a2e", "#282a42", "#3d4060", "#5a6070", "#8892a8", "#c0c8d8"] },
+      "text-muted": { "role": "neutral", "displayName": "Slate Annotation", "canonical": "oklch(42% 0.04 250)", "tonalRamp": ["#1a1e2a", "#252c3d", "#303a52", "#3e4c6a", "#5a6070", "#7888a0", "#a4b0c4", "#d0d8e8"] }
+    },
+    "shadows": [
+      { "name": "ambient", "value": "0 1px 3px rgba(28,53,94,.08)", "purpose": "Resting elevation on feature cards. Barely perceptible." },
+      { "name": "lifted", "value": "0 4px 12px rgba(28,53,94,.12)", "purpose": "Hover elevation on pillar cards, applied alongside translateY(-2px)." }
+    ],
+    "motion": [
+      { "name": "state-transition", "value": "150ms ease-out", "purpose": "Button hover, card hover. Quick feedback." },
+      { "name": "card-rise", "value": "transform 150ms ease-out, box-shadow 150ms ease-out", "purpose": "Pillar card hover: translateY(-2px) + shadow-lifted together." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "900px", "purpose": "Hero collapses to single column; pillar and feature grids reflow to 2 columns." },
+      { "name": "mobile", "value": "600px", "purpose": "All grids collapse to 1 column; trust strip stacks vertically; CTA stacks." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary conversion action. Download / Get the App.",
+      "html": "<button class=\"ds-btn-primary\">Download Free on Play Store</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #1C355E; color: #fff; padding: 12px 24px; border-radius: 8px; font-family: 'Poppins', system-ui, sans-serif; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: opacity 150ms ease-out, transform 150ms ease-out; white-space: nowrap; } .ds-btn-primary:hover { opacity: 0.9; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #1C355E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "High-emphasis secondary CTA. Used on navy backgrounds only.",
+      "html": "<button class=\"ds-btn-gold\">Download on Play Store</button>",
+      "css": ".ds-btn-gold { display: inline-flex; align-items: center; justify-content: center; background: #E8B76D; color: #1C355E; padding: 12px 24px; border-radius: 8px; font-family: 'Poppins', system-ui, sans-serif; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: opacity 150ms ease-out, transform 150ms ease-out; white-space: nowrap; } .ds-btn-gold:hover { opacity: 0.9; transform: translateY(-1px); } .ds-btn-gold:focus-visible { outline: 2px solid #E8B76D; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action adjacent to a Primary button.",
+      "html": "<button class=\"ds-btn-outline\">See Screenshots</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: #1C355E; padding: 10px 22px; border-radius: 8px; font-family: 'Poppins', system-ui, sans-serif; font-size: 15px; font-weight: 600; border: 2px solid #1C355E; cursor: pointer; transition: opacity 150ms ease-out, transform 150ms ease-out; white-space: nowrap; } .ds-btn-outline:hover { background: #F8F6F1; transform: translateY(-1px); } .ds-btn-outline:focus-visible { outline: 2px solid #1C355E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Pillar Card",
+      "kind": "card",
+      "refersTo": "pillar-card",
+      "description": "Clickable feature category card. Four per grid.",
+      "html": "<a class=\"ds-pillar-card\" href=\"#\"><span class=\"ds-pillar-icon\">🏠</span><h3>Household Staff</h3><p>Track maids, cooks, drivers, and more.</p><span class=\"ds-pillar-link\">Learn more →</span></a>",
+      "css": ".ds-pillar-card { display: flex; flex-direction: column; gap: 8px; background: #F8F6F1; border: 1px solid #E3D5BF; border-radius: 12px; padding: 28px 20px; text-decoration: none; color: inherit; transition: box-shadow 150ms ease-out, transform 150ms ease-out; } .ds-pillar-card:hover { box-shadow: 0 4px 12px rgba(28,53,94,.12); transform: translateY(-2px); } .ds-pillar-icon { font-size: 32px; } .ds-pillar-card h3 { font-size: 16px; font-weight: 700; color: #1C355E; margin: 0; } .ds-pillar-card p { font-size: 14px; color: #5a6070; margin: 0; flex: 1; } .ds-pillar-link { font-size: 13px; font-weight: 600; color: #1C355E; margin-top: 4px; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "feature-card",
+      "description": "Informational USP card. Six per grid. Not interactive.",
+      "html": "<div class=\"ds-feature-card\"><span class=\"ds-feature-icon\">🔐</span><h3>Privacy First</h3><p>All data lives on your device. No servers, no cloud, no tracking.</p></div>",
+      "css": ".ds-feature-card { background: #fff; border: 1px solid #E3D5BF; border-radius: 12px; padding: 28px 24px; box-shadow: 0 1px 3px rgba(28,53,94,.08); } .ds-feature-icon { font-size: 28px; margin-bottom: 12px; display: block; } .ds-feature-card h3 { font-size: 16px; font-weight: 700; color: #1C355E; margin: 0 0 8px 0; } .ds-feature-card p { font-size: 14px; color: #5a6070; margin: 0; line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Household Professional",
+    "overview": "AttendAssist's visual language is the design equivalent of a trusted, competent friend who manages their household and small operation without fuss. The interface communicates specificity over generality: not 'manage your team' but 'track your cook, your driver, your tenants.' The warmth comes from a cream-inflected neutral palette that echoes paper registers while the deep navy gives it professional authority. Gold appears sparingly, as an accent that rewards attention rather than demands it.\n\nThe atmosphere is calm and deliberate. Sections breathe. Typography is confident without being loud. The most important element on any given screen is obvious without needing to shout. The system rejects the enterprise grey of HR software and the animated-gradient performativity of SaaS landing pages. It rejects, too, the celebration-confetti energy of consumer fintech.",
+    "keyCharacteristics": [
+      "Warm parchment-and-navy color temperature throughout",
+      "Gold as a statement accent, never a fill",
+      "Poppins at four weights: hierarchy through contrast, not decoration",
+      "Cards that feel substantial, not lightweight",
+      "Section rhythm at 80px; hero at 72px top",
+      "Shadows tinted to the navy hue, never neutral grey"
+    ],
+    "rules": [
+      { "name": "The Brass Rule", "body": "Warm Brass Accent (#E8B76D) appears in at most two contexts per screen. Its rarity makes the presence count. Never use it as a section background fill.", "section": "colors" },
+      { "name": "The No-Pure-Neutral Rule", "body": "No #000, no #fff, no #808080. Every neutral is tinted toward the navy hue.", "section": "colors" },
+      { "name": "The One-Typeface Rule", "body": "Poppins is the only font on this surface. Hierarchy is earned through weight contrast and scale, not competing type families.", "section": "typography" },
+      { "name": "The State-Driven Rule", "body": "Shadows appear as responses to interaction state (hover, active) or structural necessity (sticky nav). Resting surfaces are flat or tonal.", "section": "elevation" }
+    ],
+    "dos": [
+      "Use Warm Parchment (#F8F6F1) to alternate section backgrounds instead of line dividers",
+      "Keep section padding at 80px vertical",
+      "Tint every shadow toward navy rgba(28,53,94,...) not gray rgba(0,0,0,...)",
+      "Use specific use-case nouns: 'Track your maid's attendance,' not 'Manage your staff'",
+      "State offline, no account, free plainly without asterisks or softening",
+      "Reserve the gold CTA button for the final conversion moments",
+      "Support prefers-reduced-motion: disable transforms and transitions"
+    ],
+    "donts": [
+      "Don't use blob gradients, background gradient fills, or glassmorphism beyond the nav blur",
+      "Don't use grey-on-grey enterprise palettes or compliance-heavy copy language",
+      "Don't use border-left or border-right accents greater than 1px as colored stripes on cards",
+      "Don't use gradient text (background-clip: text)",
+      "Don't stack navy and gold CTA buttons on the same screen region",
+      "Don't use pure #000 or #fff anywhere",
+      "Don't add celebration language, confetti, or neon accent colors"
+    ]
+  }
+}

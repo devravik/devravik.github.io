@@ -52,12 +52,15 @@
     display: inline-flex; align-items: center; justify-content: center;
     padding: 12px 24px; border-radius: var(--radius-sm); font-family: inherit;
     font-size: 15px; font-weight: 600; cursor: pointer;
-    transition: opacity .15s, transform .1s; white-space: nowrap;
+    transition: opacity .15s, transform .15s ease-out; white-space: nowrap;
   }
   .btn:hover { opacity: .9; transform: translateY(-1px); }
+  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
   .btn-primary { background: var(--navy); color: #fff; }
   .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+  .btn-outline:hover { background: var(--card-bg); opacity: 1; }
   .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:focus-visible { outline-color: var(--gold); }
 
   .site-nav {
     position: sticky; top: 0; z-index: 100;
@@ -71,7 +74,7 @@
 
   .hero { padding: 72px 0 56px; }
   .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .hero-text h1 { font-size: 40px; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+  .hero-text h1 { font-size: 40px; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 16px; text-wrap: balance; }
   .hero-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 28px; max-width: 480px; }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
   .hero-note { font-size: 13px; color: var(--text-muted); }
@@ -87,21 +90,23 @@
   .pillars { padding: 80px 0; }
   .pillars h2, .features h2, .screenshots h2 {
     font-size: 32px; font-weight: 700; color: var(--navy);
-    text-align: center; margin-bottom: 8px;
+    text-align: center; margin-bottom: 8px; text-wrap: balance;
   }
   .section-sub { color: var(--text-muted); text-align: center; margin-bottom: 40px; font-size: 16px; }
   .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .pillar-card {
     background: var(--card-bg); border: 1px solid var(--border);
     border-radius: var(--radius-md); padding: 28px 20px;
-    transition: box-shadow .15s, transform .15s;
+    transition: box-shadow .15s ease-out, transform .15s ease-out;
     display: flex; flex-direction: column; gap: 8px;
   }
   .pillar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .pillar-card:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
   .pillar-icon { font-size: 32px; }
   .pillar-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
   .pillar-card p { font-size: 14px; color: var(--text-muted); flex: 1; }
-  .pillar-link { font-size: 13px; font-weight: 600; color: var(--navy); margin-top: 4px; }
+  .pillar-link { font-size: 13px; font-weight: 600; color: var(--navy); margin-top: 4px; display: inline-block; transition: transform .15s ease-out; }
+  .pillar-card:hover .pillar-link { transform: translateX(3px); }
 
   .features { padding: 80px 0; background: var(--card-bg); }
   .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -170,12 +175,19 @@
     .trust-inner { flex-direction: column; align-items: flex-start; padding: 0 24px; }
     .cta-inner { flex-direction: column; }
   }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 </head>
 <body>
   <nav class="site-nav">
     <div class="container nav-inner">
-      <a class="nav-brand" href="/attendassist/">
+      <a class="nav-brand" href="/attendassist/" aria-label="AttendAssist home">
         <img class="nav-logo" src="/assets/attendassist/attendance-app-logo.png" alt="AttendAssist logo" />
         <span class="nav-wordmark">AttendAssist</span>
       </a>
@@ -200,7 +212,7 @@
     </div>
   </section>
 
-  <section class="trust-strip">
+  <section class="trust-strip" aria-label="Key features: offline, private, free">
     <div class="container trust-inner">
       
       <div class="trust-badge">
@@ -263,7 +275,7 @@
 
   <section class="features">
     <div class="container">
-      <h2>Why teams choose AttendAssist</h2>
+      <h2>Built for the way you actually work</h2>
       <div class="features-grid">
         
         <div class="feature-card">
