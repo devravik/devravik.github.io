@@ -14,4 +14,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://devravik.github.io/sitemap.xml
-Sitemap: https://devravik.github.io/sitemap-index.xml
+Sitemap: https://devravik.github.io/sitemap.txt
