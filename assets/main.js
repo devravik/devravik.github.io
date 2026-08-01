@@ -2,11 +2,12 @@ import { site } from "../content/site.js";
 
 const root = document.getElementById("root");
 
-// Section header with a numbered eyebrow + bold title.
-const sectionHeader = (num, eyebrow, title) => `
+// Section header with a numbered eyebrow + bold title + optional subtext.
+const sectionHeader = (num, eyebrow, title, subtext = "") => `
   <div class="section-header reveal">
     <span class="section-eyebrow">${num} · ${eyebrow}</span>
     <h2 class="section-title">${title}</h2>
+    ${subtext ? `<p class="body-text section-subtitle" style="margin-top:6px;color:var(--text-muted);font-size:0.95rem;">${subtext}</p>` : ""}
   </div>
 `;
 
@@ -81,6 +82,13 @@ const logoFor = (label = "") => {
 };
 
 const getBrandLogoUrl = (label = "", href = "") => {
+  const l = label.toLowerCase();
+  if (l.includes("live site") || l.includes("website") || l.includes("demo") || l.includes("app")) {
+    return null;
+  }
+  if (href.includes("github.io") && !l.includes("github")) {
+    return null;
+  }
   return logoFor(label + " " + href);
 };
 
@@ -125,9 +133,9 @@ if (root) {
           <nav class="topbar-nav">
             <a href="#about">About</a>
             <a href="#tech">Tech</a>
-            <a href="#contributions">Contributions</a>
-            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contributions">Contributions</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -249,39 +257,64 @@ if (root) {
           </div>
         </section>
 
-        <section id="contributions" class="section">
+        <section id="experience" class="section">
           <div class="section-inner">
-            ${sectionHeader("03", "Open Source", site.contributions.heading)}
-            <div class="contributions-grid">
-              ${site.contributions.items
+            ${sectionHeader("03", "Experience", site.experience.heading, site.experience.summary)}
+            <div class="timeline">
+              ${site.experience.roles
                 .map(
-                  (contribution) => `
-                <article class="project-card reveal">
-                  <header class="project-header">
-                    <div>
-                      <h3 class="project-title">${contribution.name}</h3>
-                      <p class="project-meta">
-                        ${contribution.version ? `v${contribution.version} · ` : ""}${
-                          contribution.stats
-                            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
-                            : ""
-                        }
-                      </p>
-                    </div>
-                    <div class="project-links">
-                      ${contribution.links
-                        .map((link) => renderLinkWithLogo(link))
+                  (role) => {
+                    const logo = getBrandLogoUrl(role.company, role.website);
+                    const companyHtml = role.website
+                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company}</a>`
+                      : role.company;
+                    const logoHtml = logo
+                      ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
+                      : "";
+                    return `
+                <article class="timeline-item reveal">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-body card">
+                    <header class="card-header">
+                      <div class="company-header-main">
+                        ${logoHtml}
+                        <div>
+                          <h3 class="card-title">${role.title}</h3>
+                          <p class="card-meta">${companyHtml}</p>
+                        </div>
+                      </div>
+                      <div class="card-meta text-right">
+                        <div>${role.period}</div>
+                        <div>${role.location}</div>
+                      </div>
+                    </header>
+                    <p class="body-text">${role.summary}</p>
+                    <ul class="bullet-list">
+                      ${role.bullets.map((b) => `<li>${b}</li>`).join("")}
+                    </ul>
+                    ${
+                      role.products && role.products.length
+                        ? `
+                      <details class="products">
+                        <summary>Products & platforms</summary>
+                        <ul class="bullet-list">
+                          ${role.products
+                            .map((p) => `<li>${p}</li>`)
+                            .join("")}
+                        </ul>
+                      </details>
+                    `
+                        : ""
+                    }
+                    <div class="tag-row">
+                      ${role.techStack
+                        .map((t) => renderSkillChip(t))
                         .join("")}
                     </div>
-                  </header>
-                  <p class="body-text">${contribution.description}</p>
-                  <div class="tag-row">
-                    ${contribution.techStack
-                      .map((t) => renderSkillChip(t))
-                      .join("")}
                   </div>
                 </article>
-              `
+              `;
+                  }
                 )
                 .join("")}
             </div>
@@ -341,64 +374,39 @@ if (root) {
           </div>
         </section>
 
-        <section id="experience" class="section">
+        <section id="contributions" class="section">
           <div class="section-inner">
-            ${sectionHeader("05", "Experience", site.experience.heading)}
-            <div class="timeline">
-              ${site.experience.roles
+            ${sectionHeader("05", "Open Source", site.contributions.heading)}
+            <div class="contributions-grid">
+              ${site.contributions.items
                 .map(
-                  (role) => {
-                    const logo = getBrandLogoUrl(role.company, role.website);
-                    const companyHtml = role.website
-                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company}</a>`
-                      : role.company;
-                    const logoHtml = logo
-                      ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
-                      : "";
-                    return `
-                <article class="timeline-item reveal">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-body card">
-                    <header class="card-header">
-                      <div class="company-header-main">
-                        ${logoHtml}
-                        <div>
-                          <h3 class="card-title">${role.title}</h3>
-                          <p class="card-meta">${companyHtml}</p>
-                        </div>
-                      </div>
-                      <div class="card-meta text-right">
-                        <div>${role.period}</div>
-                        <div>${role.location}</div>
-                      </div>
-                    </header>
-                    <p class="body-text">${role.summary}</p>
-                    <ul class="bullet-list">
-                      ${role.bullets.map((b) => `<li>${b}</li>`).join("")}
-                    </ul>
-                    ${
-                      role.products && role.products.length
-                        ? `
-                      <details class="products">
-                        <summary>Products & platforms</summary>
-                        <ul class="bullet-list">
-                          ${role.products
-                            .map((p) => `<li>${p}</li>`)
-                            .join("")}
-                        </ul>
-                      </details>
-                    `
-                        : ""
-                    }
-                    <div class="tag-row">
-                      ${role.techStack
-                        .map((t) => renderSkillChip(t))
+                  (contribution) => `
+                <article class="project-card reveal">
+                  <header class="project-header">
+                    <div>
+                      <h3 class="project-title">${contribution.name}</h3>
+                      <p class="project-meta">
+                        ${contribution.version ? `v${contribution.version} · ` : ""}${
+                          contribution.stats
+                            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
+                            : ""
+                        }
+                      </p>
+                    </div>
+                    <div class="project-links">
+                      ${contribution.links
+                        .map((link) => renderLinkWithLogo(link))
                         .join("")}
                     </div>
+                  </header>
+                  <p class="body-text">${contribution.description}</p>
+                  <div class="tag-row">
+                    ${contribution.techStack
+                      .map((t) => renderSkillChip(t))
+                      .join("")}
                   </div>
                 </article>
-              `;
-                  }
+              `
                 )
                 .join("")}
             </div>

@@ -275,7 +275,7 @@ export const site = {
     },
 
     projects: {
-        heading: "Projects",
+        heading: "Featured Projects",
         items: [
             {
                 name: "Genexr Analytics",
@@ -315,7 +315,12 @@ export const site = {
                     "Job and technician scheduling",
                     "Internal reporting for branches and teams",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://fonefix.co.nz/",
+                    },
+                ],
             },
             {
                 name: "GigHQ",
@@ -332,7 +337,12 @@ export const site = {
                     "Search across artists and gigs",
                     "Payment flows for bookings",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://www.gighq.co.nz/",
+                    },
+                ],
             },
             {
                 name: "Planolitix",
@@ -349,7 +359,12 @@ export const site = {
                     "Graph-based reporting",
                     "Performance-focused SQL tuning",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "http://planolitix.com/",
+                    },
+                ],
             },
             {
                 name: "Moneyguide",
@@ -366,7 +381,12 @@ export const site = {
                     "Document generation and summaries",
                     "Secure handling of client data",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://www.moneyguide.co.nz/",
+                    },
+                ],
             },
             {
                 name: "Skillsnacks",
@@ -383,7 +403,12 @@ export const site = {
                     "Engagement and progress tracking",
                     "Multi-tenant delivery for different brands",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://www.skillsnacks.com/",
+                    },
+                ],
             },
             {
                 name: "Vetty",
@@ -400,7 +425,12 @@ export const site = {
                     "Inventory and logistics integrations",
                     "Customer notification flows",
                 ],
-                links: [],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://vetty.co.nz/",
+                    },
+                ],
             },
             {
                 name: "AttendAssist",
@@ -419,6 +449,10 @@ export const site = {
                     "CI/CD for mobile and backend",
                 ],
                 links: [
+                    {
+                        label: "Live site",
+                        href: "https://devravik.github.io/attendassist/",
+                    },
                     {
                         label: "Play Store",
                         href: "https://play.google.com/store/apps/details?id=com.devravik.attendassist",
@@ -535,7 +569,7 @@ export const site = {
                 period: "2025",
                 layout: "half",
                 description:
-                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50–150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
+                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50-150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
                 image: "./assets/projects/talkbridge-example.webp",
                 techStack: [
                     "Go (Fiber) + Gorilla WebSocket",
@@ -557,6 +591,7 @@ export const site = {
 
     experience: {
         heading: "Experience",
+        summary: "Over 12+ years of hands-on backend & systems engineering experience (2014 - Present).",
         roles: [
             {
                 company: "Waggingtail Technology Limited",
@@ -635,7 +670,7 @@ export const site = {
                 website: "https://www.sunhill.in/",
                 title: "Web Developer",
                 location: "Greater Delhi Area · On-site",
-                period: "Aug 2013 - Apr 2014",
+                period: "Jan 2014 - Apr 2014",
                 summary:
                     "First role in web development, focused on server-side features and smaller enhancements.",
                 bullets: [
