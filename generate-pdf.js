@@ -4,15 +4,15 @@ const fs = require("fs");
 const path = require("path");
 
 const profiles = [
-  { slug: "backend", filename: "Ravi_K_Gupta_Resume.pdf", copyAs: "Ravi_K_Gupta_Resume_backend.pdf" },
-  { slug: "php-laravel", filename: "Ravi_K_Gupta_Resume_php-laravel.pdf" },
-  { slug: "fullstack", filename: "Ravi_K_Gupta_Resume_fullstack.pdf" },
-  { slug: "laravel-vue", filename: "Ravi_K_Gupta_Resume_laravel-vue.pdf" },
-  { slug: "golang-nextjs", filename: "Ravi_K_Gupta_Resume_golang-nextjs.pdf" },
-  { slug: "laravel-react", filename: "Ravi_K_Gupta_Resume_laravel-react.pdf" },
-  { slug: "golang", filename: "Ravi_K_Gupta_Resume_golang.pdf" },
-  { slug: "lead-backend", filename: "Ravi_K_Gupta_Resume_lead-backend.pdf" },
-  { slug: "python-fastapi", filename: "Ravi_K_Gupta_Resume_python-fastapi.pdf" },
+  { slug: "backend", filename: "Ravi-K-Gupta-Resume.pdf", copyAs: "Ravi-K-Gupta-Resume-backend.pdf" },
+  { slug: "php-laravel", filename: "Ravi-K-Gupta-Resume-php-laravel.pdf" },
+  { slug: "fullstack", filename: "Ravi-K-Gupta-Resume-fullstack.pdf" },
+  { slug: "laravel-vue", filename: "Ravi-K-Gupta-Resume-laravel-vue.pdf" },
+  { slug: "golang-nextjs", filename: "Ravi-K-Gupta-Resume-golang-nextjs.pdf" },
+  { slug: "laravel-react", filename: "Ravi-K-Gupta-Resume-laravel-react.pdf" },
+  { slug: "golang", filename: "Ravi-K-Gupta-Resume-golang.pdf" },
+  { slug: "lead-backend", filename: "Ravi-K-Gupta-Resume-lead-backend.pdf" },
+  { slug: "python-fastapi", filename: "Ravi-K-Gupta-Resume-python-fastapi.pdf" },
 ];
 
 const server = http.createServer((req, res) => {

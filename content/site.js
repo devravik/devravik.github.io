@@ -12,11 +12,11 @@ export const profiles = {
             "Focused on architecting backends and microservices that remain clean, scalable, and maintainable over years of growth. Open to remote backend engineering roles with product-driven engineering teams."
         ],
         focusAreas: [
-            "Designing and scaling multi-tenant database & microservices architectures",
-            "Architecting stable, versioned RESTful APIs, GraphQL endpoints, and WebSockets",
-            "Making search, reporting, and analytics endpoints fast and predictable",
-            "Profiling SQL queries and indexes to minimize database load",
-            "Using async queues, workers, and Redis L1/L2 caching"
+            "Designing and scaling multi-tenant database & microservices architectures.",
+            "Architecting stable, versioned RESTful APIs, GraphQL endpoints, and WebSockets.",
+            "Making search, reporting, and analytics endpoints fast and predictable.",
+            "Profiling SQL queries and indexes to minimize database load.",
+            "Using async queues, workers, and Redis L1/L2 caching."
         ],
         featuredProjects: [
             "Genexr Analytics",
@@ -41,11 +41,11 @@ export const profiles = {
             "Focused on writing clean, well-tested PHP 8.x, maintaining clear API contracts, and keeping database queries predictable under high traffic."
         ],
         focusAreas: [
-            "Architecting multi-tenant PHP 8.x & Laravel 11/12 SaaS backends and microservices",
-            "Authoring custom Laravel packages (Licensing, Auth, Tenant Isolation)",
-            "Optimizing SQL queries, Eloquent ORM indexing, and Redis L1/L2 caching",
-            "Designing versioned RESTful & GraphQL APIs with Pest & PHPUnit test coverage",
-            "Managing async queues, background workers, Docker containers, and Horizon monitoring"
+            "Architecting multi-tenant PHP 8.x & Laravel 11/12 SaaS backends and microservices.",
+            "Authoring custom Laravel packages (Licensing, Auth, Tenant Isolation).",
+            "Optimizing SQL queries, Eloquent ORM indexing, and Redis L1/L2 caching.",
+            "Designing versioned RESTful & GraphQL APIs with Pest & PHPUnit test coverage.",
+            "Managing async queues, background workers, Docker containers, and Horizon monitoring."
         ],
         featuredProjects: [
             "Fonefix Repair Management System",
@@ -70,11 +70,11 @@ export const profiles = {
             "Comfortable owning complete features from schema design to frontend state management and containerized deployment."
         ],
         focusAreas: [
-            "Full-stack web application & microservices development (Laravel, Go, Vue 3, React 19)",
-            "Designing responsive UI components with Tailwind CSS, TypeScript & Pinia/Redux",
-            "Designing versioned RESTful & GraphQL APIs, WebSockets, and server-side rendering (SSR)",
-            "Database schema design, SQL query tuning, and Redis in-memory caching",
-            "Docker containerization, AWS cloud infrastructure, and continuous CI/CD pipelines"
+            "Full-stack web application & microservices development (Laravel, Go, Vue 3, React 19).",
+            "Designing responsive UI components with Tailwind CSS, TypeScript & Pinia/Redux.",
+            "Designing versioned RESTful & GraphQL APIs, WebSockets, and server-side rendering (SSR).",
+            "Database schema design, SQL query tuning, and Redis in-memory caching.",
+            "Docker containerization, AWS cloud infrastructure, and continuous CI/CD pipelines."
         ],
         featuredProjects: [
             "Genexr Analytics",
@@ -99,11 +99,11 @@ export const profiles = {
             "Focuses on fast page loads, responsive component state, structured Eloquent queries, and real-time updates via WebSockets."
         ],
         focusAreas: [
-            "Engineering SPAs and Inertia.js web applications with Laravel 11/12 & Vue 3 (Composition API)",
-            "Designing reusable Vue 3 components with TypeScript, Tailwind CSS & Pinia",
-            "Developing real-time admin dashboards and reactive data tables",
-            "Connecting Laravel RESTful APIs & WebSockets to Vue frontends with Vite",
-            "Optimizing frontend bundle sizes, SPA state management, and API response times"
+            "Engineering SPAs and Inertia.js web applications with Laravel 11/12 & Vue 3 (Composition API).",
+            "Designing reusable Vue 3 components with TypeScript, Tailwind CSS & Pinia.",
+            "Developing real-time admin dashboards and reactive data tables.",
+            "Connecting Laravel RESTful APIs & WebSockets to Vue frontends with Vite.",
+            "Optimizing frontend bundle sizes, SPA state management, and API response times."
         ],
         featuredProjects: [
             "Fonefix Repair Management System",
@@ -128,11 +128,11 @@ export const profiles = {
             "Focuses on keeping API latencies low, UI components clean and responsive, and deployments simple with Docker and self-hosted infrastructure."
         ],
         focusAreas: [
-            "Go (Fiber) backend microservices paired with Next.js 15+ (App Router, React 19) frontends",
-            "Real-time WebSockets, WebRTC audio/video streaming, and LLM AI pipelines",
-            "Constructing responsive dashboards with TypeScript, Tailwind CSS, and Server Components",
-            "PostgreSQL database design, Prisma 7 ORM, and Redis L1/L2 caching",
-            "Docker containerization, Kubernetes, and self-hosted CI/CD automation"
+            "Go (Fiber) backend microservices paired with Next.js 15+ (App Router, React 19) frontends.",
+            "Real-time WebSockets, WebRTC audio/video streaming, and LLM AI pipelines.",
+            "Constructing responsive dashboards with TypeScript, Tailwind CSS, and Server Components.",
+            "PostgreSQL database design, Prisma 7 ORM, and Redis L1/L2 caching.",
+            "Docker containerization, Kubernetes, and self-hosted CI/CD automation."
         ],
         featuredProjects: [
             "Genexr Analytics",
@@ -157,11 +157,11 @@ export const profiles = {
             "Emphasizes clean code organization, rigorous test coverage (Pest/PHPUnit), and fast API query execution."
         ],
         focusAreas: [
-            "Laravel 11/12 RESTful API backends integrated with React 19 & Inertia.js frontends",
-            "Component-driven UI development using React Hooks, TypeScript & Tailwind CSS",
-            "Database schema design, Eloquent ORM performance tuning, and Redis caching",
-            "Mobile API integration for React Native (Expo) applications",
-            "Structured unit & integration testing with PHPUnit, Pest, and React Testing Library"
+            "Laravel 11/12 RESTful API backends integrated with React 19 & Inertia.js frontends.",
+            "Component-driven UI development using React Hooks, TypeScript & Tailwind CSS.",
+            "Database schema design, Eloquent ORM performance tuning, and Redis caching.",
+            "Mobile API integration for React Native (Expo) applications.",
+            "Structured unit & integration testing with PHPUnit, Pest, and React Testing Library."
         ],
         featuredProjects: [
             "AttendAssist",
@@ -186,11 +186,11 @@ export const profiles = {
             "Aimed at writing clean, maintainable Go code that performs predictably under high concurrent traffic with minimal resource overhead."
         ],
         focusAreas: [
-            "Go (Golang) HTTP microservices (Fiber, Gin, Gorilla WebSockets)",
-            "Concurrent worker pools, channels, Goroutines, and async job queues",
-            "In-memory L1/L2 cache layers for zero-DB hot-path API validation",
-            "Ed25519 cryptographic signing, gRPC, REST & GraphQL APIs, and tenant isolation",
-            "Docker containerization, Kubernetes orchestration, and CI/CD pipelines"
+            "Go (Golang) HTTP microservices (Fiber, Gin, Gorilla WebSockets).",
+            "Concurrent worker pools, channels, Goroutines, and async job queues.",
+            "In-memory L1/L2 cache layers for zero-DB hot-path API validation.",
+            "Ed25519 cryptographic signing, gRPC, REST & GraphQL APIs, and tenant isolation.",
+            "Docker containerization, Kubernetes orchestration, and CI/CD pipelines."
         ],
         featuredProjects: [
             "Genexr Analytics",
@@ -215,11 +215,11 @@ export const profiles = {
             "Focused on aligning product requirements with stable engineering execution, upholding high uptime, and preserving clean microservices architecture."
         ],
         focusAreas: [
-            "Backend architecture and microservices for multi-tenant B2B SaaS platforms",
-            "Designing tenant data isolation, RBAC security, and authorization rules",
-            "SQL query optimization, database indexing, and version-controlled schema migrations",
-            "Defining REST & GraphQL API contracts, OpenAPI specifications, and CI/CD workflows",
-            "Code reviews, technical debt reduction, system design, and engineering mentorship"
+            "Backend architecture and microservices for multi-tenant B2B SaaS platforms.",
+            "Designing tenant data isolation, RBAC security, and authorization rules.",
+            "SQL query optimization, database indexing, and version-controlled schema migrations.",
+            "Defining REST & GraphQL API contracts, OpenAPI specifications, and CI/CD workflows.",
+            "Code reviews, technical debt reduction, system design, and engineering mentorship."
         ],
         featuredProjects: [
             "Genexr Analytics",
@@ -244,11 +244,11 @@ export const profiles = {
             "Emphasizes typed Python 3.12+ code, structured PyTest coverage, clear API documentation, and containerized cloud deployment."
         ],
         focusAreas: [
-            "Async RESTful & GraphQL APIs and microservices with Python 3.12+, FastAPI & Pydantic v2",
-            "LLM AI integration (OpenAI GPT-4o, LangChain), streaming STT, and AI pipelines",
-            "SQLAlchemy 2.0 / SQLModel database design, async migrations, and PostgreSQL indexing",
-            "Background job queues with Celery, Redis, and AsyncIO event loops",
-            "Docker containerization, PyTest automation, OpenAPI docs, and CI/CD deployment"
+            "Async RESTful & GraphQL APIs and microservices with Python 3.12+, FastAPI & Pydantic v2.",
+            "LLM AI integration (OpenAI GPT-4o, LangChain), streaming STT, and AI pipelines.",
+            "SQLAlchemy 2.0 / SQLModel database design, async migrations, and PostgreSQL indexing.",
+            "Background job queues with Celery, Redis, and AsyncIO event loops.",
+            "Docker containerization, PyTest automation, OpenAPI docs, and CI/CD deployment."
         ],
         featuredProjects: [
             "KundaliLabs",
@@ -299,11 +299,11 @@ export const site = {
             "I like being close to the product and building backends that still make sense a few years later, not just for the next release. I’m open to remote backend roles and longer-term work with teams building real products.",
         ],
         focusAreas: [
-            "Designing and evolving multi-tenant architectures",
-            "Keeping APIs versioned and stable as features change",
-            "Making search, reporting, and analytics fast enough to feel instant",
-            "Tuning queries and indexes instead of only throwing hardware at the problem",
-            "Using queues, workers, and Redis to keep UIs responsive under load",
+            "Designing and evolving multi-tenant architectures.",
+            "Keeping APIs versioned and stable as features change.",
+            "Making search, reporting, and analytics fast enough to feel instant.",
+            "Tuning queries and indexes instead of only throwing hardware at the problem.",
+            "Using queues, workers, and Redis to keep UIs responsive under load.",
         ],
     },
 
@@ -356,6 +356,7 @@ export const site = {
                 name: "Cloud, DevOps & Reliability",
                 items: [
                     "AWS (S3, EC2, SES, RDS), DigitalOcean, Vercel",
+                    "AWS Lambda (serverless functions)",
                     "Google Cloud Platform (GCP)",
                     "Azure",
                     "Docker & containers",
@@ -410,7 +411,7 @@ export const site = {
                     "Architected high-throughput event and metrics data models enabling 1M+ daily event writes with sub-50ms query latency.",
                     "Constructed Go (Fiber) services delivering RESTful APIs with sub-10ms median response times.",
                     "Implemented tenant-aware routing, RBAC authorization, and data isolation across 100+ active multi-tenant databases.",
-                    "Orchestrated background queues processing 50k+ daily automated aggregations, scheduled reports, and CSV exports.",
+                    "Ran background queues processing 50k+ daily automated aggregations, scheduled reports, and CSV exports.",
                     "Optimized PostgreSQL analytics schema with custom indexes and partitioning, reducing query execution times by 60%.",
                 ],
                 techStack: [
@@ -925,11 +926,11 @@ export const site = {
                 summary:
                     "Backend-focused developer on multiple client projects, usually responsible for APIs and data-heavy parts of the system.",
                 bullets: [
-                    "Spearheaded 30+ RESTful APIs for 10+ web applications, serving 50k+ monthly active users.",
-                    "Formulated modular PHP/Laravel components, shortening developer onboarding cycles by 35%.",
+                    "Built 30+ RESTful APIs for 10+ web applications, serving 50k+ monthly active users.",
+                    "Created modular PHP/Laravel components, shortening developer onboarding cycles by 35%.",
                     "Optimized slow SQL queries and database indexes, reducing average page render times by 40%.",
                     "Constructed search and filtering modules indexing 100k+ catalog records with sub-second retrieval.",
-                    "Orchestrated 15+ third-party API integrations, handling over 25k daily webhook transactions.",
+                    "Integrated 15+ third-party APIs handling over 25k daily webhook transactions.",
                     "Provisioned background task queues processing 50k+ daily automated reports and data syncs.",
                 ],
                 techStack: ["PHP", "Laravel", "MySQL", "JavaScript"],
@@ -946,7 +947,7 @@ export const site = {
                     "Authored 20+ core backend features and services using Laravel and CodeIgniter across client apps.",
                     "Structured and normalized 15+ MySQL database schemas with zero data integrity issues.",
                     "Established 25+ RESTful JSON endpoints connecting Laravel backends with Vue.js interfaces.",
-                    "Crafted interactive UI components with Vue.js, reducing user interaction load times by 30%.",
+                    "Built interactive UI components with Vue.js, reducing user interaction load times by 30%.",
                     "Remediated 100+ bug tickets and performance bottlenecks, upholding 99%+ production uptime.",
                 ],
                 techStack: ["Laravel", "CodeIgniter", "Vue.js", "MySQL", "JavaScript"],
@@ -962,7 +963,7 @@ export const site = {
                 bullets: [
                     "Assisted in building server-side features and data logic for 5+ web application projects.",
                     "Programmed REST API endpoints connecting PHP backends with third-party web services.",
-                    "Formulated optimized MySQL queries to securely store and retrieve high-volume user data.",
+                    "Wrote optimized MySQL queries to securely store and retrieve high-volume user data.",
                     "Rectified 30+ issue tickets and delivered feature additions ahead of sprint milestones.",
                     "Partnered with senior developers to establish clean code modularity and application security.",
                 ],

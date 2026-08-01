@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const reqProfile = urlParams.get("profile");
 const activeProfileSlug = (reqProfile && profiles[reqProfile]) ? reqProfile : "backend";
 const activeProfile = profiles[activeProfileSlug];
-const pdfFilename = activeProfileSlug === "backend" ? "Ravi_K_Gupta_Resume.pdf" : `Ravi_K_Gupta_Resume_${activeProfileSlug}.pdf`;
+const pdfFilename = activeProfileSlug === "backend" ? "Ravi-K-Gupta-Resume.pdf" : `Ravi-K-Gupta-Resume-${activeProfileSlug}.pdf`;
 const pdfPath = `./assets/${pdfFilename}`;
 const showTargetSelector = urlParams.get("target") === "1";
 
