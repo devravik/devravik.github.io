@@ -652,7 +652,7 @@ if (root) {
               <ul class="print-contact-grid">
                 <li><strong>Email:</strong> <a href="mailto:${site.contact.email}">${site.contact.email}</a></li>
                 <li><strong>Mobile:</strong> <a href="tel:+918285893766">${site.contact.phone}</a></li>
-                <li><strong>Location:</strong> ${site.contact.location} (Open to Remote Roles)</li>
+                <li><strong>Location:</strong> ${site.contact.location}</li>
                 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ravi-k-dev" target="_blank">https://www.linkedin.com/in/ravi-k-dev</a></li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/devravik" target="_blank">https://github.com/devravik</a></li>
                 <li><strong>Portfolio Website:</strong> <a href="https://devravik.github.io" target="_blank">https://devravik.github.io</a></li>

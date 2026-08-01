@@ -259,7 +259,7 @@ export const site = {
         title: "Backend Systems Engineer · Multi-Tenant SaaS Architecture",
         tagline:
             "Laravel & Go backend engineer focused on SaaS products that have to stay fast and predictable.",
-        location: "Delhi, India",
+        location: "Noida, Uttar Pradesh, India",
         openToWork: true, // used subtly in Contact, not in the hero UI
         highlights: [
             "Working on web backends since 2014",
@@ -911,7 +911,7 @@ export const site = {
                 company: "Infoicon Technologies",
                 website: "https://www.infoicontechnologies.com/",
                 title: "Senior Programmer",
-                location: "Noida, Uttar Pradesh, India",
+                location: "Noida, Uttar Pradesh, India · On-site",
                 period: "Jun 2015 - Oct 2018",
                 summary:
                     "Backend-focused developer on multiple client projects, usually responsible for APIs and data-heavy parts of the system.",
@@ -929,7 +929,7 @@ export const site = {
                 company: "Webzesty Pvt Ltd",
                 website: "https://webzesty.net",
                 title: "Sr. Web Developer",
-                location: "Greater Delhi Area · On-site",
+                location: "Delhi, India · On-site",
                 period: "Apr 2014 - Jun 2015",
                 summary:
                     "Worked on full-stack web applications using PHP frameworks and JavaScript frontends.",
@@ -946,7 +946,7 @@ export const site = {
                 company: "SunHill Systems Pvt Ltd",
                 website: "https://www.sunhill.in/",
                 title: "Web Developer",
-                location: "Greater Delhi Area · On-site",
+                location: "Delhi, India · On-site",
                 period: "Jan 2014 - Apr 2014",
                 summary:
                     "First role in web development, focused on server-side features and smaller enhancements.",
@@ -991,7 +991,7 @@ export const site = {
         heading: "Contact",
         email: "dev.ravikgupt@gmail.com",
         phone: "+91-8285893766",
-        location: "Delhi, India",
+        location: "Noida, Uttar Pradesh, India",
         openToWork: true,
         links: [
             {
