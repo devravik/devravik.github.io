@@ -519,6 +519,34 @@ if (root) {
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
+  // Toast notification element for copying email
+  const toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Copied to clipboard!</span>`;
+  document.body.appendChild(toast);
+
+  let toastTimeout = null;
+  const showToast = (text = "Copied to clipboard!") => {
+    toast.querySelector("span").textContent = text;
+    toast.classList.add("show");
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2200);
+  };
+
+  document.addEventListener("click", (e) => {
+    const mailtoBtn = e.target.closest('a[href^="mailto:"]');
+    if (mailtoBtn) {
+      const email = mailtoBtn.getAttribute("href").replace("mailto:", "");
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast(`Copied ${email} to clipboard!`);
+        }).catch(() => {});
+      }
+    }
+  });
+
   // Ambient floating background logos animation
   initAnimatedLogoBackground();
 }
@@ -675,6 +703,16 @@ function initAnimatedLogoBackground() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
+  let mouse = { x: -1000, y: -1000 };
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  window.addEventListener("mouseleave", () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
   window.addEventListener("resize", () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -738,6 +776,20 @@ function initAnimatedLogoBackground() {
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
       p.life++;
+
+      // Mouse magnetic repulsion & subtle glow boost
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      let mouseBoost = 1;
+
+      if (dist < 160) {
+        const force = (160 - dist) / 160;
+        p.x += (dx / dist) * force * 1.8;
+        p.y += (dy / dist) * force * 1.8;
+        mouseBoost = 1 + force * 1.8;
+      }
+
       p.x += p.vx;
       p.y += p.vy;
       p.rotation += p.vRot;
@@ -754,6 +806,8 @@ function initAnimatedLogoBackground() {
       } else {
         alpha = p.maxOpacity;
       }
+
+      alpha = Math.min(0.4, alpha * mouseBoost);
 
       if (alpha > 0) {
         if (p.type === "logo") {
