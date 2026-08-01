@@ -590,7 +590,7 @@ img {
   margin-top: 6px;
 }
 
-/* Skills - minimal spec-sheet layout */
+/* Skills — minimal spec-sheet layout */
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -1019,7 +1019,14 @@ img {
 .education-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+}
+
+.education-item {
+  padding: 24px 28px;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
 
 /* Contact */
@@ -1117,8 +1124,8 @@ img {
   }
 }
 
-/* Responsive Screen Queries */
-@media screen and (max-width: 900px) {
+/* Responsive */
+@media (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1173,7 +1180,7 @@ img {
   }
 }
 
-@media screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .topbar-inner {
     padding-inline: 16px;
     flex-direction: column;
@@ -1678,6 +1685,11 @@ img {
     text-decoration: none !important;
   }
 
+  .print-hide .link-print-url,
+  .print-hide a {
+    display: none !important;
+  }
+
   *,
   *::before,
   *::after {
@@ -1713,7 +1725,6 @@ img {
   .project-media,
   .hero,
   .section-side,
-  #contact,
   .site-footer,
   .company-logo,
   .brand-icon,
@@ -1723,12 +1734,18 @@ img {
   .chip-brand-logo,
   .brand-link-logo,
   .contact-brand-logo,
-  #contributions .project-meta,
   .profile-selector-wrap,
+  .print-hide,
+  .print-hide *,
   summary {
     display: none !important;
+    visibility: hidden !important;
     width: 0 !important;
     height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
   }
 
   .print-only-header {
@@ -1787,8 +1804,6 @@ img {
   .section-header {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
-    text-align: left !important;
-    align-items: flex-start !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
@@ -1806,7 +1821,6 @@ img {
     border-bottom: 1.5px solid #000000 !important;
     padding-bottom: 3px !important;
     margin: 6px 0 8px 0 !important;
-    text-align: left !important;
   }
 
   .section-subtitle {
@@ -1815,24 +1829,11 @@ img {
     margin-top: 2px !important;
     margin-bottom: 6px !important;
     line-height: 1.35 !important;
-    text-align: left !important;
   }
 
-  .section-body,
-  .section-body.two-column,
   .about-grid,
   .tech-grid {
     display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    grid-template-columns: none !important;
-  }
-
-  .about-main,
-  .hero-main {
-    text-align: left !important;
-    width: 100% !important;
-    max-width: 100% !important;
   }
 
   .about-main p,
@@ -1842,12 +1843,10 @@ img {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
     line-height: 1.5 !important;
-    text-align: left !important;
   }
 
   /* Experience Timeline (Starts on New Page for Professional ATS PDF Layout) */
-  #experience,
-  #contributions {
+  #experience {
     page-break-before: always !important;
     break-before: page !important;
     margin-top: 0 !important;
@@ -1876,31 +1875,44 @@ img {
     background: transparent !important;
   }
 
-  .timeline-dot {
-    display: none !important;
+  #experience {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .timeline {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .timeline-item {
-    margin-bottom: 2px !important;
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
   .timeline-body .body-text {
-    font-size: 8.5pt !important;
-    line-height: 1.24 !important;
-    margin-bottom: 1px !important;
+    font-size: 8.8pt !important;
+    line-height: 1.32 !important;
+    margin-bottom: 2px !important;
   }
 
   .timeline-item .card-title {
-    font-size: 9.6pt !important;
+    font-size: 9.8pt !important;
     margin: 0 0 1px 0 !important;
   }
 
   .timeline-item .card-meta {
-    font-size: 8.4pt !important;
-    margin: 0 0 1px 0 !important;
-    line-height: 1.2 !important;
+    font-size: 8.5pt !important;
+    margin: 0 0 2px 0 !important;
+    line-height: 1.25 !important;
   }
 
   .card-meta.text-right,
@@ -1911,14 +1923,14 @@ img {
   }
 
   .timeline-item .bullet-list {
-    margin: 0.5px 0 1px 0 !important;
-    padding-left: 12px !important;
+    margin: 1.5px 0 2.5px 0 !important;
+    padding-left: 13px !important;
   }
 
   .timeline-item .bullet-list li {
-    margin-bottom: 0px !important;
-    font-size: 8.5pt !important;
-    line-height: 1.22 !important;
+    margin-bottom: 1px !important;
+    font-size: 8.7pt !important;
+    line-height: 1.28 !important;
   }
 
   .project-card {
@@ -1928,16 +1940,26 @@ img {
     border-radius: 0;
   }
 
+  #education {
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   .education-list {
     gap: 0 !important;
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .education-item {
     margin-top: 0 !important;
-    margin-bottom: 1px !important;
+    margin-bottom: 2px !important;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     border-radius: 0;

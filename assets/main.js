@@ -250,7 +250,7 @@ if (root) {
               <div class="hero-avatar-card">
                 <div class="hero-avatar-ring">
                   <img
-                    src="./avatar_front.png"
+                    src="./avatar.png"
                     alt="Portrait of ${site.hero.name}"
                     class="hero-avatar"
                   />
@@ -333,7 +333,7 @@ if (root) {
               ${site.education.items
       .map(
         (item) => `
-                <article class="education-item card reveal">
+                <article class="education-item card reveal ${item.printHide ? "print-hide" : ""}">
                   <header class="card-header">
                     <div>
                       <h3 class="card-title">${item.degree}</h3>
@@ -404,12 +404,16 @@ if (root) {
           <div class="section-inner">
             ${sectionHeader("05", "Selected Work", site.projects.heading, "FEATURED PROJECTS & SAAS PRODUCTS")}
             <div class="projects-grid">
-              ${site.projects.items
-      .map(
-        (project) => `
-                <article class="project-card reveal layout-${project.layout || "half"}">
+              ${(() => {
+                const featuredNames = (activeProfile.featuredProjects || []).slice(0, 6);
+                return site.projects.items
+                  .map(
+                    (project) => {
+                      const isPrintHidden = !featuredNames.includes(project.name);
+                      return `
+                <article class="project-card reveal layout-${project.layout || "half"} ${isPrintHidden ? "print-hide" : ""}">
                   ${project.image
-            ? `
+                    ? `
                   <div class="project-media">
                     <img
                       src="${project.image}"
@@ -419,8 +423,8 @@ if (root) {
                     />
                   </div>
                   `
-            : ""
-          }
+                    : ""
+                  }
                   <div class="project-content">
                     <header class="project-header">
                       <div>
@@ -431,21 +435,23 @@ if (root) {
                       </div>
                       <div class="project-links">
                         ${project.links
-            .map((link) => renderLinkWithLogo(link))
-            .join("")}
+                          .map((link) => renderLinkWithLogo(link))
+                          .join("")}
                       </div>
                     </header>
                     <p class="body-text">${project.description}</p>
                     <div class="tag-row">
                       ${project.techStack
-            .map((t) => renderSkillChip(t))
-            .join("")}
+                        .map((t) => renderSkillChip(t))
+                        .join("")}
                     </div>
                   </div>
                 </article>
-              `
-      )
-      .join("")}
+              `;
+                    }
+                  )
+                  .join("");
+              })()}
             </div>
           </div>
         </section>

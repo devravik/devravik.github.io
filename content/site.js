@@ -4,79 +4,111 @@ export const profiles = {
         name: "Senior Backend Engineer",
         heroTitle: "Backend Systems Engineer · Multi-Tenant SaaS Architecture",
         heroTagline: "Laravel & Go backend engineer focused on SaaS products that have to stay fast and predictable.",
-        printTitle: "Senior Backend Engineer • Multi-Tenant SaaS Architecture",
+        printTitle: "Senior Backend Engineer • Multi-Tenant SaaS & Microservices Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "I've been building backend systems since 2014, mostly for multi-tenant SaaS products and web applications that need to stay reliable under heavy load.",
-            "Day to day I work with Laravel and Go (Fiber): designing APIs, shaping database data models, and fixing performance issues-slow SQL queries, unindexed tables, heavy background jobs, and fragile third-party integrations.",
-            "I build backends that remain clean and maintainable years down the line. Open to remote backend engineering roles with engineering-driven product teams."
+            "Senior Backend Engineer developing reliable systems since 2014, primarily for multi-tenant SaaS products, microservices, and web applications requiring high availability under heavy load.",
+            "Core work spans Laravel and Go (Fiber): designing REST APIs, shaping relational data models, and eliminating performance bottlenecks-slow SQL queries, unindexed tables, heavy background jobs, and fragile third-party integrations.",
+            "Focused on architecting backends and microservices that remain clean, scalable, and maintainable over years of growth. Open to remote backend engineering roles with product-driven engineering teams."
         ],
         focusAreas: [
-            "Designing and scaling multi-tenant database architectures",
-            "Building stable, versioned REST APIs and WebSockets",
+            "Designing and scaling multi-tenant database & microservices architectures",
+            "Architecting stable, versioned RESTful APIs, GraphQL endpoints, and WebSockets",
             "Making search, reporting, and analytics endpoints fast and predictable",
             "Profiling SQL queries and indexes to minimize database load",
             "Using async queues, workers, and Redis L1/L2 caching"
+        ],
+        featuredProjects: [
+            "Genexr Analytics",
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "Planolitix",
+            "Moneyguide",
+            "Vetty"
         ]
     },
     "php-laravel": {
         slug: "php-laravel",
         name: "PHP / Laravel Developer",
-        heroTitle: "Senior PHP / Laravel Developer · Package & SaaS Architect",
-        heroTagline: "Senior PHP & Laravel developer building multi-tenant SaaS platforms, REST APIs, and custom package ecosystems.",
-        printTitle: "Senior PHP / Laravel Developer • Package & Multi-Tenant SaaS Architecture",
+        heroTitle: "Senior PHP / Laravel Developer · SaaS Architecture & Microservices",
+        heroTagline: "Senior PHP & Laravel developer architecting multi-tenant SaaS platforms, REST APIs, and custom package ecosystems.",
+        printTitle: "Senior PHP / Laravel Developer • Package, Microservices & SaaS Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior PHP & Laravel Developer with 12+ years of experience building multi-tenant SaaS backends, REST APIs, and reusable package ecosystems.",
-            "Core work spans Laravel 10/11/12, Eloquent ORM tuning, queues, Redis caching, Pest/PHPUnit testing, and custom package authoring. Experienced in refactoring legacy codebases, fixing N+1 database bottlenecks, and building stable background job pipelines.",
-            "Focused on writing clean, well-tested PHP, maintaining clear API contracts, and keeping database queries predictable under high traffic."
+            "Senior PHP & Laravel Developer with 12+ years of experience engineering multi-tenant SaaS backends, REST APIs, microservices, and reusable package ecosystems.",
+            "Core work spans Laravel 10/11/12, Eloquent ORM tuning, queues, Redis caching, Pest/PHPUnit testing, and custom package authoring. Experienced in refactoring legacy codebases, fixing N+1 database bottlenecks, and establishing stable background job pipelines.",
+            "Focused on writing clean, well-tested PHP 8.x, maintaining clear API contracts, and keeping database queries predictable under high traffic."
         ],
         focusAreas: [
-            "Building multi-tenant PHP & Laravel SaaS backends",
-            "Authoring custom Laravel packages (Licensing, Auth, Isolation)",
-            "Optimizing SQL queries, Eloquent indexing, and Redis L1/L2 caching",
-            "Designing versioned REST APIs with Pest/PHPUnit test coverage",
-            "Managing async queues, workers, and Horizon monitoring"
+            "Architecting multi-tenant PHP 8.x & Laravel 11/12 SaaS backends and microservices",
+            "Authoring custom Laravel packages (Licensing, Auth, Tenant Isolation)",
+            "Optimizing SQL queries, Eloquent ORM indexing, and Redis L1/L2 caching",
+            "Designing versioned RESTful & GraphQL APIs with Pest & PHPUnit test coverage",
+            "Managing async queues, background workers, Docker containers, and Horizon monitoring"
+        ],
+        featuredProjects: [
+            "Fonefix Repair Management System",
+            "Vetty",
+            "Planolitix",
+            "Moneyguide",
+            "Skillsnacks",
+            "GigHQ"
         ]
     },
     "fullstack": {
         slug: "fullstack",
         name: "Full Stack Developer",
         heroTitle: "Senior Full Stack Engineer · Laravel, Go, Vue & React",
-        heroTagline: "Full stack engineer building production web applications with Laravel, Go, Vue.js, and React.",
-        printTitle: "Senior Full Stack Engineer • Laravel, Go, Vue.js & React Applications",
+        heroTagline: "Full stack engineer developing production web applications with Laravel, Go, Vue.js, and React.",
+        printTitle: "Senior Full Stack Engineer • Laravel, Go, React 19 & Vue 3 Applications",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Full Stack Engineer with 12+ years of experience building complete web applications, interactive dashboards, and backend services.",
-            "Hands-on across the full stack: Laravel, Go, and Node.js on the backend paired with Vue.js, React, and Next.js on the frontend. I handle feature development end-to-end-from database modeling and API endpoints to reactive UI components.",
+            "Full Stack Engineer with 12+ years of experience developing complete web applications, interactive dashboards, and backend services.",
+            "Hands-on across the full stack: Laravel, Go, and Node.js on the backend paired with Vue.js, React, and Next.js on the frontend. Manages feature development end-to-end-from database modeling and API endpoints to reactive UI components.",
             "Comfortable owning complete features from schema design to frontend state management and containerized deployment."
         ],
         focusAreas: [
-            "Full-stack web application development (Laravel, Go, Vue.js, React)",
-            "Designing responsive UI components with Tailwind CSS & Pinia/Redux",
-            "Building versioned REST APIs and real-time WebSocket channels",
-            "Database indexing, SQL query tuning, and Redis caching",
-            "Docker containerization and automated CI/CD deployments"
+            "Full-stack web application & microservices development (Laravel, Go, Vue 3, React 19)",
+            "Designing responsive UI components with Tailwind CSS, TypeScript & Pinia/Redux",
+            "Designing versioned RESTful & GraphQL APIs, WebSockets, and server-side rendering (SSR)",
+            "Database schema design, SQL query tuning, and Redis in-memory caching",
+            "Docker containerization, AWS cloud infrastructure, and continuous CI/CD pipelines"
+        ],
+        featuredProjects: [
+            "Genexr Analytics",
+            "KundaliLabs",
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "AttendAssist",
+            "Skillsnacks"
         ]
     },
     "laravel-vue": {
         slug: "laravel-vue",
         name: "Laravel + VueJS Developer",
         heroTitle: "Senior Laravel + Vue.js Developer · Modern SPA & Web Apps",
-        heroTagline: "Senior developer building reactive Single-Page Applications (SPAs) with Laravel, Vue.js, and Inertia.js.",
-        printTitle: "Senior Laravel + Vue.js Specialist • SPA & SaaS Applications",
+        heroTagline: "Senior developer engineering reactive Single-Page Applications (SPAs) with Laravel, Vue.js, and Inertia.js.",
+        printTitle: "Senior Laravel + Vue.js Developer • SPA, Inertia.js & Web Applications",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
             "Senior Web Developer specializing in single-page applications and reactive web interfaces using Laravel, Vue.js (Vue 2/3), and Inertia.js.",
-            "Builds modern admin dashboards, SaaS workflows, and interactive frontend tools. Experienced in Vue component architecture, Pinia/Vuex state management, Tailwind CSS, and structuring clean Laravel API backends.",
+            "Develops modern admin dashboards, SaaS workflows, and interactive frontend tools. Experienced in Vue component architecture, Pinia/Vuex state management, Tailwind CSS, and structuring clean Laravel API backends.",
             "Focuses on fast page loads, responsive component state, structured Eloquent queries, and real-time updates via WebSockets."
         ],
         focusAreas: [
-            "Building SPAs and Inertia.js web applications with Laravel & Vue 3",
-            "Designing reusable Vue 3 components with Tailwind CSS & Pinia",
-            "Developing real-time dashboards and reactive data tables",
-            "Connecting Laravel REST APIs & WebSockets to Vue interfaces",
-            "Optimizing frontend bundle sizes and API response times"
+            "Engineering SPAs and Inertia.js web applications with Laravel 11/12 & Vue 3 (Composition API)",
+            "Designing reusable Vue 3 components with TypeScript, Tailwind CSS & Pinia",
+            "Developing real-time admin dashboards and reactive data tables",
+            "Connecting Laravel RESTful APIs & WebSockets to Vue frontends with Vite",
+            "Optimizing frontend bundle sizes, SPA state management, and API response times"
+        ],
+        featuredProjects: [
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "Skillsnacks",
+            "Planolitix",
+            "Vetty",
+            "Moneyguide"
         ]
     },
     "golang-nextjs": {
@@ -92,31 +124,47 @@ export const profiles = {
             "Focuses on keeping API latencies low, UI components clean and responsive, and deployments simple with Docker and self-hosted infrastructure."
         ],
         focusAreas: [
-            "Go (Fiber) backend services paired with Next.js App Router frontends",
-            "Real-time WebSockets, WebRTC audio streaming, and AI pipelines",
-            "Building responsive dashboards and server-rendered React components",
-            "PostgreSQL database design, Prisma ORM, and Redis L1/L2 caching",
-            "Docker, Kubernetes, and self-hosted CI/CD automation"
+            "Go (Fiber) backend microservices paired with Next.js 15+ (App Router, React 19) frontends",
+            "Real-time WebSockets, WebRTC audio/video streaming, and LLM AI pipelines",
+            "Constructing responsive dashboards with TypeScript, Tailwind CSS, and Server Components",
+            "PostgreSQL database design, Prisma 7 ORM, and Redis L1/L2 caching",
+            "Docker containerization, Kubernetes, and self-hosted CI/CD automation"
+        ],
+        featuredProjects: [
+            "Genexr Analytics",
+            "KundaliLabs",
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "AttendAssist",
+            "Top Places India"
         ]
     },
     "laravel-react": {
         slug: "laravel-react",
         name: "Laravel + React Developer",
         heroTitle: "Senior Laravel + React Developer · Web Apps & APIs",
-        heroTagline: "Senior developer building Laravel REST APIs paired with modern React & Inertia.js user interfaces.",
-        printTitle: "Senior Laravel + React Specialist • Web Applications & APIs",
+        heroTagline: "Senior developer engineering Laravel REST APIs paired with modern React & Inertia.js user interfaces.",
+        printTitle: "Senior Laravel + React Developer • Web Applications & RESTful APIs",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
             "Senior Full Stack Developer with 12+ years of experience pairing Laravel backend APIs with React and Inertia.js frontends.",
-            "Skilled in building RESTful services, multi-tenant database schemas, and modular React component structures. Hands-on with React Hooks, state management, Tailwind CSS, Inertia.js, and API integration for web and mobile apps (AttendAssist).",
-            "Emphasizes clean code organization, automated test coverage (Pest/PHPUnit), and fast API query execution."
+            "Skilled in architecting RESTful services, multi-tenant database schemas, and modular React component structures. Hands-on with React Hooks, state management, Tailwind CSS, Inertia.js, and API integration for web and mobile apps (AttendAssist).",
+            "Emphasizes clean code organization, rigorous test coverage (Pest/PHPUnit), and fast API query execution."
         ],
         focusAreas: [
-            "Laravel REST API backends integrated with React & Inertia.js frontends",
-            "Component-driven UI development using React Hooks & Tailwind CSS",
-            "Database schema design, Eloquent ORM tuning, and Redis caching",
-            "Mobile API integration for React Native applications",
-            "Automated testing with PHPUnit, Pest, and frontend testing tools"
+            "Laravel 11/12 RESTful API backends integrated with React 19 & Inertia.js frontends",
+            "Component-driven UI development using React Hooks, TypeScript & Tailwind CSS",
+            "Database schema design, Eloquent ORM performance tuning, and Redis caching",
+            "Mobile API integration for React Native (Expo) applications",
+            "Structured unit & integration testing with PHPUnit, Pest, and React Testing Library"
+        ],
+        featuredProjects: [
+            "AttendAssist",
+            "KundaliLabs",
+            "Fonefix Repair Management System",
+            "Vetty",
+            "Planolitix",
+            "Skillsnacks"
         ]
     },
     "golang": {
@@ -124,59 +172,83 @@ export const profiles = {
         name: "Golang / Systems Engineer",
         heroTitle: "Senior Go / Golang Engineer · Concurrent Services & APIs",
         heroTagline: "Go backend engineer focused on concurrent microservices, in-memory caching, and low-latency APIs.",
-        printTitle: "Senior Go / Golang Systems Engineer • Concurrent Microservices & Caching",
+        printTitle: "Senior Go / Golang Systems Engineer • Concurrent Microservices & Systems Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior Go Engineer focused on building fast microservices, in-memory caching layers, and concurrent worker processing systems.",
-            "Built open-source Go tools including Go License API (Ed25519 cryptographic signing, zero-DB validation path) and TalkBridge (Go Fiber + WebSockets + WebRTC P2P). Proficient with Go concurrency primitives, worker channels, PostgreSQL, and Redis.",
+            "Senior Go Engineer focused on developing fast microservices, in-memory caching layers, and concurrent worker processing systems.",
+            "Engineered open-source Go tools including Go License API (Ed25519 cryptographic signing, zero-DB validation path) and TalkBridge (Go Fiber + WebSockets + WebRTC P2P). Proficient with Go concurrency primitives, worker channels, PostgreSQL, and Redis.",
             "Aimed at writing clean, maintainable Go code that performs predictably under high concurrent traffic with minimal resource overhead."
         ],
         focusAreas: [
-            "Go HTTP microservices (Fiber, Gin, Gorilla WebSockets)",
-            "Concurrent worker pools, channels, and async job queues",
-            "In-memory L1/L2 cache layers for zero-DB hot-path validation",
-            "Ed25519 cryptographic signing and secure tenant isolation",
-            "Docker containerization, health monitoring, and CI/CD pipelines"
+            "Go (Golang) HTTP microservices (Fiber, Gin, Gorilla WebSockets)",
+            "Concurrent worker pools, channels, Goroutines, and async job queues",
+            "In-memory L1/L2 cache layers for zero-DB hot-path API validation",
+            "Ed25519 cryptographic signing, gRPC, REST & GraphQL APIs, and tenant isolation",
+            "Docker containerization, Kubernetes orchestration, and CI/CD pipelines"
+        ],
+        featuredProjects: [
+            "Genexr Analytics",
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "Planolitix",
+            "Vetty",
+            "Moneyguide"
         ]
     },
     "lead-backend": {
         slug: "lead-backend",
         name: "Lead / Principal Engineer",
         heroTitle: "Lead Backend Engineer & Systems Architect · 12+ Years Experience",
-        heroTagline: "Engineering leader & SaaS founder driving backend architecture, database scaling, and technical execution.",
-        printTitle: "Lead Backend Engineer & Systems Architect • 12+ Years Experience",
+        heroTagline: "Engineering leader & SaaS founder managing backend architecture, database scaling, and technical execution.",
+        printTitle: "Lead Backend Engineer & Systems Architect • Microservices & SaaS Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Lead Backend Engineer & Systems Architect with 12+ years of experience building multi-tenant SaaS platforms, database systems, and backend APIs.",
+            "Lead Backend Engineer & Systems Architect with 12+ years of experience architecting multi-tenant SaaS platforms, distributed microservices, and backend APIs.",
             "Combines background as a senior engineering lead (Waggingtail Technology) and SaaS founder (Genexr Analytics). Experienced in leading architecture decisions, defining API standards, tuning slow SQL queries, and establishing CI/CD practices across engineering teams.",
-            "Focused on aligning product requirements with stable engineering execution, maintaining high uptime, and building maintainable backend architecture."
+            "Focused on aligning product requirements with stable engineering execution, maintaining high uptime, and maintaining clean microservices architecture."
         ],
         focusAreas: [
-            "Backend architecture for multi-tenant B2B SaaS platforms",
-            "Designing tenant data isolation, security, and authorization rules",
-            "SQL query optimization, database indexing, and schema migrations",
-            "Defining API contracts, versioning standards, and CI/CD workflows",
-            "Code reviews, technical debt reduction, and team mentoring"
+            "Backend architecture and microservices for multi-tenant B2B SaaS platforms",
+            "Designing tenant data isolation, RBAC security, and authorization rules",
+            "SQL query optimization, database indexing, and version-controlled schema migrations",
+            "Defining REST & GraphQL API contracts, OpenAPI specifications, and CI/CD workflows",
+            "Code reviews, technical debt reduction, system design, and engineering mentorship"
+        ],
+        featuredProjects: [
+            "Genexr Analytics",
+            "Fonefix Repair Management System",
+            "GigHQ",
+            "Planolitix",
+            "Moneyguide",
+            "Vetty"
         ]
     },
     "python-fastapi": {
         slug: "python-fastapi",
         name: "Python / FastAPI Developer",
         heroTitle: "Senior Python & FastAPI Developer · Async Microservices & AI",
-        heroTagline: "Python backend engineer building async FastAPI microservices, Pydantic validation layers, and AI integrations.",
+        heroTagline: "Python backend engineer developing async FastAPI microservices, Pydantic validation layers, and AI integrations.",
         printTitle: "Senior Python & FastAPI Developer • Async Microservices & AI Integrations",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior Python Developer with 12+ years of software engineering experience building asynchronous APIs, backend services, and AI integrations.",
+            "Senior Python Developer with 12+ years of software engineering experience developing asynchronous APIs, backend services, and AI integrations.",
             "Core stack includes FastAPI, Pydantic v2, AsyncIO, SQLAlchemy/SQLModel, Celery, Redis, and PostgreSQL. Experienced connecting LLM APIs (OpenAI, Deepgram, Azure) with real-time WebSocket connections and background task queues.",
             "Emphasizes typed Python 3.12+ code, structured PyTest coverage, clear API documentation, and containerized cloud deployment."
         ],
         focusAreas: [
-            "Async REST APIs and microservices with FastAPI & Pydantic v2",
-            "LLM integration, streaming Speech-to-Text (STT), and AI pipelines",
-            "SQLAlchemy database design, async migrations, and PostgreSQL indexing",
+            "Async RESTful & GraphQL APIs and microservices with Python 3.12+, FastAPI & Pydantic v2",
+            "LLM AI integration (OpenAI GPT-4o, LangChain), streaming STT, and AI pipelines",
+            "SQLAlchemy 2.0 / SQLModel database design, async migrations, and PostgreSQL indexing",
             "Background job queues with Celery, Redis, and AsyncIO event loops",
-            "Docker containerization, PyTest automation, and CI/CD deployment"
+            "Docker containerization, PyTest automation, OpenAPI docs, and CI/CD deployment"
+        ],
+        featuredProjects: [
+            "KundaliLabs",
+            "Genexr Analytics",
+            "Fonefix Repair Management System",
+            "AttendAssist",
+            "Planolitix",
+            "Vetty"
         ]
     }
 };
