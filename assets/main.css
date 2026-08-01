@@ -965,6 +965,13 @@ img {
   content: "▾";
 }
 
+/* Education */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 /* Contact */
 .contact-list {
   list-style: none;
@@ -1060,8 +1067,8 @@ img {
   }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* Responsive Screen Queries */
+@media screen and (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1116,7 +1123,7 @@ img {
   }
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
   .topbar-inner {
     padding-inline: 16px;
     flex-direction: column;
@@ -1656,6 +1663,7 @@ img {
   .project-media,
   .hero,
   .section-side,
+  #contact,
   .site-footer,
   .company-logo,
   .brand-icon,
@@ -1665,6 +1673,7 @@ img {
   .chip-brand-logo,
   .brand-link-logo,
   .contact-brand-logo,
+  #contributions .project-meta,
   summary {
     display: none !important;
     width: 0 !important;
@@ -1727,6 +1736,8 @@ img {
   .section-header {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
+    text-align: left !important;
+    align-items: flex-start !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
@@ -1744,6 +1755,7 @@ img {
     border-bottom: 1.5px solid #000000 !important;
     padding-bottom: 3px !important;
     margin: 6px 0 8px 0 !important;
+    text-align: left !important;
   }
 
   .section-subtitle {
@@ -1752,11 +1764,24 @@ img {
     margin-top: 2px !important;
     margin-bottom: 6px !important;
     line-height: 1.35 !important;
+    text-align: left !important;
   }
 
+  .section-body,
+  .section-body.two-column,
   .about-grid,
   .tech-grid {
     display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: none !important;
+  }
+
+  .about-main,
+  .hero-main {
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .about-main p,
@@ -1766,10 +1791,12 @@ img {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
     line-height: 1.5 !important;
+    text-align: left !important;
   }
 
   /* Experience Timeline (Starts on New Page for Professional ATS PDF Layout) */
-  #experience {
+  #experience,
+  #contributions {
     page-break-before: always !important;
     break-before: page !important;
     margin-top: 0 !important;
@@ -1803,26 +1830,26 @@ img {
   }
 
   .timeline-item {
-    margin-bottom: 7px !important;
+    margin-bottom: 2px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
   .timeline-body .body-text {
-    font-size: 8.8pt !important;
-    line-height: 1.32 !important;
-    margin-bottom: 2px !important;
+    font-size: 8.5pt !important;
+    line-height: 1.24 !important;
+    margin-bottom: 1px !important;
   }
 
   .timeline-item .card-title {
-    font-size: 9.8pt !important;
+    font-size: 9.6pt !important;
     margin: 0 0 1px 0 !important;
   }
 
   .timeline-item .card-meta {
-    font-size: 8.5pt !important;
-    margin: 0 0 2px 0 !important;
-    line-height: 1.25 !important;
+    font-size: 8.4pt !important;
+    margin: 0 0 1px 0 !important;
+    line-height: 1.2 !important;
   }
 
   .card-meta.text-right,
@@ -1833,14 +1860,14 @@ img {
   }
 
   .timeline-item .bullet-list {
-    margin: 1.5px 0 2.5px 0 !important;
-    padding-left: 13px !important;
+    margin: 0.5px 0 1px 0 !important;
+    padding-left: 12px !important;
   }
 
   .timeline-item .bullet-list li {
-    margin-bottom: 1px !important;
-    font-size: 8.7pt !important;
-    line-height: 1.28 !important;
+    margin-bottom: 0px !important;
+    font-size: 8.5pt !important;
+    line-height: 1.22 !important;
   }
 
   .project-card {
@@ -1851,7 +1878,7 @@ img {
   }
 
   .education-item {
-    margin-bottom: 10px !important;
+    margin-bottom: 4px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     border-radius: 0;

@@ -315,6 +315,7 @@ if (root) {
                     <div>
                       <h3 class="card-title">${item.degree}</h3>
                       <p class="card-meta">${item.institution}</p>
+                      ${item.details ? `<p class="card-details" style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">${item.details}</p>` : ""}
                     </div>
                     <div class="card-meta text-right">${item.period}</div>
                   </header>

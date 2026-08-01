@@ -28,6 +28,7 @@ Thumbs.db
 
 # Exported output or generated docs
 *.pdf
+!assets/Ravi_K_Gupta_Resume.pdf
 *.docx
 str.txt
 resume-output/

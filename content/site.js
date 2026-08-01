@@ -693,6 +693,12 @@ export const site = {
                 degree: "Bachelor of Technology (B.Tech.)",
                 period: "2008 - 2012",
             },
+            {
+                institution: "Board of High School and Intermediate Education Uttar Pradesh, India",
+                degree: "Intermediate (Class XII)",
+                details: "Subjects: Physics, Chemistry, Mathematics, English",
+                period: "2008",
+            },
         ],
     },
 
