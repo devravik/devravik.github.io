@@ -1125,7 +1125,7 @@ img {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1180,7 +1180,7 @@ img {
   }
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
   .topbar-inner {
     padding-inline: 16px;
     flex-direction: column;
@@ -1746,6 +1746,10 @@ img {
     padding: 0 !important;
     border: none !important;
     overflow: hidden !important;
+  }
+
+  .section-body.two-column {
+    grid-template-columns: 1fr;
   }
 
   .print-only-header {
