@@ -301,6 +301,21 @@ export const site = {
     skills: {
         heading: "Skills",
         categories: [
+
+            {
+                name: "Languages & Frameworks",
+                items: [
+                    "PHP / Laravel",
+                    "Statamic",
+                    "Go (Golang, Gin, Fiber)",
+                    "Node.js",
+                    "Python (FastAPI)",
+                    "JavaScript / TypeScript",
+                    "CodeIgniter",
+                    "WordPress",
+                    "PHPUnit / Pest",
+                ],
+            },
             {
                 name: "Backend & Architecture",
                 items: [
@@ -308,46 +323,51 @@ export const site = {
                     "Data modeling for real-world, messy domains",
                     "Tenant isolation strategies (shared and isolated)",
                     "Horizontal scaling and performance tuning",
+                    "Microservices architecture and service decomposition",
+                    "GraphQL API design",
                     "Background processing pipelines and queues",
+                    "JWT and stateless API authentication",
                 ],
             },
-            {
-                name: "Languages & Frameworks",
-                items: [
-                    "PHP / Laravel",
-                    "CodeIgniter",
-                    "WordPress",
-                    "Go (Golang, Fiber)",
-                    "JavaScript / TypeScript",
-                    "Python (FastAPI)",
-                    "Node.js",
-                ],
-            },
-            {
-                name: "Frontend & Apps",
-                items: ["Vue.js", "React", "Next.js", "React Native (Expo)", "Statamic"],
-            },
+
             {
                 name: "Data & Search",
                 items: [
                     "Relational database design (MySQL, PostgreSQL)",
+                    "NoSQL databases (MongoDB)",
                     "Query optimization and indexing",
-                    "Analytics / reporting data models",
                     "Algolia",
-                    "Meilisearch / Elasticsearch",
+                    "Meilisearch",
+                    "Elasticsearch",
                     "Supabase",
-                    "Neon",
+                    "Neon DB",
                 ],
             },
             {
                 name: "Cloud, DevOps & Reliability",
                 items: [
                     "AWS (S3, EC2, SES, RDS), DigitalOcean, Vercel",
+                    "Google Cloud Platform (GCP)",
+                    "Azure",
                     "Docker & containers",
+                    "Kubernetes",
+                    "Serverless container deployment",
                     "GitHub Actions / CI/CD",
-                    "Netlify",
+                    "Nginx & Apache web servers",
+                    "Linux server administration",
                     "Caching layers and Redis",
                     "Observability and application monitoring",
+                ],
+            },
+            {
+                name: "Frontend & Apps",
+                items: [
+                    "Vue.js",
+                    "React",
+                    "Next.js",
+                    "React Native (Expo)",
+                    "Laravel Blade / Livewire",
+                    "Tailwind CSS",
                 ],
             },
             {
@@ -363,6 +383,7 @@ export const site = {
                     "Google (Gemini)",
                 ],
             },
+
         ],
     },
 
