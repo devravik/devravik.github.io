@@ -126,29 +126,41 @@ img {
 .topbar-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
-  font-size: 0.95rem;
-  color: var(--muted);
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .topbar-dot {
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
-  box-shadow: 0 0 14px rgba(240, 138, 93, 0.6);
+  box-shadow: 0 0 12px rgba(240, 138, 93, 0.6);
+  flex-shrink: 0;
+}
+
+.topbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.25;
 }
 
 .topbar-name {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.98rem;
   color: var(--text);
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .topbar-role {
-  font-size: 0.72rem;
-  color: var(--faint);
-  letter-spacing: 0.02em;
+  font-size: 0.74rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-top: 1px;
 }
 
 .topbar-nav {
@@ -274,7 +286,14 @@ img {
 
 .hero-actions {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-actions-row {
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
 }
 
@@ -302,6 +321,19 @@ img {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 35px rgba(240, 138, 93, 0.45);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
 .btn-ghost {
@@ -1457,6 +1489,13 @@ img {
     font-size: 8.5pt !important;
     margin: 0 0 2px 0 !important;
     line-height: 1.25 !important;
+  }
+
+  .card-meta.text-right,
+  .card-meta.text-right div {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: right !important;
   }
 
   .timeline-item .bullet-list {

@@ -1,0 +1,34 @@
+name: Generate ATS Resume PDF on Push
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate PDF via Headless Chrome
+        run: |
+          node generate-pdf.js
+
+      - name: Commit & Push Updated PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "build(pdf): auto-generate updated ATS Resume PDF"
+          file_pattern: "assets/Ravi_K_Gupta_Resume.pdf"

@@ -160,8 +160,10 @@ if (root) {
         <div class="topbar-inner">
           <a href="#top" class="topbar-brand">
             <span class="topbar-dot"></span>
-            <span class="topbar-name">${site.hero.name}</span>
-            <span class="topbar-role">${site.hero.title}</span>
+            <div class="topbar-brand-text">
+              <span class="topbar-name">${site.hero.name}</span>
+              <span class="topbar-role">${site.hero.title}</span>
+            </div>
           </a>
           <nav class="topbar-nav">
             <a href="#about">About</a>
@@ -196,21 +198,29 @@ if (root) {
                 <span>Open to remote backend roles</span>
               </div>
               <div class="hero-actions">
-                <button class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF">
-                  <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                  <span>Resume (PDF)</span>
-                </button>
-                ${site.hero.actions
-      .map((action) => {
-        const logo = getBrandLogoUrl(action.label, action.href);
-        const iconHtml = logo
-          ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
-          : action.href.startsWith("mailto:")
-            ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
-            : "";
-        return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
-      })
-      .join("")}
+                <div class="hero-actions-row">
+                  ${site.hero.actions
+        .map((action) => {
+          const logo = getBrandLogoUrl(action.label, action.href);
+          const iconHtml = logo
+            ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
+            : action.href.startsWith("mailto:")
+              ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
+              : "";
+          return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
+        })
+        .join("")}
+                </div>
+                <div class="hero-actions-row">
+                  <a href="./assets/Ravi_K_Gupta_Resume.pdf" download="Ravi_K_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF">
+                    <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume">
+                    <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    <span>Print Resume</span>
+                  </button>
+                </div>
               </div>
             </div>
             <aside class="hero-aside">
@@ -463,10 +473,20 @@ if (root) {
                   I’m ${site.contact.openToWork ? "currently open to" : "selective about"
     } new backend roles, especially remote positions on SaaS or product teams.
                 </p>
-                <a href="mailto:${site.contact.email}" class="btn btn-primary" style="margin-top:18px">
-                  <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  <span>${site.contact.email}</span>
-                </a>
+                <div class="contact-actions" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;">
+                  <a href="mailto:${site.contact.email}" class="btn btn-primary">
+                    <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>${site.contact.email}</span>
+                  </a>
+                  <a href="./assets/Ravi_K_Gupta_Resume.pdf" download="Ravi_K_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-download-pdf" title="Download Executive Resume PDF">
+                    <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume">
+                    <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    <span>Print Resume</span>
+                  </button>
+                </div>
               </div>
               <div class="section-side">
                 <ul class="contact-list">
@@ -622,7 +642,7 @@ if (root) {
   };
 
   document.addEventListener("click", (e) => {
-    if (e.target.closest(".js-download-pdf")) {
+    if (e.target.closest(".js-print-pdf")) {
       window.print();
       return;
     }
