@@ -10,10 +10,15 @@ const sectionHeader = (num, eyebrow, title) => `
   </div>
 `;
 
-// Map skill strings -> logo filename in /assets/logos.
-// Keys are tested as substrings (case-insensitive) against each skill label.
+// Map skill & brand strings -> logo filename in /assets/logos.
+// Keys are tested as substrings (case-insensitive) against each label / url.
 const skillLogos = [
+  ["waggingtail", "waggingtail-logo.png"],
+  ["infoicon", "infoicon-logo.png"],
+  ["webzesty", "webzesty-logo.png"],
+  ["sunhill", "sunhill-logo.png"],
   ["laravel", "laravel-com-logo.png"],
+  ["php", "php-net-logo.png"],
   ["codeigniter", "codeigniter-com-logo.png"],
   ["wordpress", "wordpress-com-logo.png"],
   ["go", "golangweekly-com-logo.png"],
@@ -30,7 +35,14 @@ const skillLogos = [
   ["digitalocean", "digitalocean-com-logo.png"],
   ["vercel", "vercel-com-logo.png"],
   ["docker", "docker-com-logo.png"],
-  ["github", "github-co-jp-logo.png"],
+  ["github", "github-blog-logo.png"],
+  ["linkedin", "linkedin-com-logo.png"],
+  ["packagist", "packagist-com-logo.png"],
+  ["instagram", "instagram-com-logo.png"],
+  ["stackoverflow", "stackoverflow-com-logo.png"],
+  ["play store", "googleplaylivros-com-logo.png"],
+  ["play.google", "googleplaylivros-com-logo.png"],
+  ["google play", "googleplaylivros-com-logo.png"],
   ["redis", "redis-net-cn-logo.png"],
   ["vue", "vuejs-org-logo.png"],
   ["react native", "reactnative-dev-logo.png"],
@@ -53,11 +65,8 @@ const skillLogos = [
   ["langchain", "langchain-com-logo.png"],
 ];
 
-const logoFor = (label) => {
+const logoFor = (label = "") => {
   const l = label.toLowerCase();
-  // Earliest key in the label wins; ties broken by the longer key.
-  // Handles "Google (Gemini)" -> google over go, and the
-  // "AWS (...), DigitalOcean, Vercel" line -> aws (appears first).
   let best = null;
   let bestPos = Infinity;
   for (const [key, file] of skillLogos) {
@@ -71,6 +80,18 @@ const logoFor = (label) => {
   return best ? `./assets/logos/${best[1]}` : null;
 };
 
+const getBrandLogoUrl = (label = "", href = "") => {
+  return logoFor(label + " " + href);
+};
+
+const renderLinkWithLogo = (link, extraClass = "") => {
+  const logo = getBrandLogoUrl(link.label, link.href);
+  const imgHtml = logo
+    ? `<img src="${logo}" alt="" class="brand-link-logo" aria-hidden="true" />`
+    : `<svg class="brand-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+  return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary brand-link ${extraClass}">${imgHtml}<span>${link.label}</span></a>`;
+};
+
 // One skill: optional small monochrome logo tile + label.
 const skillItem = (label) => {
   const logo = logoFor(label);
@@ -78,6 +99,15 @@ const skillItem = (label) => {
     ? `<img class="skill-logo" src="${logo}" alt="" aria-hidden="true" loading="lazy" />`
     : "";
   return `<span class="skill-item">${img}<span class="skill-name">${label}</span></span>`;
+};
+
+// Skill chip with brand logo
+const renderSkillChip = (label) => {
+  const logo = logoFor(label);
+  const imgHtml = logo
+    ? `<img src="${logo}" alt="" class="chip-brand-logo" aria-hidden="true" loading="lazy" />`
+    : "";
+  return `<span class="chip chip-soft">${imgHtml}<span>${label}</span></span>`;
 };
 
 if (root) {
@@ -109,13 +139,13 @@ if (root) {
               <p class="hero-kicker">Senior Backend Engineer</p>
               <h1 class="hero-title">${site.hero.name}</h1>
               <p class="hero-tagline">${site.hero.tagline.replace(
-    /(Laravel & Go|multi-tenant SaaS|fast and predictable)/g,
-    "<strong>$1</strong>"
-  )}</p>
+                /(Laravel & Go|multi-tenant SaaS|fast and predictable)/g,
+                "<strong>$1</strong>"
+              )}</p>
               <ul class="hero-highlights">
                 ${site.hero.highlights
-      .map((h) => `<li>${h}</li>`)
-      .join("")}
+                  .map((h) => `<li>${h}</li>`)
+                  .join("")}
               </ul>
               <div class="hero-meta">
                 <span>${site.hero.location}</span>
@@ -124,15 +154,18 @@ if (root) {
               </div>
               <div class="hero-actions">
                 ${site.hero.actions
-      .map(
-        (action, index) => `
-                  <a href="${action.href}" class="btn ${index === 0 ? "btn-primary" : "btn-ghost"
-          }">
-                    ${action.label}
-                  </a>
-                `
-      )
-      .join("")}
+                  .map((action, index) => {
+                    const logo = getBrandLogoUrl(action.label, action.href);
+                    const iconHtml = logo
+                      ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
+                      : action.href.startsWith("mailto:")
+                      ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
+                      : "";
+                    return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn ${
+                      index === 0 ? "btn-primary" : "btn-ghost"
+                    }">${iconHtml}<span>${action.label}</span></a>`;
+                  })
+                  .join("")}
               </div>
             </div>
             <aside class="hero-aside">
@@ -147,10 +180,10 @@ if (root) {
                 <div class="hero-stack">
                   <span class="stack-label">Core stack</span>
                   <div class="stack-tags">
-                    <span class="chip chip-soft">Laravel</span>
-                    <span class="chip chip-soft">Go (Fiber)</span>
-                    <span class="chip chip-soft">Multi-tenant SaaS</span>
-                    <span class="chip chip-soft">APIs</span>
+                    ${renderSkillChip("Laravel")}
+                    ${renderSkillChip("Go (Fiber)")}
+                    ${renderSkillChip("Multi-tenant SaaS")}
+                    ${renderSkillChip("APIs")}
                   </div>
                 </div>
                 <div class="hero-terminal">
@@ -178,15 +211,15 @@ if (root) {
             <div class="section-body two-column">
               <div>
                 ${site.about.paragraphs
-      .map((p) => `<p class="body-text">${p}</p>`)
-      .join("")}
+                  .map((p) => `<p class="body-text">${p}</p>`)
+                  .join("")}
               </div>
               <div class="section-side">
                 <h3 class="section-subheading">What I work on</h3>
                 <ul class="bullet-list">
                   ${site.about.focusAreas
-      .map((item) => `<li>${item}</li>`)
-      .join("")}
+                    .map((item) => `<li>${item}</li>`)
+                    .join("")}
                 </ul>
               </div>
             </div>
@@ -198,19 +231,19 @@ if (root) {
             ${sectionHeader("02", "Tech Stack", "Skills & tools")}
             <div class="skills-list">
               ${site.skills.categories
-      .map(
-        (cat) => `
+                .map(
+                  (cat) => `
                 <div class="skill-row reveal">
                   <div class="skill-label">${cat.name}</div>
                   <div class="skill-items">
                     ${cat.items
-            .map((s) => skillItem(s))
-            .join("")}
+                      .map((s) => skillItem(s))
+                      .join("")}
                   </div>
                 </div>
               `
-      )
-      .join("")}
+                )
+                .join("")}
             </div>
           </div>
         </section>
@@ -220,41 +253,36 @@ if (root) {
             ${sectionHeader("03", "Open Source", site.contributions.heading)}
             <div class="contributions-grid">
               ${site.contributions.items
-      .map(
-        (contribution) => `
+                .map(
+                  (contribution) => `
                 <article class="project-card reveal">
                   <header class="project-header">
                     <div>
                       <h3 class="project-title">${contribution.name}</h3>
                       <p class="project-meta">
-                        ${contribution.version ? `v${contribution.version} · ` : ""}${contribution.stats
-            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
-            : ""
-          }
+                        ${contribution.version ? `v${contribution.version} · ` : ""}${
+                          contribution.stats
+                            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
+                            : ""
+                        }
                       </p>
                     </div>
                     <div class="project-links">
                       ${contribution.links
-            .map(
-              (link) => `
-                        <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">
-                          ${link.label}
-                        </a>
-                      `
-            )
-            .join("")}
+                        .map((link) => renderLinkWithLogo(link))
+                        .join("")}
                     </div>
                   </header>
                   <p class="body-text">${contribution.description}</p>
                   <div class="tag-row">
                     ${contribution.techStack
-            .map((t) => `<span class="chip chip-soft">${t}</span>`)
-            .join("")}
+                      .map((t) => renderSkillChip(t))
+                      .join("")}
                   </div>
                 </article>
               `
-      )
-      .join("")}
+                )
+                .join("")}
             </div>
           </div>
         </section>
@@ -264,11 +292,12 @@ if (root) {
             ${sectionHeader("04", "Selected Work", site.projects.heading)}
             <div class="projects-grid">
               ${site.projects.items
-      .map(
-        (project) => `
-                <article class="project-card reveal">
-                  ${project.image
-            ? `
+                .map(
+                  (project) => `
+                <article class="project-card reveal layout-${project.layout || "half"}">
+                  ${
+                    project.image
+                      ? `
                   <div class="project-media">
                     <img
                       src="${project.image}"
@@ -278,38 +307,35 @@ if (root) {
                     />
                   </div>
                   `
-            : ""
-          }
-                  <header class="project-header">
-                    <div>
-                      <h3 class="project-title">${project.name}</h3>
-                      <p class="project-meta">
-                        ${project.category ? `${project.category} · ` : ""}${project.role
-          } · ${project.period}
-                      </p>
+                      : ""
+                  }
+                  <div class="project-content">
+                    <header class="project-header">
+                      <div>
+                        <h3 class="project-title">${project.name}</h3>
+                        <p class="project-meta">
+                          ${project.category ? `${project.category} · ` : ""}${
+                            project.role
+                          } · ${project.period}
+                        </p>
+                      </div>
+                      <div class="project-links">
+                        ${project.links
+                          .map((link) => renderLinkWithLogo(link))
+                          .join("")}
+                      </div>
+                    </header>
+                    <p class="body-text">${project.description}</p>
+                    <div class="tag-row">
+                      ${project.techStack
+                        .map((t) => renderSkillChip(t))
+                        .join("")}
                     </div>
-                    <div class="project-links">
-                      ${project.links
-            .map(
-              (link) => `
-                        <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">
-                          ${link.label}
-                        </a>
-                      `
-            )
-            .join("")}
-                    </div>
-                  </header>
-                  <p class="body-text">${project.description}</p>
-                  <div class="tag-row">
-                    ${project.techStack
-            .map((t) => `<span class="chip chip-soft">${t}</span>`)
-            .join("")}
                   </div>
                 </article>
               `
-      )
-      .join("")}
+                )
+                .join("")}
             </div>
           </div>
         </section>
@@ -319,15 +345,26 @@ if (root) {
             ${sectionHeader("05", "Experience", site.experience.heading)}
             <div class="timeline">
               ${site.experience.roles
-      .map(
-        (role) => `
+                .map(
+                  (role) => {
+                    const logo = getBrandLogoUrl(role.company, role.website);
+                    const companyHtml = role.website
+                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company}</a>`
+                      : role.company;
+                    const logoHtml = logo
+                      ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
+                      : "";
+                    return `
                 <article class="timeline-item reveal">
                   <div class="timeline-dot"></div>
                   <div class="timeline-body card">
                     <header class="card-header">
-                      <div>
-                        <h3 class="card-title">${role.title}</h3>
-                        <p class="card-meta">${role.company}</p>
+                      <div class="company-header-main">
+                        ${logoHtml}
+                        <div>
+                          <h3 class="card-title">${role.title}</h3>
+                          <p class="card-meta">${companyHtml}</p>
+                        </div>
                       </div>
                       <div class="card-meta text-right">
                         <div>${role.period}</div>
@@ -338,29 +375,31 @@ if (root) {
                     <ul class="bullet-list">
                       ${role.bullets.map((b) => `<li>${b}</li>`).join("")}
                     </ul>
-                    ${role.products && role.products.length
-            ? `
+                    ${
+                      role.products && role.products.length
+                        ? `
                       <details class="products">
                         <summary>Products & platforms</summary>
                         <ul class="bullet-list">
                           ${role.products
-              .map((p) => `<li>${p}</li>`)
-              .join("")}
+                            .map((p) => `<li>${p}</li>`)
+                            .join("")}
                         </ul>
                       </details>
                     `
-            : ""
-          }
+                        : ""
+                    }
                     <div class="tag-row">
                       ${role.techStack
-            .map((t) => `<span class="chip chip-soft">${t}</span>`)
-            .join("")}
+                        .map((t) => renderSkillChip(t))
+                        .join("")}
                     </div>
                   </div>
                 </article>
-              `
-      )
-      .join("")}
+              `;
+                  }
+                )
+                .join("")}
             </div>
           </div>
         </section>
@@ -371,29 +410,47 @@ if (root) {
             <div class="section-body two-column">
               <div>
                 <p class="body-text">
-                  I’m ${site.contact.openToWork ? "currently open to" : "selective about"
-    } new backend roles, especially remote positions on SaaS or product teams.
+                  I’m ${
+                    site.contact.openToWork ? "currently open to" : "selective about"
+                  } new backend roles, especially remote positions on SaaS or product teams.
                 </p>
                 <a href="mailto:${site.contact.email}" class="btn btn-primary" style="margin-top:18px">
-                  ${site.contact.email}
+                  <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span>${site.contact.email}</span>
                 </a>
               </div>
               <div class="section-side">
                 <ul class="contact-list">
                   <li>
+                    <span class="contact-item-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </span>
+                    <span class="label">Email</span>
+                    <a href="mailto:${site.contact.email}" class="link-primary">${site.contact.email}</a>
+                  </li>
+                  <li>
+                    <span class="contact-item-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </span>
                     <span class="label">Location</span>
                     <span>${site.contact.location}</span>
                   </li>
                   ${site.contact.links
-      .map(
-        (link) => `
-                    <li>
-                      <span class="label">${link.label}</span>
-                      <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">${link.href}</a>
-                    </li>
-                  `
-      )
-      .join("")}
+                    .map((link) => {
+                      const logo = getBrandLogoUrl(link.label, link.href);
+                      const iconHtml = logo
+                        ? `<img src="${logo}" alt="" class="contact-brand-logo" aria-hidden="true" />`
+                        : `<svg class="contact-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+                      const cleanUrl = link.href.replace(/^https?:\/\/(www\.)?/, "");
+                      return `
+                        <li>
+                          <span class="contact-item-icon">${iconHtml}</span>
+                          <span class="label">${link.label}</span>
+                          <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">${cleanUrl}</a>
+                        </li>
+                      `;
+                    })
+                    .join("")}
                 </ul>
               </div>
             </div>
@@ -453,3 +510,4 @@ if (root) {
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 }
+

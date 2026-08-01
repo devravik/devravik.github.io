@@ -282,6 +282,7 @@ export const site = {
                 category: "Product",
                 role: "Senior Backend Engineer (Founder)",
                 period: "2026 - Present",
+                layout: "hero",
                 description:
                     "Analytics and reporting layer for SaaS products. It exposes a clean API for sending events and gives each tenant its own dashboards, charts, and exports.",
                 image: "./assets/projects/genexr-example-001.png",
@@ -304,6 +305,7 @@ export const site = {
                 category: "Digital Transformation",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "half",
                 description:
                     "Backend behind a large device repair business - handles bookings, job state, technician updates, and the operational reporting the team runs their day on.",
                 image: "./assets/projects/fonefix-example-001.png",
@@ -320,6 +322,7 @@ export const site = {
                 category: "Digital Businesses",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "half",
                 description:
                     "Community and booking platform that connects musicians with hospitality venues, with feeds, profiles, and event workflows.",
                 image: "./assets/projects/gighq-example-001.png",
@@ -336,6 +339,7 @@ export const site = {
                 category: "Financial Tools",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "third",
                 description:
                     "Financial diagnostic tool that uses cashflow modelling to show clients how their position changes across different life stages.",
                 image: "./assets/projects/planolitix-example-001.png",
@@ -352,6 +356,7 @@ export const site = {
                 category: "Financial Tools",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "third",
                 description:
                     "Retirement and planning tool that lets advisers compare scenarios and generate client-friendly reports.",
                 image: "./assets/projects/moneyguide-example-001.png",
@@ -368,6 +373,7 @@ export const site = {
                 category: "Digital Learning",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "third",
                 description:
                     "Microlearning platform for retail sales teams, with snack-sized lessons and coaching activities behind a subscription model.",
                 image: "./assets/projects/skillsnacks-example-001.png",
@@ -384,6 +390,7 @@ export const site = {
                 category: "Digital Businesses",
                 role: "Senior Backend Engineer · Waggingtail",
                 period: "Ongoing",
+                layout: "half",
                 description:
                     "Subscription e‑commerce platform for pet treatments, handling recurring orders, billing, and fulfilment.",
                 image: "./assets/projects/vetty-example-001.png",
@@ -400,6 +407,7 @@ export const site = {
                 category: "Product",
                 role: "Independent Software Developer",
                 period: "2025 - Present",
+                layout: "half",
                 description:
                     "Attendance management app focused on making the daily check‑in/out process simple for teachers and teams.",
                 image: "./assets/projects/attendassist-example-001.png",
@@ -417,32 +425,13 @@ export const site = {
                     },
                 ],
             },
-            {
-                name: "Top Places India",
-                category: "Product",
-                role: "Senior Backend Engineer",
-                period: "2026",
-                description:
-                    "Travel discovery platform that helps people explore Indian destinations, itineraries, and lesser-known spots in one place.",
-                image: "./assets/projects/topplacesindia-example-001.png",
-                techStack: [
-                    "Next.js application shell",
-                    "Supabase / PostgreSQL data layer",
-                    "Destination search and filters",
-                    "Caching and incremental rendering",
-                ],
-                links: [
-                    {
-                        label: "Live site",
-                        href: "https://www.topplacesindia.com/",
-                    },
-                ],
-            },
+
             {
                 name: "KundaliLabs",
                 category: "Product",
                 role: "Independent Software Developer",
                 period: "2025 - Present",
+                layout: "hero",
                 description:
                     "AI-powered Vedic astrology platform using Swiss Ephemeris for all calculations and GPT-4o for interpretations. Covers Janam Kundli, daily horoscope, Panchang, Dasha timeline, Kundli matching, and numerology across 10 Indian languages. Available as a live web app and a mobile app on the Play Store.",
                 image: "./assets/projects/kundalilabs-example.png",
@@ -474,6 +463,7 @@ export const site = {
                 category: "Open Source",
                 role: "Independent Software Developer",
                 period: "2025",
+                layout: "half",
                 description:
                     "Self-hosted Reddit lead discovery and AI analysis platform. Monitors configurable subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference runs, and tracks outreach through a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.",
                 image: "./assets/projects/redditradar-example.png",
@@ -497,6 +487,7 @@ export const site = {
                 category: "Open Source",
                 role: "Independent Software Developer",
                 period: "2025",
+                layout: "half",
                 description:
                     "High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps, plugins, and indie tools - handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification, webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the hot path.",
                 image: "./assets/projects/go-license-api-example.png",
@@ -516,10 +507,33 @@ export const site = {
                 ],
             },
             {
+                name: "Top Places India",
+                category: "Product",
+                role: "Senior Backend Engineer",
+                period: "2026",
+                layout: "half",
+                description:
+                    "Travel discovery platform that helps people explore Indian destinations, itineraries, and lesser-known spots in one place.",
+                image: "./assets/projects/topplacesindia-example-001.png",
+                techStack: [
+                    "Next.js application shell",
+                    "Supabase / PostgreSQL data layer",
+                    "Destination search and filters",
+                    "Caching and incremental rendering",
+                ],
+                links: [
+                    {
+                        label: "Live site",
+                        href: "https://www.topplacesindia.com/",
+                    },
+                ],
+            },
+            {
                 name: "TalkBridge",
                 category: "Open Source",
                 role: "Independent Software Developer",
                 period: "2025",
+                layout: "half",
                 description:
                     "Real-time video calls with live AI-translated captions - no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50–150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
                 image: "./assets/projects/talkbridge-example.png",
@@ -546,6 +560,7 @@ export const site = {
         roles: [
             {
                 company: "Waggingtail Technology Limited",
+                website: "https://www.waggingtail.co/",
                 title: "Senior Software Engineer · Full-time",
                 location: "Delhi, India · Remote",
                 period: "Oct 2018 - Present",
@@ -582,6 +597,7 @@ export const site = {
             },
             {
                 company: "Infoicon Technologies",
+                website: "https://www.infoicontechnologies.com/",
                 title: "Senior Programmer",
                 location: "Noida, Uttar Pradesh, India",
                 period: "Jun 2015 - Oct 2018",
@@ -599,6 +615,7 @@ export const site = {
             },
             {
                 company: "Webzesty Pvt Ltd",
+                website: "https://webzesty.net",
                 title: "Sr. Web Developer",
                 location: "Greater Delhi Area · On-site",
                 period: "Apr 2014 - Jun 2015",
@@ -615,6 +632,7 @@ export const site = {
             },
             {
                 company: "SunHill Systems Pvt Ltd",
+                website: "https://www.sunhill.in/",
                 title: "Web Developer",
                 location: "Greater Delhi Area · On-site",
                 period: "Aug 2013 - Apr 2014",

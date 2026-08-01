@@ -452,7 +452,7 @@ img {
 
 .section-body.two-column {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 40px;
   align-items: flex-start;
 }
@@ -567,6 +567,17 @@ img {
   border-color: rgba(124, 244, 255, 0.2);
 }
 
+.chip-brand-logo {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-right: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .skill-item {
   display: inline-flex;
   align-items: center;
@@ -597,6 +608,42 @@ img {
 .skill-item:hover .skill-logo {
   opacity: 1;
   transform: translateY(-1px);
+}
+
+/* Brand logos & icons in links, buttons, and contact */
+.btn-brand-logo,
+.brand-link-logo,
+.contact-brand-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-brand-icon,
+.brand-link-icon,
+.contact-brand-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* Cards shared */
@@ -671,11 +718,13 @@ img {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   padding: 0 0 6px;
   border-radius: var(--radius-md);
   background: linear-gradient(165deg, rgba(20, 24, 38, 0.72), rgba(9, 11, 19, 0.78));
@@ -684,16 +733,52 @@ img {
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
+.project-card .project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .project-card:hover {
   transform: translateY(-4px);
   border-color: rgba(124, 244, 255, 0.4);
   box-shadow: var(--shadow-lift);
 }
 
+/* Bento Grid mixed card sizes on desktop (> 900px) */
+.project-card.layout-hero {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+}
+
+.project-card.layout-hero .project-media {
+  padding-top: 0;
+  height: 100%;
+  min-height: 280px;
+}
+
+.project-card.layout-wide {
+  grid-column: span 7;
+}
+
+.project-card.layout-medium {
+  grid-column: span 5;
+}
+
+.project-card.layout-half {
+  grid-column: span 6;
+}
+
+.project-card.layout-third {
+  grid-column: span 4;
+}
+
 .project-media {
   position: relative;
   width: 100%;
-  padding-top: 58%;
+  padding-top: 54%;
   overflow: hidden;
   background: var(--bg-soft);
 }
@@ -761,6 +846,34 @@ img {
   margin-bottom: 12px;
 }
 
+.company-header-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.company-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.company-link {
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.company-link:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
 .card-meta {
   margin: 2px 0 0;
   font-size: 0.85rem;
@@ -807,18 +920,33 @@ img {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   font-size: 0.95rem;
 }
 
 .contact-list li {
   display: flex;
-  gap: 16px;
-  align-items: baseline;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-item-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent-strong);
+}
+
+.contact-item-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .label {
-  min-width: 88px;
+  min-width: 90px;
   color: var(--faint);
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -882,6 +1010,26 @@ img {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card.layout-hero,
+  .project-card.layout-wide,
+  .project-card.layout-medium,
+  .project-card.layout-half,
+  .project-card.layout-third {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card.layout-hero .project-media {
+    padding-top: 54%;
+    min-height: auto;
+  }
+
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
