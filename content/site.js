@@ -285,7 +285,7 @@ export const site = {
                 layout: "hero",
                 description:
                     "Analytics and reporting layer for SaaS products. It exposes a clean API for sending events and gives each tenant its own dashboards, charts, and exports.",
-                image: "./assets/projects/genexr-example-001.png",
+                image: "./assets/projects/genexr-example-001.webp",
                 techStack: [
                     "Go (Fiber) services behind a simple HTTP API",
                     "Next.js reporting dashboard",
@@ -308,7 +308,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Backend behind a large device repair business - handles bookings, job state, technician updates, and the operational reporting the team runs their day on.",
-                image: "./assets/projects/fonefix-example-001.png",
+                image: "./assets/projects/fonefix-example-001.webp",
                 techStack: [
                     "Workflow-driven backend design",
                     "Data modelling for the full repair lifecycle",
@@ -325,7 +325,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Community and booking platform that connects musicians with hospitality venues, with feeds, profiles, and event workflows.",
-                image: "./assets/projects/gighq-example-001.png",
+                image: "./assets/projects/gighq-example-001.webp",
                 techStack: [
                     "Community and booking workflows",
                     "Artist, venue, and event data modelling",
@@ -342,7 +342,7 @@ export const site = {
                 layout: "third",
                 description:
                     "Financial diagnostic tool that uses cashflow modelling to show clients how their position changes across different life stages.",
-                image: "./assets/projects/planolitix-example-001.png",
+                image: "./assets/projects/planolitix-example-001.webp",
                 techStack: [
                     "Financial data modelling",
                     "Long-horizon cashflow calculations",
@@ -359,7 +359,7 @@ export const site = {
                 layout: "third",
                 description:
                     "Retirement and planning tool that lets advisers compare scenarios and generate client-friendly reports.",
-                image: "./assets/projects/moneyguide-example-001.png",
+                image: "./assets/projects/moneyguide-example-001.webp",
                 techStack: [
                     "Scenario modelling for retirement planning",
                     "Adviser-facing reporting and exports",
@@ -376,7 +376,7 @@ export const site = {
                 layout: "third",
                 description:
                     "Microlearning platform for retail sales teams, with snack-sized lessons and coaching activities behind a subscription model.",
-                image: "./assets/projects/skillsnacks-example-001.png",
+                image: "./assets/projects/skillsnacks-example-001.webp",
                 techStack: [
                     "Subscription access model",
                     "Learning content and assessment data structures",
@@ -393,7 +393,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Subscription e‑commerce platform for pet treatments, handling recurring orders, billing, and fulfilment.",
-                image: "./assets/projects/vetty-example-001.png",
+                image: "./assets/projects/vetty-example-001.webp",
                 techStack: [
                     "Subscription billing engine",
                     "Order and fulfilment workflows",
@@ -410,7 +410,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Attendance management app focused on making the daily check‑in/out process simple for teachers and teams.",
-                image: "./assets/projects/attendassist-example-001.png",
+                image: "./assets/projects/attendassist-example-001.webp",
                 techStack: [
                     "React Native (Expo)",
                     "Mobile-first API design",
@@ -434,7 +434,7 @@ export const site = {
                 layout: "hero",
                 description:
                     "AI-powered Vedic astrology platform using Swiss Ephemeris for all calculations and GPT-4o for interpretations. Covers Janam Kundli, daily horoscope, Panchang, Dasha timeline, Kundli matching, and numerology across 10 Indian languages. Available as a live web app and a mobile app on the Play Store.",
-                image: "./assets/projects/kundalilabs-example.png",
+                image: "./assets/projects/kundalilabs-example.webp",
                 techStack: [
                     "FastAPI (Python) backend",
                     "React + Vite frontend",
@@ -466,7 +466,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Self-hosted Reddit lead discovery and AI analysis platform. Monitors configurable subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference runs, and tracks outreach through a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.",
-                image: "./assets/projects/redditradar-example.png",
+                image: "./assets/projects/redditradar-example.webp",
                 techStack: [
                     "Next.js 16 (App Router)",
                     "Prisma 7 + PostgreSQL",
@@ -490,7 +490,7 @@ export const site = {
                 layout: "half",
                 description:
                     "High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps, plugins, and indie tools - handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification, webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the hot path.",
-                image: "./assets/projects/go-license-api-example.png",
+                image: "./assets/projects/go-license-api-example.webp",
                 techStack: [
                     "Go 1.21+",
                     "PostgreSQL 14+ (control plane only)",
@@ -514,7 +514,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Travel discovery platform that helps people explore Indian destinations, itineraries, and lesser-known spots in one place.",
-                image: "./assets/projects/topplacesindia-example-001.png",
+                image: "./assets/projects/topplacesindia-example-001.webp",
                 techStack: [
                     "Next.js application shell",
                     "Supabase / PostgreSQL data layer",
@@ -536,7 +536,7 @@ export const site = {
                 layout: "half",
                 description:
                     "Real-time video calls with live AI-translated captions - no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50–150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
-                image: "./assets/projects/talkbridge-example.png",
+                image: "./assets/projects/talkbridge-example.webp",
                 techStack: [
                     "Go (Fiber) + Gorilla WebSocket",
                     "Next.js 14, TypeScript, Tailwind CSS",
