@@ -1873,6 +1873,12 @@ img {
     margin-top: 0 !important;
   }
 
+  #projects {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 0 !important;
+  }
+
   #contributions {
     page-break-before: always !important;
     break-before: page !important;
