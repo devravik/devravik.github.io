@@ -182,13 +182,13 @@ if (root) {
               <p class="hero-kicker">Senior Backend Engineer</p>
               <h1 class="hero-title">${site.hero.name}</h1>
               <p class="hero-tagline">${site.hero.tagline.replace(
-                /(Laravel & Go|multi-tenant SaaS|fast and predictable)/g,
-                "<strong>$1</strong>"
-              )}</p>
+    /(Laravel & Go|multi-tenant SaaS|fast and predictable)/g,
+    "<strong>$1</strong>"
+  )}</p>
               <ul class="hero-highlights">
                 ${site.hero.highlights
-                  .map((h) => `<li>${h}</li>`)
-                  .join("")}
+      .map((h) => `<li>${h}</li>`)
+      .join("")}
               </ul>
               <div class="hero-meta">
                 <span>${site.hero.location}</span>
@@ -201,16 +201,16 @@ if (root) {
                   <span>Resume (PDF)</span>
                 </button>
                 ${site.hero.actions
-                  .map((action) => {
-                    const logo = getBrandLogoUrl(action.label, action.href);
-                    const iconHtml = logo
-                      ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
-                      : action.href.startsWith("mailto:")
-                      ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
-                      : "";
-                    return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
-                  })
-                  .join("")}
+      .map((action) => {
+        const logo = getBrandLogoUrl(action.label, action.href);
+        const iconHtml = logo
+          ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
+          : action.href.startsWith("mailto:")
+            ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
+            : "";
+        return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
+      })
+      .join("")}
               </div>
             </div>
             <aside class="hero-aside">
@@ -256,15 +256,15 @@ if (root) {
             <div class="section-body two-column">
               <div>
                 ${site.about.paragraphs
-                  .map((p) => `<p class="body-text">${p}</p>`)
-                  .join("")}
+      .map((p) => `<p class="body-text">${p}</p>`)
+      .join("")}
               </div>
               <div class="section-side">
                 <h3 class="section-subheading">What I work on</h3>
                 <ul class="bullet-list">
                   ${site.about.focusAreas
-                    .map((item) => `<li>${item}</li>`)
-                    .join("")}
+      .map((item) => `<li>${item}</li>`)
+      .join("")}
                 </ul>
               </div>
             </div>
@@ -276,19 +276,19 @@ if (root) {
             ${sectionHeader("02", "Tech Stack", "Skills & tools", "TECHNICAL SKILLS & COMPETENCIES")}
             <div class="skills-list">
               ${site.skills.categories
-                .map(
-                  (cat) => `
+      .map(
+        (cat) => `
                 <div class="skill-row reveal">
                   <div class="skill-label">${cat.name}</div>
                   <div class="skill-items">
                     ${cat.items
-                      .map((s) => skillItem(s))
-                      .join("")}
+            .map((s) => skillItem(s))
+            .join("")}
                   </div>
                 </div>
               `
-                )
-                .join("")}
+      )
+      .join("")}
             </div>
           </div>
         </section>
@@ -298,8 +298,8 @@ if (root) {
             ${sectionHeader("03", "Education", site.education.heading, "EDUCATION & ACADEMIC QUALIFICATIONS")}
             <div class="education-list">
               ${site.education.items
-                .map(
-                  (item) => `
+      .map(
+        (item) => `
                 <article class="education-item card reveal">
                   <header class="card-header">
                     <div>
@@ -310,8 +310,8 @@ if (root) {
                   </header>
                 </article>
               `
-                )
-                .join("")}
+      )
+      .join("")}
             </div>
           </div>
         </section>
@@ -321,16 +321,16 @@ if (root) {
             ${sectionHeader("04", "Experience", site.experience.heading, "PROFESSIONAL EXPERIENCE", site.experience.summary)}
             <div class="timeline">
               ${site.experience.roles
-                .map(
-                  (role) => {
-                    const logo = getBrandLogoUrl(role.company, role.website);
-                    const companyHtml = role.website
-                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company} <span class="link-print-url">(${role.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")})</span></a>`
-                      : role.company;
-                    const logoHtml = logo
-                      ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
-                      : "";
-                    return `
+      .map(
+        (role) => {
+          const logo = getBrandLogoUrl(role.company, role.website);
+          const companyHtml = role.website
+            ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company} <span class="link-print-url">(${role.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")})</span></a>`
+            : role.company;
+          const logoHtml = logo
+            ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
+            : "";
+          return `
                 <article class="timeline-item reveal">
                   <div class="timeline-dot"></div>
                   <div class="timeline-body card">
@@ -351,31 +351,17 @@ if (root) {
                     <ul class="bullet-list">
                       ${role.bullets.map((b) => `<li>${b}</li>`).join("")}
                     </ul>
-                    ${
-                      role.products && role.products.length
-                        ? `
-                      <details class="products">
-                        <summary>Products & platforms</summary>
-                        <ul class="bullet-list">
-                          ${role.products
-                            .map((p) => `<li>${p}</li>`)
-                            .join("")}
-                        </ul>
-                      </details>
-                    `
-                        : ""
-                    }
                     <div class="tag-row">
                       ${role.techStack
-                        .map((t) => renderSkillChip(t))
-                        .join("")}
+              .map((t) => renderSkillChip(t))
+              .join("")}
                     </div>
                   </div>
                 </article>
               `;
-                  }
-                )
-                .join("")}
+        }
+      )
+      .join("")}
             </div>
           </div>
         </section>
@@ -385,12 +371,11 @@ if (root) {
             ${sectionHeader("05", "Selected Work", site.projects.heading, "FEATURED PROJECTS & SAAS PRODUCTS")}
             <div class="projects-grid">
               ${site.projects.items
-                .map(
-                  (project) => `
+      .map(
+        (project) => `
                 <article class="project-card reveal layout-${project.layout || "half"}">
-                  ${
-                    project.image
-                      ? `
+                  ${project.image
+            ? `
                   <div class="project-media">
                     <img
                       src="${project.image}"
@@ -400,35 +385,33 @@ if (root) {
                     />
                   </div>
                   `
-                      : ""
-                  }
+            : ""
+          }
                   <div class="project-content">
                     <header class="project-header">
                       <div>
                         <h3 class="project-title">${project.name}</h3>
                         <p class="project-meta">
-                          ${project.category ? `${project.category} · ` : ""}${
-                            project.role
-                          } · ${project.period}
+                          ${project.category ? `${project.category} · ` : ""}${project.role}${project.period ? `<span class="project-period"> · ${project.period}</span>` : ""}
                         </p>
                       </div>
                       <div class="project-links">
                         ${project.links
-                          .map((link) => renderLinkWithLogo(link))
-                          .join("")}
+            .map((link) => renderLinkWithLogo(link))
+            .join("")}
                       </div>
                     </header>
                     <p class="body-text">${project.description}</p>
                     <div class="tag-row">
                       ${project.techStack
-                        .map((t) => renderSkillChip(t))
-                        .join("")}
+            .map((t) => renderSkillChip(t))
+            .join("")}
                     </div>
                   </div>
                 </article>
               `
-                )
-                .join("")}
+      )
+      .join("")}
             </div>
           </div>
         </section>
@@ -438,36 +421,35 @@ if (root) {
             ${sectionHeader("06", "Open Source", site.contributions.heading, "OPEN SOURCE CONTRIBUTIONS")}
             <div class="contributions-grid">
               ${site.contributions.items
-                .map(
-                  (contribution) => `
+      .map(
+        (contribution) => `
                 <article class="project-card reveal">
                   <header class="project-header">
                     <div>
                       <h3 class="project-title">${contribution.name}</h3>
                       <p class="project-meta">
-                        ${contribution.version ? `v${contribution.version} · ` : ""}${
-                          contribution.stats
-                            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
-                            : ""
-                        }
+                        ${contribution.version ? `v${contribution.version} · ` : ""}${contribution.stats
+            ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
+            : ""
+          }
                       </p>
                     </div>
                     <div class="project-links">
                       ${contribution.links
-                        .map((link) => renderLinkWithLogo(link))
-                        .join("")}
+            .map((link) => renderLinkWithLogo(link))
+            .join("")}
                     </div>
                   </header>
                   <p class="body-text">${contribution.description}</p>
                   <div class="tag-row">
                     ${contribution.techStack
-                      .map((t) => renderSkillChip(t))
-                      .join("")}
+            .map((t) => renderSkillChip(t))
+            .join("")}
                   </div>
                 </article>
               `
-                )
-                .join("")}
+      )
+      .join("")}
             </div>
           </div>
         </section>
@@ -478,9 +460,8 @@ if (root) {
             <div class="section-body two-column">
               <div>
                 <p class="body-text">
-                  I’m ${
-                    site.contact.openToWork ? "currently open to" : "selective about"
-                  } new backend roles, especially remote positions on SaaS or product teams.
+                  I’m ${site.contact.openToWork ? "currently open to" : "selective about"
+    } new backend roles, especially remote positions on SaaS or product teams.
                 </p>
                 <a href="mailto:${site.contact.email}" class="btn btn-primary" style="margin-top:18px">
                   <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -511,21 +492,21 @@ if (root) {
                     <span>${site.contact.location}</span>
                   </li>
                   ${site.contact.links
-                    .map((link) => {
-                      const logo = getBrandLogoUrl(link.label, link.href);
-                      const iconHtml = logo
-                        ? `<img src="${logo}" alt="" class="contact-brand-logo" aria-hidden="true" />`
-                        : `<svg class="contact-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
-                      const cleanUrl = link.href.replace(/^https?:\/\/(www\.)?/, "");
-                      return `
+      .map((link) => {
+        const logo = getBrandLogoUrl(link.label, link.href);
+        const iconHtml = logo
+          ? `<img src="${logo}" alt="" class="contact-brand-logo" aria-hidden="true" />`
+          : `<svg class="contact-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+        const cleanUrl = link.href.replace(/^https?:\/\/(www\.)?/, "");
+        return `
                         <li>
                           <span class="contact-item-icon">${iconHtml}</span>
                           <span class="label">${link.label}</span>
                           <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary">${cleanUrl}</a>
                         </li>
                       `;
-                    })
-                    .join("")}
+      })
+      .join("")}
                 </ul>
               </div>
             </div>
@@ -651,7 +632,7 @@ if (root) {
       if (navigator.clipboard) {
         navigator.clipboard.writeText(email).then(() => {
           showToast(`Copied ${email} to clipboard!`);
-        }).catch(() => {});
+        }).catch(() => { });
       }
     }
   });

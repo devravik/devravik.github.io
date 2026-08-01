@@ -1150,6 +1150,7 @@ img {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
+
 .copy-toast.show {
   transform: translateY(0);
   opacity: 1;
@@ -1254,7 +1255,9 @@ img {
     text-decoration: none !important;
   }
 
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     background: transparent !important;
     color: #000000 !important;
     box-shadow: none !important;
@@ -1266,7 +1269,8 @@ img {
     outline: none !important;
   }
 
-  html, body {
+  html,
+  body {
     background: #ffffff !important;
     color: #000000 !important;
     font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif !important;
@@ -1304,32 +1308,32 @@ img {
   .print-only-header {
     display: block !important;
     text-align: center !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 12px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 16px !important;
     border-bottom: 2px solid #000000 !important;
   }
 
   .print-name {
-    font-size: 20pt !important;
+    font-size: 22pt !important;
     font-weight: 800 !important;
     color: #000000 !important;
-    margin: 0 0 2px 0 !important;
+    margin: 0 0 4px 0 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
   }
 
   .print-title {
-    font-size: 10.5pt !important;
+    font-size: 11pt !important;
     font-weight: 700 !important;
     color: #111827 !important;
-    margin: 0 0 5px 0 !important;
+    margin: 0 0 6px 0 !important;
   }
 
   .print-contact {
-    font-size: 9pt !important;
+    font-size: 9.2pt !important;
     color: #374151 !important;
     margin: 0 !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
   }
 
   .print-contact a {
@@ -1350,13 +1354,13 @@ img {
   /* Section Headers for High-Readability ATS */
   .section {
     padding: 0 !important;
-    margin: 0 0 14px 0 !important;
+    margin: 0 0 18px 0 !important;
     border: none !important;
   }
 
   .section-header {
     margin-top: 0 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
@@ -1366,34 +1370,36 @@ img {
   }
 
   .section-title {
-    font-size: 11pt !important;
+    font-size: 11.5pt !important;
     font-weight: 800 !important;
     color: #000000 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.06em !important;
     border-bottom: 1.5px solid #000000 !important;
-    padding-bottom: 2px !important;
-    margin: 0 0 4px 0 !important;
+    padding-bottom: 3px !important;
+    margin: 6px 0 8px 0 !important;
   }
 
   .section-subtitle {
-    font-size: 8.8pt !important;
+    font-size: 9pt !important;
     color: #374151 !important;
     margin-top: 2px !important;
     margin-bottom: 6px !important;
     line-height: 1.35 !important;
   }
 
-  .about-grid, .tech-grid {
+  .about-grid,
+  .tech-grid {
     display: block !important;
   }
 
-  .about-main p, .body-text {
-    font-size: 9.2pt !important;
+  .about-main p,
+  .body-text {
+    font-size: 9.6pt !important;
     color: #111827 !important;
     margin-top: 0 !important;
-    margin-bottom: 6px !important;
-    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+    line-height: 1.5 !important;
   }
 
   /* Experience Timeline (Starts on New Page for Professional ATS PDF Layout) */
@@ -1430,18 +1436,62 @@ img {
     display: none !important;
   }
 
-  .timeline-item, .project-card, .education-item {
-    margin-bottom: 10px !important;
+  .timeline-item {
+    margin-bottom: 7px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  .card-header, .project-header {
+  .timeline-body .body-text {
+    font-size: 8.8pt !important;
+    line-height: 1.32 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .timeline-item .card-title {
+    font-size: 9.8pt !important;
+    margin: 0 0 1px 0 !important;
+  }
+
+  .timeline-item .card-meta {
+    font-size: 8.5pt !important;
+    margin: 0 0 2px 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  .timeline-item .bullet-list {
+    margin: 1.5px 0 2.5px 0 !important;
+    padding-left: 13px !important;
+  }
+
+  .timeline-item .bullet-list li {
+    margin-bottom: 1px !important;
+    font-size: 8.7pt !important;
+    line-height: 1.28 !important;
+  }
+
+  .project-card {
+    margin-bottom: 8px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border-radius: 0;
+  }
+
+  .education-item {
+    margin-bottom: 10px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border-radius: 0;
+  }
+
+  .card-header,
+  .project-header {
+    border-radius: 0;
     display: flex !important;
     justify-content: space-between !important;
     align-items: baseline !important;
     margin-top: 0 !important;
-    margin-bottom: 3px !important;
+    margin-bottom: 2px !important;
     padding: 0 !important;
     border: none !important;
     width: 100% !important;
@@ -1451,78 +1501,85 @@ img {
     display: block !important;
   }
 
-  .card-title, .project-title {
-    font-size: 10pt !important;
+  .card-title,
+  .project-title {
+    font-size: 10.2pt !important;
     font-weight: 700 !important;
     color: #000000 !important;
     margin: 0 0 2px 0 !important;
     padding: 0 !important;
   }
 
-  .company-link, .card-meta, .project-meta {
-    font-size: 8.8pt !important;
+  .company-link,
+  .card-meta,
+  .project-meta {
+    font-size: 9pt !important;
     color: #374151 !important;
     font-weight: 500 !important;
     border: none !important;
-    margin: 0 0 4px 0 !important;
+    margin: 0 0 3px 0 !important;
     padding: 0 !important;
     line-height: 1.35 !important;
   }
 
   .bullet-list {
-    margin: 3px 0 5px 0 !important;
-    padding-left: 16px !important;
+    margin: 2px 0 3px 0 !important;
+    padding-left: 14px !important;
   }
 
   .bullet-list li {
-    margin-bottom: 2.5px !important;
+    margin-bottom: 1.5px !important;
     font-size: 9.1pt !important;
     color: #111827 !important;
-    line-height: 1.38 !important;
+    line-height: 1.35 !important;
+  }
+
+  .timeline-item .tag-row {
+    display: none !important;
   }
 
   /* Technical Skills (Clean Spaced Text, No Logos, No Box Borders) */
   .skills-list {
     display: block !important;
-    margin-top: 4px !important;
+    margin-top: 6px !important;
   }
 
   .skill-row {
     display: block !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 10px !important;
     padding: 0 !important;
     border: none !important;
-    line-height: 1.4 !important;
+    line-height: 1.45 !important;
   }
 
   .skill-label {
-    font-size: 9.2pt !important;
+    font-size: 9.5pt !important;
     font-weight: 800 !important;
     color: #000000 !important;
     display: block !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 3px !important;
   }
 
   .skill-items {
     display: block !important;
-    font-size: 9pt !important;
-    color: #111827 !important;
+    font-size: 9.3pt !important;
+    color: #1f2937 !important;
     margin: 0 0 4px 0 !important;
     padding: 0 !important;
   }
 
   .skill-item {
     display: inline !important;
-    font-size: 9pt !important;
-    color: #111827 !important;
+    font-size: 9.3pt !important;
+    color: #1f2937 !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .skill-item::after {
-    content: " · ";
+    content: ", ";
     color: #4b5563;
     font-weight: 500;
   }
@@ -1531,7 +1588,8 @@ img {
     content: "";
   }
 
-  .tag-row, .chip-list {
+  .tag-row,
+  .chip-list {
     display: block !important;
     font-size: 8.8pt !important;
     color: #374151 !important;
@@ -1541,6 +1599,14 @@ img {
     text-align: left !important;
     width: 100% !important;
     clear: both !important;
+  }
+
+  .project-card .tag-row::before {
+    content: "Tech Used: ";
+    font-weight: 700 !important;
+    color: #000000 !important;
+    font-size: 8.8pt !important;
+    display: inline !important;
   }
 
   .chip {
@@ -1556,7 +1622,7 @@ img {
   }
 
   .chip::after {
-    content: " · ";
+    content: ", ";
     color: #6b7280;
     font-weight: 400;
   }
@@ -1566,19 +1632,71 @@ img {
   }
 
   /* Projects & Open Source Contributions */
-  .projects-grid, .contributions-grid {
+  .projects-grid,
+  .contributions-grid {
     display: block !important;
+  }
+
+  .project-card,
+  .project-content,
+  .project-header,
+  .project-header > div,
+  .project-title,
+  .project-meta,
+  .project-card .body-text,
+  .project-card .tag-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .project-card .body-text {
+    font-size: 9.1pt !important;
+    line-height: 1.4 !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    color: #111827 !important;
+  }
+
+  .project-header {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+    padding: 0 !important;
+  }
+
+  .project-period {
+    display: none !important;
+  }
+
+  .project-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+    gap: 2px !important;
+  }
+
+  .project-links a,
+  .project-links .brand-link {
+    display: block !important;
+    text-align: right !important;
+    font-size: 8.5pt !important;
   }
 
   details {
     display: block !important;
   }
 
-  details > * {
+  details>* {
     display: block !important;
   }
 
-  a, button {
+  a,
+  button {
     color: #000000 !important;
     text-decoration: none !important;
     border: none !important;
@@ -1587,11 +1705,15 @@ img {
     padding: 0 !important;
   }
 
+  #contact .section-body {
+    display: none !important;
+  }
+
   .print-contact-section {
     display: block !important;
-    margin-top: 14px !important;
-    padding-top: 8px !important;
-    border-top: 1.5px solid #000000 !important;
+    margin-top: 6px !important;
+    padding-top: 0 !important;
+    border: none !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
