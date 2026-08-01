@@ -590,7 +590,7 @@ img {
   margin-top: 6px;
 }
 
-/* Skills — minimal spec-sheet layout */
+/* Skills - minimal spec-sheet layout */
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -2099,7 +2099,7 @@ img {
   .project-card,
   .project-content,
   .project-header,
-  .project-header > div,
+  .project-header>div,
   .project-title,
   .project-meta,
   .project-card .body-text,

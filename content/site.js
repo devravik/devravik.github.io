@@ -8,7 +8,7 @@ export const profiles = {
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
             "I've been building backend systems since 2014, mostly for multi-tenant SaaS products and web applications that need to stay reliable under heavy load.",
-            "Day to day I work with Laravel and Go (Fiber): designing APIs, shaping database data models, and fixing performance issues—slow SQL queries, unindexed tables, heavy background jobs, and fragile third-party integrations.",
+            "Day to day I work with Laravel and Go (Fiber): designing APIs, shaping database data models, and fixing performance issues-slow SQL queries, unindexed tables, heavy background jobs, and fragile third-party integrations.",
             "I build backends that remain clean and maintainable years down the line. Open to remote backend engineering roles with engineering-driven product teams."
         ],
         focusAreas: [
@@ -48,7 +48,7 @@ export const profiles = {
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
             "Full Stack Engineer with 12+ years of experience building complete web applications, interactive dashboards, and backend services.",
-            "Hands-on across the full stack: Laravel, Go, and Node.js on the backend paired with Vue.js, React, and Next.js on the frontend. I handle feature development end-to-end—from database modeling and API endpoints to reactive UI components.",
+            "Hands-on across the full stack: Laravel, Go, and Node.js on the backend paired with Vue.js, React, and Next.js on the frontend. I handle feature development end-to-end-from database modeling and API endpoints to reactive UI components.",
             "Comfortable owning complete features from schema design to frontend state management and containerized deployment."
         ],
         focusAreas: [
