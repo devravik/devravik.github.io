@@ -24,7 +24,8 @@ export const profiles = {
             "GigHQ",
             "Planolitix",
             "Moneyguide",
-            "Vetty"
+            "Vetty",
+            "Skillsnacks"
         ]
     },
     "php-laravel": {
@@ -52,7 +53,8 @@ export const profiles = {
             "Planolitix",
             "Moneyguide",
             "Skillsnacks",
-            "GigHQ"
+            "GigHQ",
+            "AttendAssist"
         ]
     },
     "fullstack": {
@@ -60,7 +62,7 @@ export const profiles = {
         name: "Full Stack Developer",
         heroTitle: "Senior Full Stack Engineer · Laravel, Go, Vue & React",
         heroTagline: "Full stack engineer developing production web applications with Laravel, Go, Vue.js, and React.",
-        printTitle: "Senior Full Stack Engineer • Laravel, Go, React 19 & Vue 3 Applications",
+        printTitle: "Senior Full Stack Engineer • Laravel, Go, React & Vue Applications",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
             "Full Stack Engineer with 12+ years of experience developing complete web applications, interactive dashboards, and backend services.",
@@ -80,7 +82,8 @@ export const profiles = {
             "Fonefix Repair Management System",
             "GigHQ",
             "AttendAssist",
-            "Skillsnacks"
+            "Skillsnacks",
+            "Planolitix"
         ]
     },
     "laravel-vue": {
@@ -108,7 +111,8 @@ export const profiles = {
             "Skillsnacks",
             "Planolitix",
             "Vetty",
-            "Moneyguide"
+            "Moneyguide",
+            "AttendAssist"
         ]
     },
     "golang-nextjs": {
@@ -136,7 +140,8 @@ export const profiles = {
             "Fonefix Repair Management System",
             "GigHQ",
             "AttendAssist",
-            "Top Places India"
+            "Top Places India",
+            "Skillsnacks"
         ]
     },
     "laravel-react": {
@@ -164,7 +169,8 @@ export const profiles = {
             "Fonefix Repair Management System",
             "Vetty",
             "Planolitix",
-            "Skillsnacks"
+            "Skillsnacks",
+            "GigHQ"
         ]
     },
     "golang": {
@@ -192,7 +198,8 @@ export const profiles = {
             "GigHQ",
             "Planolitix",
             "Vetty",
-            "Moneyguide"
+            "Moneyguide",
+            "Skillsnacks"
         ]
     },
     "lead-backend": {
@@ -220,7 +227,8 @@ export const profiles = {
             "GigHQ",
             "Planolitix",
             "Moneyguide",
-            "Vetty"
+            "Vetty",
+            "AttendAssist"
         ]
     },
     "python-fastapi": {
@@ -248,7 +256,8 @@ export const profiles = {
             "Fonefix Repair Management System",
             "AttendAssist",
             "Planolitix",
-            "Vetty"
+            "Vetty",
+            "Moneyguide"
         ]
     }
 };
@@ -474,7 +483,7 @@ export const site = {
             {
                 name: "Laravel Extended Resources",
                 description:
-                    "Extended Resources is a small but powerful extension around Laravel API resources that lets you define multiple named formats using PHP 8 attributes, apply on-the-fly modifications to the serialized data, use convenience enhancements like only()/except(), and adjust the HTTP status code directly from the resource while still feeling native to Laravel.",
+                    "A Laravel API resources extension that lets you define multiple named formats using PHP 8 attributes, modify serialized data on the fly, use helpers like only()/except(), and set the HTTP status code from the resource while still feeling native to Laravel.",
                 techStack: [
                     "Laravel 10/11/12",
                     "PHP 8.1+",
@@ -496,7 +505,7 @@ export const site = {
             {
                 name: "RedditRadar",
                 description:
-                    "Self-hosted Reddit lead discovery and AI analysis platform for engineers. Monitors subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before any LLM inference runs, and tracks outreach through a full pipeline - a lightweight alternative to expensive SaaS lead tools.",
+                    "Self-hosted Reddit lead discovery and AI analysis for engineers. Monitors subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference, and tracks outreach - a lightweight alternative to expensive SaaS lead tools.",
                 techStack: [
                     "Next.js 16 (App Router)",
                     "Prisma 7 + PostgreSQL",
@@ -532,7 +541,7 @@ export const site = {
             {
                 name: "TalkBridge",
                 description:
-                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Two people who speak different languages open a browser, share a link, and talk. Speech is transcribed via Deepgram Nova-2 with interim results and translated by Azure Cognitive Services in under 500ms end-to-end, overlaid as live captions on the video feed. Supports 10 languages with an LLM fallback for translation when Azure is unavailable.",
+                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Speech is transcribed via Deepgram Nova-2 and translated by Azure Cognitive Services in under 500ms end-to-end, overlaid as live captions on the video feed. Supports 10 languages with an LLM fallback when Azure is unavailable.",
                 techStack: [
                     "Go (Fiber) + Gorilla WebSocket",
                     "Next.js 14, TypeScript, Tailwind CSS",
@@ -557,7 +566,7 @@ export const site = {
             {
                 name: "Genexr Analytics",
                 category: "Product",
-                role: "Senior Backend Engineer (Founder)",
+                role: "Senior Backend Engineer",
                 period: "2026 - Present",
                 layout: "hero",
                 description:
@@ -776,7 +785,7 @@ export const site = {
                 period: "2025",
                 layout: "half",
                 description:
-                    "Self-hosted Reddit lead discovery and AI analysis platform. Monitors configurable subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference runs, and tracks outreach through a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.",
+                    "Self-hosted Reddit lead discovery and AI analysis. Monitors subreddits for hiring posts and founder pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference, and tracks outreach through a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.",
                 image: "./assets/projects/redditradar-example.webp",
                 techStack: [
                     "Next.js 16 (App Router)",
@@ -846,7 +855,7 @@ export const site = {
                 period: "2025",
                 layout: "half",
                 description:
-                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Audio streams through WebRTC P2P while Deepgram Nova-2 transcribes speech with interim results, Azure Cognitive Services translates in ~50-150ms, and captions are pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
+                    "Real-time video calls with live AI-translated captions - no app, no account, just a link. Deepgram Nova-2 transcribes speech and Azure Cognitive Services translates, with captions pushed back over WebSocket in under 500ms end-to-end. Supports 10 languages with an LLM fallback translation path.",
                 image: "./assets/projects/talkbridge-example.webp",
                 techStack: [
                     "Go (Fiber) + Gorilla WebSocket",

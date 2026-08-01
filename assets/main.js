@@ -194,8 +194,11 @@ const renderLinkWithLogo = (link, extraClass = "") => {
   const imgHtml = logo
     ? `<img src="${logo}" alt="" class="brand-link-logo" aria-hidden="true" />`
     : `<svg class="brand-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
-  const cleanUrl = link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-  return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary brand-link ${extraClass}">${imgHtml}<span class="link-screen-label">${link.label}</span><span class="link-print-url">${cleanUrl}</span></a>`;
+  const isPlayStore = link.href.includes("play.google.com/store/apps/details");
+  const printText = isPlayStore
+    ? link.label || "Play Store"
+    : link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+  return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary brand-link ${extraClass}">${imgHtml}<span class="link-screen-label">${link.label}</span><span class="link-print-url">${printText}</span></a>`;
 };
 
 // One skill: optional small monochrome logo tile + label.
@@ -493,7 +496,7 @@ if (root) {
             ${sectionHeader("05", "Selected Work", site.projects.heading, "FEATURED PROJECTS & SAAS PRODUCTS")}
             <div class="projects-grid">
               ${(() => {
-                const featuredNames = (activeProfile.featuredProjects || []).slice(0, 6);
+                const featuredNames = (activeProfile.featuredProjects || []).slice(0, 7);
                 return site.projects.items
                   .map(
                     (project) => {
@@ -556,10 +559,10 @@ if (root) {
                     <div>
                       <h3 class="project-title">${contribution.name}</h3>
                       <p class="project-meta">
-                        ${contribution.version ? `v${contribution.version} · ` : ""}${contribution.stats
+                        <span class="print-hide">${contribution.version ? `v${contribution.version} · ` : ""}${contribution.stats
             ? `${contribution.stats.downloads} downloads · ${contribution.stats.phpVersion} · ${contribution.stats.license}`
             : ""
-          }
+          }</span>
                       </p>
                     </div>
                     <div class="project-links">
