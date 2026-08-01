@@ -1154,3 +1154,467 @@ img {
   transform: translateY(0);
   opacity: 1;
 }
+
+/* Floating Back to Top Button with Circular Progress */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  padding: 0;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 12px var(--accent-glow);
+}
+
+.back-to-top .progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.back-to-top .arrow-icon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.back-to-top:hover .arrow-icon {
+  transform: translateY(-2px);
+}
+
+.link-print-url {
+  display: none;
+}
+
+.title-print {
+  display: none;
+}
+
+.print-only-header,
+.print-contact-section {
+  display: none;
+}
+
+/* Executive ATS Resume Print Mode (Cmd + P / Download PDF) */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 16mm 14mm 16mm;
+  }
+
+  .title-screen {
+    display: none !important;
+  }
+
+  .title-print {
+    display: inline !important;
+    font-size: 11pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .link-screen-label {
+    display: none !important;
+  }
+
+  .link-print-url {
+    display: inline !important;
+    font-size: 8.5pt !important;
+    color: #111827 !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+  }
+
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif !important;
+    font-size: 9.5pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Completely hide logos, icons, dynamic UI, and media in print */
+  img,
+  svg,
+  canvas,
+  #animatedLogoBg,
+  #scrollProgress,
+  #backToTop,
+  .topbar,
+  .copy-toast,
+  .project-media,
+  .hero,
+  .section-side,
+  .site-footer,
+  .company-logo,
+  .brand-icon,
+  .btn-brand-logo,
+  .btn-brand-icon,
+  .skill-logo,
+  .chip-brand-logo,
+  .brand-link-logo,
+  .contact-brand-logo,
+  summary {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .print-only-header {
+    display: block !important;
+    text-align: center !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 12px !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+
+  .print-name {
+    font-size: 20pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    margin: 0 0 2px 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .print-title {
+    font-size: 10.5pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 0 5px 0 !important;
+  }
+
+  .print-contact {
+    font-size: 9pt !important;
+    color: #374151 !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .print-contact a {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+  }
+
+  .shell {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Section Headers for High-Readability ATS */
+  .section {
+    padding: 0 !important;
+    margin: 0 0 14px 0 !important;
+    border: none !important;
+  }
+
+  .section-header {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .section-eyebrow {
+    display: none !important;
+  }
+
+  .section-title {
+    font-size: 11pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 1.5px solid #000000 !important;
+    padding-bottom: 2px !important;
+    margin: 0 0 4px 0 !important;
+  }
+
+  .section-subtitle {
+    font-size: 8.8pt !important;
+    color: #374151 !important;
+    margin-top: 2px !important;
+    margin-bottom: 6px !important;
+    line-height: 1.35 !important;
+  }
+
+  .about-grid, .tech-grid {
+    display: block !important;
+  }
+
+  .about-main p, .body-text {
+    font-size: 9.2pt !important;
+    color: #111827 !important;
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Experience Timeline (Starts on New Page for Professional ATS PDF Layout) */
+  #experience {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 0 !important;
+  }
+
+  .timeline,
+  .timeline-item,
+  .timeline-body,
+  .card-header,
+  .company-header-main,
+  .projects-grid,
+  .project-card,
+  .project-content,
+  .project-header,
+  .education-list,
+  .education-item {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .timeline-dot {
+    display: none !important;
+  }
+
+  .timeline-item, .project-card, .education-item {
+    margin-bottom: 10px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .card-header, .project-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    margin-top: 0 !important;
+    margin-bottom: 3px !important;
+    padding: 0 !important;
+    border: none !important;
+    width: 100% !important;
+  }
+
+  .company-header-main {
+    display: block !important;
+  }
+
+  .card-title, .project-title {
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin: 0 0 2px 0 !important;
+    padding: 0 !important;
+  }
+
+  .company-link, .card-meta, .project-meta {
+    font-size: 8.8pt !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    border: none !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+    line-height: 1.35 !important;
+  }
+
+  .bullet-list {
+    margin: 3px 0 5px 0 !important;
+    padding-left: 16px !important;
+  }
+
+  .bullet-list li {
+    margin-bottom: 2.5px !important;
+    font-size: 9.1pt !important;
+    color: #111827 !important;
+    line-height: 1.38 !important;
+  }
+
+  /* Technical Skills (Clean Spaced Text, No Logos, No Box Borders) */
+  .skills-list {
+    display: block !important;
+    margin-top: 4px !important;
+  }
+
+  .skill-row {
+    display: block !important;
+    margin-bottom: 6px !important;
+    padding: 0 !important;
+    border: none !important;
+    line-height: 1.4 !important;
+  }
+
+  .skill-label {
+    font-size: 9.2pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    display: block !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 2px !important;
+  }
+
+  .skill-items {
+    display: block !important;
+    font-size: 9pt !important;
+    color: #111827 !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+  }
+
+  .skill-item {
+    display: inline !important;
+    font-size: 9pt !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .skill-item::after {
+    content: " · ";
+    color: #4b5563;
+    font-weight: 500;
+  }
+
+  .skill-item:last-child::after {
+    content: "";
+  }
+
+  .tag-row, .chip-list {
+    display: block !important;
+    font-size: 8.8pt !important;
+    color: #374151 !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    clear: both !important;
+  }
+
+  .chip {
+    display: inline !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    font-size: 8.8pt !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .chip::after {
+    content: " · ";
+    color: #6b7280;
+    font-weight: 400;
+  }
+
+  .chip:last-child::after {
+    content: "";
+  }
+
+  /* Projects & Open Source Contributions */
+  .projects-grid, .contributions-grid {
+    display: block !important;
+  }
+
+  details {
+    display: block !important;
+  }
+
+  details > * {
+    display: block !important;
+  }
+
+  a, button {
+    color: #000000 !important;
+    text-decoration: none !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .print-contact-section {
+    display: block !important;
+    margin-top: 14px !important;
+    padding-top: 8px !important;
+    border-top: 1.5px solid #000000 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 20px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-contact-grid li {
+    font-size: 9pt !important;
+    color: #111827 !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+
+  .print-contact-grid a {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+  }
+}

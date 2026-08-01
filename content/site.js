@@ -707,6 +707,7 @@ export const site = {
     contact: {
         heading: "Contact",
         email: "dev.ravikgupt@gmail.com",
+        phone: "+91-8285893766",
         location: "Delhi, India",
         openToWork: true,
         links: [

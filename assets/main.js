@@ -3,13 +3,20 @@ import { site } from "../content/site.js";
 const root = document.getElementById("root");
 
 // Section header with a numbered eyebrow + bold title + optional subtext.
-const sectionHeader = (num, eyebrow, title, subtext = "") => `
+const sectionHeader = (num, eyebrow, title, printTitle = "", subtext = "") => {
+  const pTitle = printTitle || title;
+  const subTextStr = typeof subtext === "string" ? subtext : "";
+  return `
   <div class="section-header reveal">
     <span class="section-eyebrow">${num} · ${eyebrow}</span>
-    <h2 class="section-title">${title}</h2>
-    ${subtext ? `<p class="body-text section-subtitle" style="margin-top:6px;color:var(--text-muted);font-size:0.95rem;">${subtext}</p>` : ""}
+    <h2 class="section-title">
+      <span class="title-screen">${title}</span>
+      <span class="title-print">${pTitle}</span>
+    </h2>
+    ${subTextStr ? `<p class="body-text section-subtitle" style="margin-top:6px;color:var(--text-muted);font-size:0.95rem;">${subTextStr}</p>` : ""}
   </div>
 `;
+};
 
 // Map skill & brand strings -> logo filename in /assets/logos.
 // Keys are tested as substrings (case-insensitive) against each label / url.
@@ -97,7 +104,8 @@ const renderLinkWithLogo = (link, extraClass = "") => {
   const imgHtml = logo
     ? `<img src="${logo}" alt="" class="brand-link-logo" aria-hidden="true" />`
     : `<svg class="brand-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
-  return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary brand-link ${extraClass}">${imgHtml}<span>${link.label}</span></a>`;
+  const cleanUrl = link.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+  return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-primary brand-link ${extraClass}">${imgHtml}<span class="link-screen-label">${link.label}</span><span class="link-print-url">${cleanUrl}</span></a>`;
 };
 
 // One skill: optional small monochrome logo tile + label.
@@ -122,7 +130,32 @@ if (root) {
   root.innerHTML = `
     <canvas id="animatedLogoBg"></canvas>
     <div class="scroll-progress" id="scrollProgress"></div>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <svg class="progress-ring" width="44" height="44" viewBox="0 0 44 44">
+        <circle class="progress-ring-bg" cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2.5" />
+        <circle class="progress-ring-circle" cx="22" cy="22" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="113.097" stroke-dashoffset="113.097" stroke-linecap="round" />
+      </svg>
+      <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
     <div class="shell">
+      <div class="print-only-header">
+        <h1 class="print-name">${site.hero.name}</h1>
+        <p class="print-title">Senior Backend Engineer &bull; Multi-Tenant SaaS Architecture</p>
+        <div class="print-contact">
+          <div class="print-contact-row">
+            <span><strong>Email:</strong> <a href="mailto:${site.contact.email}">${site.contact.email}</a></span> &bull; 
+            <span><strong>Location:</strong> ${site.hero.location}</span> &bull; 
+            <span><strong>Mobile:</strong> <a href="tel:+918285893766">${site.contact.phone}</a></span>
+          </div>
+          <div class="print-contact-row" style="margin-top:2px;">
+            <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ravi-k-dev" target="_blank" rel="noopener noreferrer">linkedin.com/in/ravi-k-dev</a></span> &bull; 
+            <span><strong>GitHub:</strong> <a href="https://github.com/devravik" target="_blank" rel="noopener noreferrer">github.com/devravik</a></span> &bull; 
+            <span><strong>Portfolio:</strong> <a href="https://devravik.github.io" target="_blank" rel="noopener noreferrer">devravik.github.io</a></span>
+          </div>
+        </div>
+      </div>
       <header class="topbar">
         <div class="topbar-inner">
           <a href="#top" class="topbar-brand">
@@ -136,6 +169,7 @@ if (root) {
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contributions">Contributions</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -162,17 +196,19 @@ if (root) {
                 <span>Open to remote backend roles</span>
               </div>
               <div class="hero-actions">
+                <button class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF">
+                  <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Resume (PDF)</span>
+                </button>
                 ${site.hero.actions
-                  .map((action, index) => {
+                  .map((action) => {
                     const logo = getBrandLogoUrl(action.label, action.href);
                     const iconHtml = logo
                       ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
                       : action.href.startsWith("mailto:")
                       ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
                       : "";
-                    return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn ${
-                      index === 0 ? "btn-primary" : "btn-ghost"
-                    }">${iconHtml}<span>${action.label}</span></a>`;
+                    return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
                   })
                   .join("")}
               </div>
@@ -216,7 +252,7 @@ if (root) {
 
         <section id="about" class="section">
           <div class="section-inner">
-            ${sectionHeader("01", "About", site.about.heading)}
+            ${sectionHeader("01", "About", site.about.heading, "EXECUTIVE SUMMARY")}
             <div class="section-body two-column">
               <div>
                 ${site.about.paragraphs
@@ -237,7 +273,7 @@ if (root) {
 
         <section id="tech" class="section">
           <div class="section-inner">
-            ${sectionHeader("02", "Tech Stack", "Skills & tools")}
+            ${sectionHeader("02", "Tech Stack", "Skills & tools", "TECHNICAL SKILLS & COMPETENCIES")}
             <div class="skills-list">
               ${site.skills.categories
                 .map(
@@ -257,16 +293,39 @@ if (root) {
           </div>
         </section>
 
+        <section id="education" class="section">
+          <div class="section-inner">
+            ${sectionHeader("03", "Education", site.education.heading, "EDUCATION & ACADEMIC QUALIFICATIONS")}
+            <div class="education-list">
+              ${site.education.items
+                .map(
+                  (item) => `
+                <article class="education-item card reveal">
+                  <header class="card-header">
+                    <div>
+                      <h3 class="card-title">${item.degree}</h3>
+                      <p class="card-meta">${item.institution}</p>
+                    </div>
+                    <div class="card-meta text-right">${item.period}</div>
+                  </header>
+                </article>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+        </section>
+
         <section id="experience" class="section">
           <div class="section-inner">
-            ${sectionHeader("03", "Experience", site.experience.heading, site.experience.summary)}
+            ${sectionHeader("04", "Experience", site.experience.heading, "PROFESSIONAL EXPERIENCE", site.experience.summary)}
             <div class="timeline">
               ${site.experience.roles
                 .map(
                   (role) => {
                     const logo = getBrandLogoUrl(role.company, role.website);
                     const companyHtml = role.website
-                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company}</a>`
+                      ? `<a href="${role.website}" target="_blank" rel="noopener noreferrer" class="link-primary company-link">${role.company} <span class="link-print-url">(${role.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")})</span></a>`
                       : role.company;
                     const logoHtml = logo
                       ? `<img src="${logo}" alt="" class="company-logo" aria-hidden="true" />`
@@ -323,7 +382,7 @@ if (root) {
 
         <section id="projects" class="section">
           <div class="section-inner">
-            ${sectionHeader("04", "Selected Work", site.projects.heading)}
+            ${sectionHeader("05", "Selected Work", site.projects.heading, "FEATURED PROJECTS & SAAS PRODUCTS")}
             <div class="projects-grid">
               ${site.projects.items
                 .map(
@@ -376,7 +435,7 @@ if (root) {
 
         <section id="contributions" class="section">
           <div class="section-inner">
-            ${sectionHeader("05", "Open Source", site.contributions.heading)}
+            ${sectionHeader("06", "Open Source", site.contributions.heading, "OPEN SOURCE CONTRIBUTIONS")}
             <div class="contributions-grid">
               ${site.contributions.items
                 .map(
@@ -415,7 +474,7 @@ if (root) {
 
         <section id="contact" class="section">
           <div class="section-inner">
-            ${sectionHeader("06", "Get in Touch", site.contact.heading)}
+            ${sectionHeader("07", "Get in Touch", site.contact.heading, "CONTACT & PROFESSIONAL PROFILES")}
             <div class="section-body two-column">
               <div>
                 <p class="body-text">
@@ -436,6 +495,13 @@ if (root) {
                     </span>
                     <span class="label">Email</span>
                     <a href="mailto:${site.contact.email}" class="link-primary">${site.contact.email}</a>
+                  </li>
+                  <li>
+                    <span class="contact-item-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </span>
+                    <span class="label">Mobile</span>
+                    <a href="tel:+918285893766" class="link-primary">${site.contact.phone}</a>
                   </li>
                   <li>
                     <span class="contact-item-icon">
@@ -463,6 +529,16 @@ if (root) {
                 </ul>
               </div>
             </div>
+            <div class="print-contact-section">
+              <ul class="print-contact-grid">
+                <li><strong>Email:</strong> <a href="mailto:${site.contact.email}">${site.contact.email}</a></li>
+                <li><strong>Mobile:</strong> <a href="tel:+918285893766">${site.contact.phone}</a></li>
+                <li><strong>Location:</strong> ${site.contact.location} (Open to Remote Roles)</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ravi-k-dev" target="_blank">https://www.linkedin.com/in/ravi-k-dev</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/devravik" target="_blank">https://github.com/devravik</a></li>
+                <li><strong>Portfolio Website:</strong> <a href="https://devravik.github.io" target="_blank">https://devravik.github.io</a></li>
+              </ul>
+            </div>
           </div>
         </section>
       </main>
@@ -476,13 +552,42 @@ if (root) {
     </div>
   `;
 
-  // Scroll progress bar
+  // Scroll progress bar & Back-to-Top circular indicator
   const progress = document.getElementById("scrollProgress");
+  const backToTopBtn = document.getElementById("backToTop");
+  const circle = backToTopBtn ? backToTopBtn.querySelector(".progress-ring-circle") : null;
+  const radius = 18;
+  const circumference = 2 * Math.PI * radius; // ~113.097
+
+  if (circle) {
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  }
+
   const onScroll = () => {
     const h = document.documentElement;
-    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    progress.style.width = (scrolled || 0) + "%";
+    const scrollTotal = h.scrollHeight - h.clientHeight;
+    const scrolled = scrollTotal > 0 ? (h.scrollTop / scrollTotal) * 100 : 0;
+
+    progress.style.width = scrolled + "%";
+
+    if (h.scrollTop > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+
+    if (circle) {
+      const offset = circumference - (scrolled / 100) * circumference;
+      circle.style.strokeDashoffset = offset;
+    }
   };
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
@@ -536,6 +641,10 @@ if (root) {
   };
 
   document.addEventListener("click", (e) => {
+    if (e.target.closest(".js-download-pdf")) {
+      window.print();
+      return;
+    }
     const mailtoBtn = e.target.closest('a[href^="mailto:"]');
     if (mailtoBtn) {
       const email = mailtoBtn.getAttribute("href").replace("mailto:", "");
