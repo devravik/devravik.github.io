@@ -1118,31 +1118,243 @@ img {
 
 @media (max-width: 720px) {
   .topbar-inner {
-    padding-inline: 18px;
+    padding-inline: 16px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 10px;
   }
 
-  .topbar-nav {
-    flex-wrap: wrap;
-    gap: 4px;
+  .topbar-brand {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
   }
 
+  .topbar-brand-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .topbar-role {
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .topbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 6px;
+    width: 100%;
+  }
+
+  .topbar-nav a {
+    white-space: nowrap;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Hero Section Mobile Centering */
   .hero {
-    padding-top: 56px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .hero-main {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-kicker {
+    text-align: center;
+  }
+
+  .hero-title {
+    text-align: center;
+    font-size: clamp(2.1rem, 7.5vw, 4.2rem);
+  }
+
+  .hero-tagline {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .hero-highlights {
+    text-align: left;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  .hero-meta {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-actions {
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-actions-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .hero-actions-row .btn {
+    flex: 1 1 auto;
+    max-width: 240px;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .hero-aside {
+    justify-content: center;
+  }
+
+  .hero-avatar-card {
+    margin: 0 auto;
+  }
+
+  /* Section Headers & Section Summaries Centering */
+  .section-header {
+    text-align: center;
+    align-items: center;
+  }
+
+  .section-eyebrow {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .section-subheading {
+    text-align: center;
+  }
+
+  .section-summary {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .about-main p,
+  .body-text {
+    text-align: center;
+  }
+
+  .contact-actions {
+    justify-content: center;
+  }
+
+  /* Mobile Experience Timeline Improvements */
+  .timeline {
+    gap: 16px;
   }
 
   .timeline-item {
-    padding-left: 28px;
+    padding-left: 0;
   }
 
-  .timeline-dot {
-    top: 18px;
-  }
-
+  .timeline-dot,
   .timeline-item::after {
-    left: 8px;
+    display: none;
+  }
+
+  .timeline-body.card {
+    padding: 18px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .company-header-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .company-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .timeline-item .card-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+
+  .timeline-item .card-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: left;
+  }
+
+  .card-meta.text-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    font-size: 0.8rem;
+    color: var(--accent-strong);
+    width: 100%;
+    margin-top: 2px;
+    text-align: left;
+  }
+
+  .card-meta.text-right div {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(240, 138, 93, 0.08);
+    border: 1px solid rgba(240, 138, 93, 0.22);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+    white-space: nowrap !important;
+  }
+
+  .timeline-body .body-text {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .bullet-list {
+    padding-left: 18px;
+  }
+
+  .bullet-list li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    color: #d6dae8;
+    text-align: left;
   }
 
   .edu-main {
@@ -1150,13 +1362,135 @@ img {
     align-items: flex-start;
   }
 
-  .card-header {
+  /* Mobile Skills Layout Improvement */
+  .skills-list {
+    border-top: none;
+    gap: 14px;
+  }
+
+  .skill-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .skill-label {
+    text-align: center;
+    color: var(--accent-strong);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 2px;
+  }
+
+  .skill-items {
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .skill-item:active,
+  .skill-item:hover {
+    background: rgba(240, 138, 93, 0.12);
+    border-color: rgba(240, 138, 93, 0.35);
+    color: var(--accent-strong);
+  }
+
+  .skill-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+
+  /* Mobile Projects Grid UI Improvements */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card,
+  .project-card.layout-hero,
+  .project-card.layout-wide,
+  .project-card.layout-medium,
+  .project-card.layout-half,
+  .project-card.layout-third {
+    grid-column: span 1 / -1;
+    display: flex;
     flex-direction: column;
+    padding: 0 0 6px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(165deg, rgba(17, 20, 29, 0.9), rgba(11, 13, 19, 0.95));
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+  }
+
+  .project-card.layout-hero .project-media {
+    padding-top: 52%;
+    min-height: auto;
+    height: auto;
+  }
+
+  .project-media {
+    width: 100%;
+    padding-top: 52%;
+  }
+
+  .project-header {
+    margin: 14px 14px 8px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .project-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: left;
+  }
+
+  .project-content .body-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--muted);
+    padding: 0 14px 8px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .tag-row {
+    margin: 6px 14px 12px;
     gap: 6px;
   }
 
-  .text-right {
-    text-align: left;
+  .project-card .chip-soft {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+    border-radius: 999px;
   }
 }
 
