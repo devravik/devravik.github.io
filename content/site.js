@@ -320,13 +320,13 @@ export const site = {
                 name: "Backend & Architecture",
                 items: [
                     "Backend architecture and system design",
-                    "Data modeling for real-world, messy domains",
                     "Tenant isolation strategies (shared and isolated)",
-                    "Horizontal scaling and performance tuning",
                     "Microservices architecture and service decomposition",
-                    "GraphQL API design",
+                    "GraphQL & gRPC API design",
+                    "Event streaming with Kafka",
+                    "Real-time updates with Pusher",
                     "Background processing pipelines and queues",
-                    "JWT and stateless API authentication",
+                    "JWT, OAuth2 & stateless API authentication",
                 ],
             },
 
