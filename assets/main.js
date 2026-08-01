@@ -648,11 +648,11 @@ function initAnimatedLogoBackground() {
   ];
 
   const codeColors = [
-    "#7df4ff", // Cyan accent
-    "#a78bfa", // Violet accent
-    "#5b8bff", // Blue accent
-    "#9aa0b8", // Muted text
-    "#ffffff", // Crisp white
+    "#f08a5d", // Electric Copper / Amber
+    "#e2b714", // Warm Sand / Gold
+    "#ff9f43", // Warm Sun Glow
+    "#a0a6be", // Muted Slate
+    "#ffffff", // Crisp White
   ];
 
   const loadedImages = [];

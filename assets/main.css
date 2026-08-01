@@ -1,23 +1,26 @@
 :root {
-  --bg: #06070c;
-  --bg-elevated: #0f121b;
-  --bg-soft: #141826;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --text: #f6f7fb;
-  --muted: #9aa0b8;
-  --faint: #6b7186;
-  --accent: #5b8bff;
-  --accent-soft: rgba(91, 139, 255, 0.12);
-  --accent-strong: #7df4ff;
-  --accent-2: #a78bfa;
+  --bg: #090a0f;
+  --bg-elevated: #11141d;
+  --bg-soft: #171b28;
+  --primary-deep: #11141d;
+  --border-subtle: rgba(240, 138, 93, 0.14);
+  --border-strong: rgba(240, 138, 93, 0.35);
+  --text: #f5f6fa;
+  --muted: #a0a6be;
+  --faint: #636b85;
+  --accent: #f08a5d;
+  --accent-soft: rgba(240, 138, 93, 0.14);
+  --accent-strong: #f08a5d;
+  --accent-2: #e2b714;
+  --accent-gold: #e2b714;
+  --accent-gold-soft: rgba(226, 183, 20, 0.15);
   --danger: #ff6b6b;
   --radius-lg: 20px;
   --radius-md: 14px;
   --radius-sm: 10px;
   --radius-full: 999px;
-  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.55);
-  --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.5);
+  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.7);
+  --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.6);
   --container-width: 1120px;
   --gap-section: 96px;
   --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
@@ -93,8 +96,8 @@ img {
   height: 3px;
   width: 0%;
   z-index: 60;
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 0 12px rgba(124, 244, 255, 0.6);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px rgba(240, 138, 93, 0.6);
   transition: width 0.1s linear;
 }
 
@@ -132,8 +135,8 @@ img {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--accent-strong), var(--accent));
-  box-shadow: 0 0 14px rgba(124, 244, 255, 0.7);
+  background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
+  box-shadow: 0 0 14px rgba(240, 138, 93, 0.6);
 }
 
 .topbar-name {
@@ -241,7 +244,7 @@ img {
   color: var(--text);
 }
 
-.hero-highlights li::before {
+.hero-highlight.section-kicker::before {
   content: "";
   position: absolute;
   left: 0;
@@ -249,8 +252,8 @@ img {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 0 10px rgba(124, 244, 255, 0.5);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 10px rgba(240, 138, 93, 0.5);
 }
 
 .hero-meta {
@@ -290,15 +293,15 @@ img {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-  color: #05060a;
-  border-color: rgba(5, 6, 10, 0.6);
-  box-shadow: 0 10px 30px rgba(91, 139, 255, 0.35);
+  background: linear-gradient(135deg, #f08a5d 0%, #e2b714 100%);
+  color: #090a0f;
+  border-color: rgba(240, 138, 93, 0.4);
+  box-shadow: 0 10px 25px rgba(240, 138, 93, 0.28);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(91, 139, 255, 0.5);
+  box-shadow: 0 14px 35px rgba(240, 138, 93, 0.45);
 }
 
 .btn-ghost {
@@ -540,14 +543,14 @@ img {
 .card {
   padding: 22px 22px 18px;
   border-radius: var(--radius-md);
-  background: linear-gradient(160deg, rgba(20, 24, 38, 0.7), rgba(9, 11, 19, 0.7));
+  background: linear-gradient(160deg, rgba(17, 20, 29, 0.85), rgba(11, 13, 19, 0.9));
   border: 1px solid var(--border-subtle);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(124, 244, 255, 0.35);
+  border-color: rgba(240, 138, 93, 0.45);
   box-shadow: var(--shadow-lift);
 }
 
@@ -573,15 +576,15 @@ img {
   padding: 6px 13px;
   font-size: 0.8rem;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.045);
-  color: #c7cce0;
-  border: 1px solid var(--border-subtle);
+  background: rgba(240, 138, 93, 0.06);
+  color: #e5e9f5;
+  border: 1px solid rgba(240, 138, 93, 0.2);
 }
 
 .chip-soft {
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  border-color: rgba(124, 244, 255, 0.2);
+  background: rgba(240, 138, 93, 0.12);
+  color: #f08a5d;
+  border-color: rgba(240, 138, 93, 0.3);
 }
 
 .chip-brand-logo {
@@ -744,7 +747,7 @@ img {
   flex-direction: column;
   padding: 0 0 6px;
   border-radius: var(--radius-md);
-  background: linear-gradient(165deg, rgba(20, 24, 38, 0.72), rgba(9, 11, 19, 0.78));
+  background: linear-gradient(165deg, rgba(17, 20, 29, 0.85), rgba(11, 13, 19, 0.9));
   border: 1px solid var(--border-subtle);
   overflow: hidden;
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
@@ -758,7 +761,7 @@ img {
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(124, 244, 255, 0.4);
+  border-color: rgba(240, 138, 93, 0.45);
   box-shadow: var(--shadow-lift);
 }
 
@@ -833,8 +836,8 @@ img {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
-  box-shadow: 0 0 0 6px rgba(124, 244, 255, 0.12);
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 0 6px rgba(240, 138, 93, 0.15);
 }
 
 .timeline-item::after {
@@ -844,7 +847,7 @@ img {
   top: 34px;
   bottom: -18px;
   width: 2px;
-  background: linear-gradient(to bottom, rgba(124, 244, 255, 0.4), transparent 80%);
+  background: linear-gradient(to bottom, rgba(240, 138, 93, 0.4), transparent 80%);
 }
 
 .timeline-item:last-child::after {
