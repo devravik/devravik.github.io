@@ -7,11 +7,18 @@
         "playStoreUrl": "https://play.google.com/store/apps/details?id=com.kundalilabs.app"
     },
     {
-        "id": "wa-direct",
-        "name": "WA Direct Chat & Tools",
-        "description": "Send WA messages without saving numbers.",
-        "bannerUrl": "https://devravik.github.io/assets/app-banners/wa-toolkit-app-banner.jpg",
-        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.devravik.directchattoolsforwhatsapp"
+        "id": "wintwealth",
+        "name": "WintWealth: 9-12% Fixed Return",
+        "description": "Invest in Fixed Deposits with 9-12% annual returns. Partnered with top banks and NBFCs for secure, high-yield investments.",
+        "bannerUrl": "https://devravik.github.io/assets/app-banners/wintwealth-app-banner.png",
+        "playStoreUrl": "https://www.wintwealth.com/bonds/referral/invite?referralCode=0DC09C&utm_source=whatsapp&utm_medium=share_button&utm_platform=app"
+    },
+    {
+        "id": "makemytrip",
+        "name": "MakeMyTrip - Flights, Hotels & More",
+        "description": "MakeMyTrip is a travel booking app for flights, hotels, trains, buses, and more.",
+        "bannerUrl": "https://devravik.github.io/assets/app-banners/makemytrip-app-banner.png",
+        "playStoreUrl": "https://app.mmyt.co/Xm2V/h296sep1"
     },
     {
         "id": "halomom",
