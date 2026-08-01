@@ -655,11 +655,13 @@ function initAnimatedLogoBackground() {
     "#ffffff", // Crisp White
   ];
 
-  const loadedImages = [];
-  logoFiles.forEach((file) => {
+  const loadedImages = new Array(logoFiles.length).fill(null);
+  logoFiles.forEach((file, idx) => {
     const img = new Image();
     img.src = `./assets/logos/${file}`;
-    img.onload = () => loadedImages.push(img);
+    img.onload = () => {
+      loadedImages[idx] = img;
+    };
   });
 
   let width = (canvas.width = window.innerWidth);
@@ -746,8 +748,8 @@ function initAnimatedLogoBackground() {
       }
 
       if (alpha > 0) {
-        if (p.type === "logo" && loadedImages.length > 0) {
-          const img = loadedImages[p.imgIndex % loadedImages.length];
+        if (p.type === "logo") {
+          const img = loadedImages[p.imgIndex];
           if (img && img.complete) {
             ctx.save();
             ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
