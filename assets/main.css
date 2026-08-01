@@ -26,6 +26,23 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
+#animatedLogoBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #animatedLogoBg {
+    display: none;
+  }
+}
+
 *,
 *::before,
 *::after {
