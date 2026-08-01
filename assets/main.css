@@ -207,6 +207,56 @@ img {
   max-width: 600px;
 }
 
+.profile-selector-wrap {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-selector-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 700;
+}
+
+.profile-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.profile-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.profile-pill:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text);
+  border-color: var(--border-subtle-hover, rgba(255, 255, 255, 0.2));
+  transform: translateY(-1px);
+}
+
+.profile-pill.active {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+  font-weight: 600;
+}
+
 .hero-kicker {
   margin: 0 0 18px;
   font-size: 0.78rem;
@@ -1674,6 +1724,7 @@ img {
   .brand-link-logo,
   .contact-brand-logo,
   #contributions .project-meta,
+  .profile-selector-wrap,
   summary {
     display: none !important;
     width: 0 !important;
@@ -1877,8 +1928,16 @@ img {
     border-radius: 0;
   }
 
+  .education-list {
+    gap: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
   .education-item {
-    margin-bottom: 4px !important;
+    margin-top: 0 !important;
+    margin-bottom: 1px !important;
+    padding-top: 0 !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     border-radius: 0;

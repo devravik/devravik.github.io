@@ -1,4 +1,12 @@
-import { site } from "../content/site.js";
+import { site, profiles } from "../content/site.js";
+
+const urlParams = new URLSearchParams(window.location.search);
+const reqProfile = urlParams.get("profile");
+const activeProfileSlug = (reqProfile && profiles[reqProfile]) ? reqProfile : "backend";
+const activeProfile = profiles[activeProfileSlug];
+const pdfFilename = activeProfileSlug === "backend" ? "Ravi_K_Gupta_Resume.pdf" : `Ravi_K_Gupta_Resume_${activeProfileSlug}.pdf`;
+const pdfPath = `./assets/${pdfFilename}`;
+const showTargetSelector = urlParams.get("target") === "1";
 
 const root = document.getElementById("root");
 
@@ -142,7 +150,7 @@ if (root) {
     <div class="shell">
       <div class="print-only-header">
         <h1 class="print-name">${site.hero.name}</h1>
-        <p class="print-title">Senior Backend Engineer &bull; Multi-Tenant SaaS Architecture</p>
+        <p class="print-title">${activeProfile.printTitle}</p>
         <div class="print-contact">
           <div class="print-contact-row">
             <span><strong>Email:</strong> <a href="mailto:${site.contact.email}">${site.contact.email}</a></span> &bull; 
@@ -162,7 +170,7 @@ if (root) {
             <span class="topbar-dot"></span>
             <div class="topbar-brand-text">
               <span class="topbar-name">${site.hero.name}</span>
-              <span class="topbar-role">${site.hero.title}</span>
+              <span class="topbar-role">${activeProfile.name}</span>
             </div>
           </a>
           <nav class="topbar-nav">
@@ -181,21 +189,36 @@ if (root) {
         <section class="hero">
           <div class="hero-inner">
             <div class="hero-main">
-              <p class="hero-kicker">Senior Backend Engineer</p>
+              ${showTargetSelector ? `
+              <div class="profile-selector-wrap">
+                <span class="profile-selector-label">Target Role:</span>
+                <div class="profile-pills">
+                  ${Object.keys(profiles)
+        .map((slug) => {
+          const p = profiles[slug];
+          const isActive = slug === activeProfileSlug;
+          const targetUrl = slug === "backend" ? "./?target=1" : `./?profile=${slug}&target=1`;
+          return `<a href="${targetUrl}" class="profile-pill ${isActive ? "active" : ""}">${p.name}</a>`;
+        })
+        .join("")}
+                </div>
+              </div>
+              ` : ""}
+              <p class="hero-kicker">${activeProfile.name}</p>
               <h1 class="hero-title">${site.hero.name}</h1>
-              <p class="hero-tagline">${site.hero.tagline.replace(
-    /(Laravel & Go|multi-tenant SaaS|fast and predictable)/g,
-    "<strong>$1</strong>"
-  )}</p>
+              <p class="hero-tagline">${activeProfile.heroTagline.replace(
+          /(Laravel & Go|PHP & Laravel|Full Stack Software Engineer|Single-Page Applications|multi-tenant SaaS|REST APIs|Vue\.js|Inertia\.js)/g,
+          "<strong>$1</strong>"
+        )}</p>
               <ul class="hero-highlights">
                 ${site.hero.highlights
-      .map((h) => `<li>${h}</li>`)
-      .join("")}
+        .map((h) => `<li>${h}</li>`)
+        .join("")}
               </ul>
               <div class="hero-meta">
                 <span>${site.hero.location}</span>
                 <span class="sep"></span>
-                <span>Open to remote backend roles</span>
+                <span>Open to remote engineering roles</span>
               </div>
               <div class="hero-actions">
                 <div class="hero-actions-row">
@@ -212,11 +235,11 @@ if (root) {
         .join("")}
                 </div>
                 <div class="hero-actions-row">
-                  <a href="./assets/Ravi_K_Gupta_Resume.pdf" download="Ravi_K_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF">
+                  <a href="${pdfPath}" download="${pdfFilename}" target="_blank" rel="noopener noreferrer" class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF (${activeProfile.name})">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                     <span>Download PDF</span>
                   </a>
-                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume">
+                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume (${activeProfile.name})">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                     <span>Print Resume</span>
                   </button>
@@ -246,13 +269,13 @@ if (root) {
                     <span class="dot red"></span>
                     <span class="dot amber"></span>
                     <span class="dot green"></span>
-                    <span class="terminal-title">session: backend.ravi</span>
+                    <span class="terminal-title">session: ${activeProfileSlug}.ravi</span>
                   </div>
                   <div class="terminal-body">
                     <code><span class="prompt">$</span> tail -f work.log
-<span class="out">&gt;</span> designing multi-tenant SaaS backends
-<span class="out">&gt;</span> hardening APIs and queries
-<span class="out">&gt;</span> keeping systems boring &amp; reliable</code>
+<span class="out">&gt;</span> target role: ${activeProfile.name}
+<span class="out">&gt;</span> hardening backends &amp; APIs
+<span class="out">&gt;</span> keeping systems fast &amp; reliable</code>
                   </div>
                 </div>
               </div>
@@ -262,19 +285,19 @@ if (root) {
 
         <section id="about" class="section">
           <div class="section-inner">
-            ${sectionHeader("01", "About", site.about.heading, "EXECUTIVE SUMMARY")}
+            ${sectionHeader("01", "About", activeProfile.summaryHeading, activeProfile.summaryHeading)}
             <div class="section-body two-column">
               <div>
-                ${site.about.paragraphs
-      .map((p) => `<p class="body-text">${p}</p>`)
-      .join("")}
+                ${activeProfile.summaryParagraphs
+        .map((p) => `<p class="body-text">${p}</p>`)
+        .join("")}
               </div>
               <div class="section-side">
                 <h3 class="section-subheading">What I work on</h3>
                 <ul class="bullet-list">
-                  ${site.about.focusAreas
-      .map((item) => `<li>${item}</li>`)
-      .join("")}
+                  ${activeProfile.focusAreas
+        .map((item) => `<li>${item}</li>`)
+        .join("")}
                 </ul>
               </div>
             </div>
@@ -479,11 +502,11 @@ if (root) {
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     <span>${site.contact.email}</span>
                   </a>
-                  <a href="./assets/Ravi_K_Gupta_Resume.pdf" download="Ravi_K_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-download-pdf" title="Download Executive Resume PDF">
+                  <a href="${pdfPath}" download="${pdfFilename}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-download-pdf" title="Download Executive Resume PDF (${activeProfile.name})">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                     <span>Download PDF</span>
                   </a>
-                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume">
+                  <button class="btn btn-secondary js-print-pdf" title="Print Executive Resume (${activeProfile.name})">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                     <span>Print Resume</span>
                   </button>
