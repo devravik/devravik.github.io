@@ -7,176 +7,176 @@ export const profiles = {
         printTitle: "Senior Backend Engineer • Multi-Tenant SaaS Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "I've been working on backend systems since 2014, mostly for SaaS products and web apps that can't afford to fall over when traffic spikes.",
-            "Day to day I'm in Laravel and Go (Fiber): designing APIs, shaping data models, and fixing the parts that usually hurt first - slow queries, missing indexes, noisy background jobs, and brittle integrations.",
-            "I like being close to the product and building backends that still make sense a few years later, not just for the next release. I'm open to remote backend roles and longer-term work with teams building real products."
+            "I've been building backend systems since 2014, mostly for multi-tenant SaaS products and web applications that need to stay reliable under heavy load.",
+            "Day to day I work with Laravel and Go (Fiber): designing APIs, shaping database data models, and fixing performance issues—slow SQL queries, unindexed tables, heavy background jobs, and fragile third-party integrations.",
+            "I build backends that remain clean and maintainable years down the line. Open to remote backend engineering roles with engineering-driven product teams."
         ],
         focusAreas: [
-            "Designing and evolving multi-tenant architectures",
-            "Keeping APIs versioned and stable as features change",
-            "Making search, reporting, and analytics fast enough to feel instant",
-            "Tuning queries and indexes instead of only throwing hardware at the problem",
-            "Using queues, workers, and Redis to keep UIs responsive under load"
+            "Designing and scaling multi-tenant database architectures",
+            "Building stable, versioned REST APIs and WebSockets",
+            "Making search, reporting, and analytics endpoints fast and predictable",
+            "Profiling SQL queries and indexes to minimize database load",
+            "Using async queues, workers, and Redis L1/L2 caching"
         ]
     },
     "php-laravel": {
         slug: "php-laravel",
         name: "PHP / Laravel Developer",
         heroTitle: "Senior PHP / Laravel Developer · Package & SaaS Architect",
-        heroTagline: "Senior PHP & Laravel specialist building enterprise web applications, REST APIs, and custom package ecosystems.",
-        printTitle: "Senior PHP / Laravel Developer • Enterprise Package & SaaS Architecture",
+        heroTagline: "Senior PHP & Laravel developer building multi-tenant SaaS platforms, REST APIs, and custom package ecosystems.",
+        printTitle: "Senior PHP / Laravel Developer • Package & Multi-Tenant SaaS Architecture",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior PHP & Laravel Engineer with over 12+ years of hands-on experience building scalable SaaS platforms, high-throughput REST APIs, and custom package ecosystems.",
-            "Deep expertise across the modern Laravel ecosystem (Laravel 10/11/12, Artisan, Eloquent ORM, Queues, Redis, Pest/PHPUnit, and Custom Package Authoring). Proven track record of architecting robust multi-tenant backends, optimizing query performance, and implementing complex third-party integrations.",
-            "Passionate about writing clean, maintainable PHP code, maintaining high test coverage, and delivering stable Web & API backends for high-growth tech companies."
+            "Senior PHP & Laravel Developer with 12+ years of experience building multi-tenant SaaS backends, REST APIs, and reusable package ecosystems.",
+            "Core work spans Laravel 10/11/12, Eloquent ORM tuning, queues, Redis caching, Pest/PHPUnit testing, and custom package authoring. Experienced in refactoring legacy codebases, fixing N+1 database bottlenecks, and building stable background job pipelines.",
+            "Focused on writing clean, well-tested PHP, maintaining clear API contracts, and keeping database queries predictable under high traffic."
         ],
         focusAreas: [
-            "Architecting enterprise-grade PHP & Laravel applications",
-            "Building custom Laravel packages (Licensing, Auth, Multi-tenancy)",
-            "Optimizing Eloquent queries, MySQL/PostgreSQL indexing & caching",
-            "Designing robust RESTful & GraphQL APIs with automated testing",
-            "Asynchronous processing with Laravel Queues, Redis & Horizon"
+            "Building multi-tenant PHP & Laravel SaaS backends",
+            "Authoring custom Laravel packages (Licensing, Auth, Isolation)",
+            "Optimizing SQL queries, Eloquent indexing, and Redis L1/L2 caching",
+            "Designing versioned REST APIs with Pest/PHPUnit test coverage",
+            "Managing async queues, workers, and Horizon monitoring"
         ]
     },
     "fullstack": {
         slug: "fullstack",
         name: "Full Stack Developer",
-        heroTitle: "Senior Full Stack Engineer · Laravel, Vue.js & Modern Web",
-        heroTagline: "Full stack engineer delivering end-to-end web applications, interactive SaaS dashboards, and scalable API services.",
-        printTitle: "Senior Full Stack Engineer • Laravel, Vue.js, React & Modern Web Applications",
+        heroTitle: "Senior Full Stack Engineer · Laravel, Go, Vue & React",
+        heroTagline: "Full stack engineer building production web applications with Laravel, Go, Vue.js, and React.",
+        printTitle: "Senior Full Stack Engineer • Laravel, Go, Vue.js & React Applications",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Full Stack Software Engineer with 12+ years of experience delivering end-to-end web applications, interactive SaaS dashboards, and scalable API services.",
-            "Proficient in bridging back-end systems (Laravel, Go, Node.js) with modern front-end user interfaces (Vue.js, React, Next.js, Tailwind CSS). Expert at transforming product requirements into pixel-perfect, highly responsive web experiences with sub-second API response times.",
-            "Experienced in full product lifecycles—from database design and API development to frontend component architecture and cloud deployment."
+            "Full Stack Engineer with 12+ years of experience building complete web applications, interactive dashboards, and backend services.",
+            "Hands-on across the full stack: Laravel, Go, and Node.js on the backend paired with Vue.js, React, and Next.js on the frontend. I handle feature development end-to-end—from database modeling and API endpoints to reactive UI components.",
+            "Comfortable owning complete features from schema design to frontend state management and containerized deployment."
         ],
         focusAreas: [
-            "End-to-end full stack development (Laravel + Vue.js / Next.js)",
-            "Building responsive, high-performance user interfaces and UI components",
-            "Designing scalable REST APIs and seamless state management",
-            "Database schema modeling, performance tuning, and L1/L2 caching",
-            "Delivering complete MVP features and multi-tenant web applications"
+            "Full-stack web application development (Laravel, Go, Vue.js, React)",
+            "Designing responsive UI components with Tailwind CSS & Pinia/Redux",
+            "Building versioned REST APIs and real-time WebSocket channels",
+            "Database indexing, SQL query tuning, and Redis caching",
+            "Docker containerization and automated CI/CD deployments"
         ]
     },
     "laravel-vue": {
         slug: "laravel-vue",
         name: "Laravel + VueJS Developer",
         heroTitle: "Senior Laravel + Vue.js Developer · Modern SPA & Web Apps",
-        heroTagline: "Specialized developer crafting high-performance Single-Page Applications (SPAs) with Laravel, Vue.js, and Inertia.js.",
-        printTitle: "Senior Laravel + Vue.js Specialist • SPA & SaaS Web Applications",
+        heroTagline: "Senior developer building reactive Single-Page Applications (SPAs) with Laravel, Vue.js, and Inertia.js.",
+        printTitle: "Senior Laravel + Vue.js Specialist • SPA & SaaS Applications",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Specialized Senior Developer focused on building high-performance web applications using Laravel, Vue.js (Vue 2/3), and Inertia.js / SPA architectures.",
-            "Extensive experience building modern web dashboards, reactive single-page applications, and clean API backends. Adept at state management (Pinia/Vuex), Vue component design, Tailwind styling, and smooth user interactions coupled with rock-solid Laravel APIs.",
-            "Dedicated to delivering polished, intuitive user interfaces backed by well-structured Laravel data layers, efficient query design, and seamless real-time capabilities."
+            "Senior Web Developer specializing in single-page applications and reactive web interfaces using Laravel, Vue.js (Vue 2/3), and Inertia.js.",
+            "Builds modern admin dashboards, SaaS workflows, and interactive frontend tools. Experienced in Vue component architecture, Pinia/Vuex state management, Tailwind CSS, and structuring clean Laravel API backends.",
+            "Focuses on fast page loads, responsive component state, structured Eloquent queries, and real-time updates via WebSockets."
         ],
         focusAreas: [
-            "Full SPA & Inertia.js application development using Laravel & Vue 3",
-            "Component-driven UI architecture with Vue, Tailwind CSS & Pinia",
-            "Building real-time dashboards and interactive data visualizations",
-            "Designing REST APIs and WebSockets (Pusher/Soketi) for reactive UIs",
-            "Optimizing front-end bundle size, asset load times, and API latency"
+            "Building SPAs and Inertia.js web applications with Laravel & Vue 3",
+            "Designing reusable Vue 3 components with Tailwind CSS & Pinia",
+            "Developing real-time dashboards and reactive data tables",
+            "Connecting Laravel REST APIs & WebSockets to Vue interfaces",
+            "Optimizing frontend bundle sizes and API response times"
         ]
     },
     "golang-nextjs": {
         slug: "golang-nextjs",
         name: "Go + Next.js Specialist",
-        heroTitle: "Go + Next.js Full Stack Engineer · High-Performance Web Services",
-        heroTagline: "Specialized engineer pairing high-throughput Go backend services with modern Next.js & React user interfaces.",
-        printTitle: "Senior Go + Next.js Specialist • High-Performance Web & Real-Time Apps",
+        heroTitle: "Go + Next.js Full Stack Engineer · Real-Time Web Apps",
+        heroTagline: "Full stack engineer pairing fast Go backend microservices with Next.js & React frontends.",
+        printTitle: "Senior Go + Next.js Specialist • Real-Time Web Apps & Microservices",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Specialized Full Stack Engineer adept at building high-throughput web applications by pairing Go microservices with modern Next.js (App Router, React 19) frontends.",
-            "Proven track record delivering real-time streaming tools and AI analytics platforms (TalkBridge, RedditRadar, Genexr Analytics). Expert in WebSocket streaming, WebRTC P2P audio/video, Prisma ORM, PostgreSQL, and zero-DB hot-path in-memory caching.",
-            "Passionate about sub-500ms end-to-end user experiences, sub-millisecond API response times, clean component architecture, and serverless/self-hosted deployment."
+            "Full Stack Engineer specializing in high-performance web applications built with Go (Fiber) microservices and Next.js (App Router, React) frontends.",
+            "Experience includes real-time audio streaming platforms (TalkBridge), AI analytics engines (RedditRadar), and SaaS analytics tools (Genexr Analytics). Proficient with WebSockets, WebRTC P2P streaming, PostgreSQL, Prisma, and in-memory Redis caching.",
+            "Focuses on keeping API latencies low, UI components clean and responsive, and deployments simple with Docker and self-hosted infrastructure."
         ],
         focusAreas: [
-            "High-performance Go (Fiber/Gin) backend microservices with Next.js App Router",
-            "Real-time WebSockets, WebRTC P2P communication, and streaming STT/AI pipelines",
-            "Building responsive, server-rendered and client-side reactive dashboards",
-            "Database design with PostgreSQL, Prisma 7, Supabase & Redis L1/L2 caching",
-            "Docker, Kubernetes, and CI/CD automated deployment pipelines"
+            "Go (Fiber) backend services paired with Next.js App Router frontends",
+            "Real-time WebSockets, WebRTC audio streaming, and AI pipelines",
+            "Building responsive dashboards and server-rendered React components",
+            "PostgreSQL database design, Prisma ORM, and Redis L1/L2 caching",
+            "Docker, Kubernetes, and self-hosted CI/CD automation"
         ]
     },
     "laravel-react": {
         slug: "laravel-react",
         name: "Laravel + React Developer",
-        heroTitle: "Senior Laravel + React Developer · Modern Web Apps & APIs",
-        heroTagline: "Full stack developer crafting robust Laravel REST backends with reactive React & Inertia.js user interfaces.",
-        printTitle: "Senior Laravel + React Specialist • Modern Web Applications & APIs",
+        heroTitle: "Senior Laravel + React Developer · Web Apps & APIs",
+        heroTagline: "Senior developer building Laravel REST APIs paired with modern React & Inertia.js user interfaces.",
+        printTitle: "Senior Laravel + React Specialist • Web Applications & APIs",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior Full Stack Developer specializing in pairing robust Laravel API backends with modern React & React Native user interfaces.",
-            "12+ years of experience architecting RESTful services, multi-tenant databases, and clean React component systems. Deeply familiar with modern state management, Hooks, Tailwind CSS, Inertia.js, and mobile app integration (AttendAssist).",
-            "Focused on delivering maintainable codebases, optimal API response times, comprehensive automated testing, and seamless user experiences."
+            "Senior Full Stack Developer with 12+ years of experience pairing Laravel backend APIs with React and Inertia.js frontends.",
+            "Skilled in building RESTful services, multi-tenant database schemas, and modular React component structures. Hands-on with React Hooks, state management, Tailwind CSS, Inertia.js, and API integration for web and mobile apps (AttendAssist).",
+            "Emphasizes clean code organization, automated test coverage (Pest/PHPUnit), and fast API query execution."
         ],
         focusAreas: [
-            "Architecting Laravel API backends integrated with React & React Native frontends",
-            "Inertia.js & Single-Page Application (SPA) development with React Hooks",
-            "Building responsive UI components, design systems, and Tailwind styling",
-            "Database query optimization, Eloquent ORM tuning, and Redis caching",
-            "Automated testing with PHPUnit/Pest and frontend testing utilities"
+            "Laravel REST API backends integrated with React & Inertia.js frontends",
+            "Component-driven UI development using React Hooks & Tailwind CSS",
+            "Database schema design, Eloquent ORM tuning, and Redis caching",
+            "Mobile API integration for React Native applications",
+            "Automated testing with PHPUnit, Pest, and frontend testing tools"
         ]
     },
     "golang": {
         slug: "golang",
         name: "Golang / Systems Engineer",
-        heroTitle: "Senior Go / Golang Systems Engineer · High-Throughput Microservices",
-        heroTagline: "Go engineer specialized in sub-millisecond API services, in-memory caching, offline signing, and concurrent worker pools.",
-        printTitle: "Senior Go / Golang Systems Engineer • High-Throughput & Concurrency",
+        heroTitle: "Senior Go / Golang Engineer · Concurrent Services & APIs",
+        heroTagline: "Go backend engineer focused on concurrent microservices, in-memory caching, and low-latency APIs.",
+        printTitle: "Senior Go / Golang Systems Engineer • Concurrent Microservices & Caching",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior Go Systems Engineer focused on building high-performance microservices, zero-DB hot-path validation layers, and concurrent worker pool processing.",
-            "Author of open-source Go platforms including Go License API (Ed25519 offline signing, L1/L2 caching) and TalkBridge (Go Fiber + WebSockets + WebRTC P2P). Expert in Go concurrency primitives, channel orchestration, memory optimization, and PostgreSQL/Redis integration.",
-            "Dedicated to building predictable, fault-tolerant backend services that handle heavy concurrent workloads with sub-millisecond latency."
+            "Senior Go Engineer focused on building fast microservices, in-memory caching layers, and concurrent worker processing systems.",
+            "Built open-source Go tools including Go License API (Ed25519 cryptographic signing, zero-DB validation path) and TalkBridge (Go Fiber + WebSockets + WebRTC P2P). Proficient with Go concurrency primitives, worker channels, PostgreSQL, and Redis.",
+            "Aimed at writing clean, maintainable Go code that performs predictably under high concurrent traffic with minimal resource overhead."
         ],
         focusAreas: [
-            "High-throughput Go HTTP/gRPC microservices (Fiber, Gin, Gorilla)",
-            "Concurrent worker pools, bounded queue channels, and async job execution",
-            "Zero-DB hot-path execution via in-memory L1/L2 cache layers",
-            "Ed25519 cryptographic signing and multi-tenant security isolation",
-            "Docker & Kubernetes containerization, health checks, and CI/CD"
+            "Go HTTP microservices (Fiber, Gin, Gorilla WebSockets)",
+            "Concurrent worker pools, channels, and async job queues",
+            "In-memory L1/L2 cache layers for zero-DB hot-path validation",
+            "Ed25519 cryptographic signing and secure tenant isolation",
+            "Docker containerization, health monitoring, and CI/CD pipelines"
         ]
     },
     "lead-backend": {
         slug: "lead-backend",
         name: "Lead / Principal Engineer",
         heroTitle: "Lead Backend Engineer & Systems Architect · 12+ Years Experience",
-        heroTagline: "Hands-on engineering leader & SaaS founder driving backend architecture, database scalability, and team execution.",
+        heroTagline: "Engineering leader & SaaS founder driving backend architecture, database scaling, and technical execution.",
         printTitle: "Lead Backend Engineer & Systems Architect • 12+ Years Experience",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Lead Backend Engineer & Systems Architect with over 12+ years of hands-on experience building SaaS platforms, multi-tenant database systems, and high-throughput APIs.",
-            "Track record as both a senior engineering leader (Waggingtail Technology) and product founder (Genexr Analytics). Expert in technical strategy, API design standards, performance profiling, query tuning, and establishing engineering best practices across engineering teams.",
-            "Proven ability to bridge high-level product goals with rock-solid technical execution, maintaining 99.9%+ system uptime and sub-second API latencies."
+            "Lead Backend Engineer & Systems Architect with 12+ years of experience building multi-tenant SaaS platforms, database systems, and backend APIs.",
+            "Combines background as a senior engineering lead (Waggingtail Technology) and SaaS founder (Genexr Analytics). Experienced in leading architecture decisions, defining API standards, tuning slow SQL queries, and establishing CI/CD practices across engineering teams.",
+            "Focused on aligning product requirements with stable engineering execution, maintaining high uptime, and building maintainable backend architecture."
         ],
         focusAreas: [
-            "Technical architecture leadership for B2B SaaS and high-traffic applications",
-            "Designing multi-tenant data isolation, security, and compliance frameworks",
-            "Database scalability, complex SQL query profiling, and index optimization",
-            "Establishing API design standards, versioning strategy, and automated CI/CD",
-            "Mentoring engineers, code reviews, and technical debt reduction"
+            "Backend architecture for multi-tenant B2B SaaS platforms",
+            "Designing tenant data isolation, security, and authorization rules",
+            "SQL query optimization, database indexing, and schema migrations",
+            "Defining API contracts, versioning standards, and CI/CD workflows",
+            "Code reviews, technical debt reduction, and team mentoring"
         ]
     },
     "python-fastapi": {
         slug: "python-fastapi",
         name: "Python / FastAPI Developer",
         heroTitle: "Senior Python & FastAPI Developer · Async Microservices & AI",
-        heroTagline: "Python backend engineer specialized in high-performance FastAPI microservices, async Pydantic validation, and LLM integrations.",
+        heroTagline: "Python backend engineer building async FastAPI microservices, Pydantic validation layers, and AI integrations.",
         printTitle: "Senior Python & FastAPI Developer • Async Microservices & AI Integrations",
         summaryHeading: "EXECUTIVE SUMMARY",
         summaryParagraphs: [
-            "Senior Python & FastAPI Engineer with over 12+ years of software development experience architecting high-performance asynchronous microservices and AI-driven APIs.",
-            "Proven track record building async Python backends utilizing FastAPI, Pydantic v2, SQLAlchemy/SQLModel, AsyncIO, Celery/Redis, and PostgreSQL. Experienced integrating modern LLM & Speech APIs (OpenAI, Deepgram, Azure Cognitive Services) with real-time WebSocket communication.",
-            "Passionate about writing clean, typed Python 3.12+ code, maintaining high PyTest coverage, and delivering sub-second RESTful & GraphQL endpoints for cloud platforms."
+            "Senior Python Developer with 12+ years of software engineering experience building asynchronous APIs, backend services, and AI integrations.",
+            "Core stack includes FastAPI, Pydantic v2, AsyncIO, SQLAlchemy/SQLModel, Celery, Redis, and PostgreSQL. Experienced connecting LLM APIs (OpenAI, Deepgram, Azure) with real-time WebSocket connections and background task queues.",
+            "Emphasizes typed Python 3.12+ code, structured PyTest coverage, clear API documentation, and containerized cloud deployment."
         ],
         focusAreas: [
-            "Building asynchronous REST APIs and microservices using FastAPI & Pydantic v2",
-            "Integrating LLM inferences, streaming Speech-to-Text (STT), and AI workflows",
-            "SQLAlchemy / SQLModel database design, async migrations & PostgreSQL indexing",
-            "Background task processing via Celery, Redis & AsyncIO event loops",
-            "Containerization with Docker, Kubernetes, and automated PyTest CI/CD pipelines"
+            "Async REST APIs and microservices with FastAPI & Pydantic v2",
+            "LLM integration, streaming Speech-to-Text (STT), and AI pipelines",
+            "SQLAlchemy database design, async migrations, and PostgreSQL indexing",
+            "Background job queues with Celery, Redis, and AsyncIO event loops",
+            "Docker containerization, PyTest automation, and CI/CD deployment"
         ]
     }
 };
