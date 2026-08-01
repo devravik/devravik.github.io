@@ -69,6 +69,7 @@ const skillLogos = [
   ["redis", "redis-net-cn-logo.png"],
   ["vue", "vuejs-org-logo.png"],
   ["tailwind", "tailwindcss-com-logo.png"],
+  ["shadcn", "shadcn-io-logo.png"],
   ["react native", "reactnative-dev-logo.png"],
   ["react", "react-dev-logo.png"],
   ["next", "nextjs-org-logo.png"],
@@ -104,6 +105,76 @@ const logoFor = (label = "") => {
   return best ? `./assets/logos/${best[1]}` : null;
 };
 
+// Feather-style stroke icons (24x24) used as fallback when a skill has no
+// brand logo. Keyed the same way as skillLogos (substring, case-insensitive).
+const iconPaths = {
+  layers:
+    '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>',
+  database:
+    '<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>',
+  "trending-up":
+    '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>',
+  box: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>',
+  cpu: '<rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>',
+  key: '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>',
+  search: '<circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>',
+  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>',
+  cloud: '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>',
+  "upload-cloud":
+    '<polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline>',
+  "bar-chart-2":
+    '<line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line>',
+  activity: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>',
+  package:
+    '<line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>',
+  server:
+    '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line>',
+};
+
+const skillIcons = [
+  ["azure", "cloud"],
+  ["serverless", "upload-cloud"],
+  ["observability", "bar-chart-2"],
+  ["monitoring", "activity"],
+  ["jwt", "key"],
+  ["authentication", "key"],
+  ["tenant", "shield"],
+  ["scaling", "trending-up"],
+  ["performance", "activity"],
+  ["microservices", "box"],
+  ["architecture", "layers"],
+  ["system design", "layers"],
+  ["data", "database"],
+  ["modeling", "database"],
+  ["query", "search"],
+  ["indexing", "search"],
+  ["optimization", "zap"],
+  ["pipelines", "cpu"],
+  ["queues", "cpu"],
+  ["background", "cpu"],
+  ["deployment", "package"],
+  ["api", "server"],
+];
+
+const iconFor = (label = "") => {
+  const l = label.toLowerCase();
+  let best = null;
+  let bestPos = Infinity;
+  for (const [key, icon] of skillIcons) {
+    const pos = l.indexOf(key);
+    if (pos === -1) continue;
+    if (pos < bestPos || (pos === bestPos && best && key.length > best[0].length)) {
+      best = [key, icon];
+      bestPos = pos;
+    }
+  }
+  return best ? best[1] : null;
+};
+
+const svgIcon = (name, className = "") =>
+  `<svg class="${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name]}</svg>`;
+
 const getBrandLogoUrl = (label = "", href = "") => {
   const l = label.toLowerCase();
   if (l.includes("live site") || l.includes("website") || l.includes("demo") || l.includes("app")) {
@@ -127,19 +198,25 @@ const renderLinkWithLogo = (link, extraClass = "") => {
 // One skill: optional small monochrome logo tile + label.
 const skillItem = (label) => {
   const logo = logoFor(label);
-  const img = logo
+  const icon = iconFor(label);
+  const media = logo
     ? `<img class="skill-logo" src="${logo}" alt="" aria-hidden="true" loading="lazy" />`
-    : "";
-  return `<span class="skill-item">${img}<span class="skill-name">${label}</span></span>`;
+    : icon
+      ? svgIcon(icon, "skill-icon")
+      : "";
+  return `<span class="skill-item">${media}<span class="skill-name">${label}</span></span>`;
 };
 
 // Skill chip with brand logo
 const renderSkillChip = (label) => {
   const logo = logoFor(label);
-  const imgHtml = logo
+  const icon = iconFor(label);
+  const media = logo
     ? `<img src="${logo}" alt="" class="chip-brand-logo" aria-hidden="true" loading="lazy" />`
-    : "";
-  return `<span class="chip chip-soft">${imgHtml}<span>${label}</span></span>`;
+    : icon
+      ? svgIcon(icon, "chip-brand-logo chip-brand-icon")
+      : "";
+  return `<span class="chip chip-soft">${media}<span>${label}</span></span>`;
 };
 
 if (root) {

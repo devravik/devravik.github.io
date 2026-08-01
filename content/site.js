@@ -368,6 +368,7 @@ export const site = {
                     "React Native (Expo)",
                     "Laravel Blade / Livewire",
                     "Tailwind CSS",
+                    "shadcn/ui",
                 ],
             },
             {
