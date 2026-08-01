@@ -250,7 +250,7 @@ if (root) {
               <div class="hero-avatar-card">
                 <div class="hero-avatar-ring">
                   <img
-                    src="./avatar.png"
+                    src="./avatar_front.png"
                     alt="Portrait of ${site.hero.name}"
                     class="hero-avatar"
                   />
