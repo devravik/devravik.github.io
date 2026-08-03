@@ -297,33 +297,34 @@ if (root) {
               ` : ""}
               <p class="hero-kicker">${activeProfile.name}</p>
               <h1 class="hero-title">${site.hero.name}</h1>
+              <div class="hero-meta">
+                <span>${site.hero.location}</span>
+                <span class="sep"></span>
+                <span>Open to remote engineering roles</span>
+              </div>
               <p class="hero-tagline">${activeProfile.heroTagline.replace(
           /(Laravel & Go|PHP & Laravel|Full Stack Software Engineer|Single-Page Applications|multi-tenant SaaS|REST APIs|Vue\.js|Inertia\.js)/g,
           "<strong>$1</strong>"
         )}</p>
               <ul class="hero-highlights">
                 ${site.hero.highlights
-        .map((h) => `<li>${h}</li>`)
-        .join("")}
+      .map((h) => `<li>${h}</li>`)
+      .join("")}
               </ul>
-              <div class="hero-meta">
-                <span>${site.hero.location}</span>
-                <span class="sep"></span>
-                <span>Open to remote engineering roles</span>
-              </div>
+              
               <div class="hero-actions">
                 <div class="hero-actions-row">
                   ${site.hero.actions
-        .map((action) => {
-          const logo = getBrandLogoUrl(action.label, action.href);
-          const iconHtml = logo
-            ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
-            : action.href.startsWith("mailto:")
-              ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
-              : "";
-          return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
-        })
-        .join("")}
+      .map((action) => {
+        const logo = getBrandLogoUrl(action.label, action.href);
+        const iconHtml = logo
+          ? `<img src="${logo}" alt="" class="btn-brand-logo" aria-hidden="true" />`
+          : action.href.startsWith("mailto:")
+            ? `<svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
+            : "";
+        return `<a href="${action.href}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">${iconHtml}<span>${action.label}</span></a>`;
+      })
+      .join("")}
                 </div>
                 <div class="hero-actions-row">
                   <a href="${pdfPath}" download="${pdfFilename}" target="_blank" rel="noopener noreferrer" class="btn btn-primary js-download-pdf" title="Download Executive Resume PDF (${activeProfile.name})">
@@ -380,15 +381,15 @@ if (root) {
             <div class="section-body two-column">
               <div>
                 ${activeProfile.summaryParagraphs
-        .map((p) => `<p class="body-text">${p}</p>`)
-        .join("")}
+      .map((p) => `<p class="body-text">${p}</p>`)
+      .join("")}
               </div>
               <div class="section-side">
                 <h3 class="section-subheading">What I work on</h3>
                 <ul class="bullet-list">
                   ${activeProfile.focusAreas
-        .map((item) => `<li>${item}</li>`)
-        .join("")}
+      .map((item) => `<li>${item}</li>`)
+      .join("")}
                 </ul>
               </div>
             </div>
@@ -399,20 +400,25 @@ if (root) {
           <div class="section-inner">
             ${sectionHeader("02", "Tech Stack", "Skills & tools", "TECHNICAL SKILLS & COMPETENCIES")}
             <div class="skills-list">
-              ${site.skills.categories
+              <div class="skills-grid">
+                ${site.skills.categories
       .map(
-        (cat) => `
-                <div class="skill-row reveal">
-                  <div class="skill-label">${cat.name}</div>
-                  <div class="skill-items">
-                    ${cat.items
+        (cat, idx) => `
+                  <div class="skill-category reveal">
+                    <div class="skill-category-head">
+                      <span class="skill-category-index" aria-hidden="true">${String(idx + 1).padStart(2, "0")}</span>
+                      <h3 class="skill-label">${cat.name}</h3>
+                    </div>
+                    <div class="skill-items">
+                      ${cat.items
             .map((s) => skillItem(s))
             .join("")}
+                    </div>
                   </div>
-                </div>
-              `
+                `
       )
       .join("")}
+              </div>
             </div>
           </div>
         </section>
@@ -496,15 +502,15 @@ if (root) {
             ${sectionHeader("05", "Selected Work", site.projects.heading, "FEATURED PROJECTS & SAAS PRODUCTS")}
             <div class="projects-grid">
               ${(() => {
-                const featuredNames = (activeProfile.featuredProjects || []).slice(0, 7);
-                return site.projects.items
-                  .map(
-                    (project) => {
-                      const isPrintHidden = !featuredNames.includes(project.name);
-                      return `
+      const featuredNames = (activeProfile.featuredProjects || []).slice(0, 7);
+      return site.projects.items
+        .map(
+          (project) => {
+            const isPrintHidden = !featuredNames.includes(project.name);
+            return `
                 <article class="project-card reveal layout-${project.layout || "half"} ${isPrintHidden ? "print-hide" : ""}">
                   ${project.image
-                    ? `
+                ? `
                   <div class="project-media">
                     <img
                       src="${project.image}"
@@ -514,8 +520,8 @@ if (root) {
                     />
                   </div>
                   `
-                    : ""
-                  }
+                : ""
+              }
                   <div class="project-content">
                     <header class="project-header">
                       <div>
@@ -526,23 +532,23 @@ if (root) {
                       </div>
                       <div class="project-links">
                         ${project.links
-                          .map((link) => renderLinkWithLogo(link))
-                          .join("")}
+                .map((link) => renderLinkWithLogo(link))
+                .join("")}
                       </div>
                     </header>
                     <p class="body-text">${project.description}</p>
                     <div class="tag-row">
                       ${project.techStack
-                        .map((t) => renderSkillChip(t))
-                        .join("")}
+                .map((t) => renderSkillChip(t))
+                .join("")}
                     </div>
                   </div>
                 </article>
               `;
-                    }
-                  )
-                  .join("");
-              })()}
+          }
+        )
+        .join("");
+    })()}
             </div>
           </div>
         </section>
