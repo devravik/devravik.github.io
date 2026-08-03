@@ -1,0 +1,66 @@
+heading: Skills
+categories:
+  - name: Languages & Frameworks
+    items:
+      - PHP / Laravel
+      - Statamic
+      - Go (Golang, Gin, Fiber)
+      - Node.js
+      - Python (FastAPI)
+      - JavaScript / TypeScript
+      - CodeIgniter
+      - WordPress
+      - PHPUnit / Pest
+  - name: Backend & Architecture
+    items:
+      - Backend architecture and system design
+      - Tenant isolation strategies (shared and isolated)
+      - Microservices architecture and service decomposition
+      - GraphQL & gRPC API design
+      - Event streaming with Kafka
+      - Real-time updates with Pusher
+      - Background processing pipelines and queues
+      - JWT, OAuth2 & stateless API authentication
+  - name: Data & Search
+    items:
+      - Relational database design (MySQL, PostgreSQL)
+      - NoSQL databases (MongoDB)
+      - Query optimization and indexing
+      - Algolia
+      - Meilisearch
+      - Elasticsearch
+      - Supabase
+      - Neon DB
+  - name: Cloud, DevOps & Reliability
+    items:
+      - AWS (S3, EC2, SES, RDS), DigitalOcean, Vercel
+      - AWS Lambda (serverless functions)
+      - Google Cloud Platform (GCP)
+      - Azure
+      - Docker & containers
+      - Kubernetes
+      - Serverless container deployment
+      - GitHub Actions / CI/CD
+      - Nginx & Apache web servers
+      - Linux server administration
+      - Caching layers and Redis
+      - Observability and application monitoring
+  - name: Frontend & Apps
+    items:
+      - Vue.js
+      - React
+      - Next.js
+      - React Native (Expo)
+      - Laravel Blade / Livewire
+      - Tailwind CSS
+      - shadcn/ui
+  - name: AI & Dev Tools
+    items:
+      - Claude (Anthropic)
+      - OpenAI / GPT-4o
+      - DeepSeek
+      - Cursor
+      - OpenCode
+      - Ollama (local LLMs)
+      - LangChain
+      - Google (Gemini)

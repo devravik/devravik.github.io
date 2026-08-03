@@ -1,14 +1,50 @@
-import { site, profiles } from "../content/site.js";
+// Content lives as plain YAML files in /content (Statamic-style), so it can be
+// edited without touching code. js-yaml (MIT) is vendored to parse it at
+// runtime; there is no build step. Data is fetched and assembled in loadContent().
+import * as yaml from "./vendor/js-yaml.mjs";
 
 const urlParams = new URLSearchParams(window.location.search);
-const reqProfile = urlParams.get("profile");
-const activeProfileSlug = (reqProfile && profiles[reqProfile]) ? reqProfile : "backend";
-const activeProfile = profiles[activeProfileSlug];
-const pdfFilename = activeProfileSlug === "backend" ? "Ravi-K-Gupta-Resume.pdf" : `Ravi-K-Gupta-Resume-${activeProfileSlug}.pdf`;
-const pdfPath = `./assets/${pdfFilename}`;
-const showTargetSelector = urlParams.get("target") === "1";
-
 const root = document.getElementById("root");
+
+let site = null;
+let profiles = null;
+let activeProfileSlug = "backend";
+let activeProfile = null;
+let pdfFilename = "Ravi-K-Gupta-Resume.pdf";
+let pdfPath = "./assets/Ravi-K-Gupta-Resume.pdf";
+let showTargetSelector = false;
+
+const loadContent = async () => {
+  const fetchYaml = async (file) =>
+    yaml.load(await (await fetch(file)).text());
+  const [hero, about, skills, featured, contributions, projects, experience, education, languages, contact, profilesData] =
+    await Promise.all([
+      fetchYaml("content/hero.yaml"),
+      fetchYaml("content/about.yaml"),
+      fetchYaml("content/skills.yaml"),
+      fetchYaml("content/featured.yaml"),
+      fetchYaml("content/contributions.yaml"),
+      fetchYaml("content/projects.yaml"),
+      fetchYaml("content/experience.yaml"),
+      fetchYaml("content/education.yaml"),
+      fetchYaml("content/languages.yaml"),
+      fetchYaml("content/contact.yaml"),
+      fetchYaml("content/profiles.yaml"),
+    ]);
+  profiles = profilesData;
+  site = {
+    hero,
+    about,
+    skills,
+    featured,
+    contributions,
+    projects,
+    experience,
+    education,
+    languages,
+    contact,
+  };
+};
 
 // Section header with a numbered eyebrow + bold title + optional subtext.
 const sectionHeader = (num, eyebrow, title, printTitle = "", subtext = "") => {
@@ -255,7 +291,24 @@ const applyCaptcha = () => {
   if (inEl) inEl.value = "";
 };
 
-if (root) {
+(async () => {
+  if (!root) return;
+  try {
+    await loadContent();
+  } catch (err) {
+    root.innerHTML = `<div style="padding:80px 24px;text-align:center;font-family:var(--mono);color:var(--muted);">
+      <p>Couldn’t load site content. The page needs a web server (GitHub Pages or <code>npx http-server</code>).</p>
+      <p style="font-size:0.85rem;color:var(--faint)">${String(err && err.message ? err.message : err).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]))}</p>
+    </div>`;
+    return;
+  }
+  const reqProfile = urlParams.get("profile");
+  activeProfileSlug = (reqProfile && profiles[reqProfile]) ? reqProfile : "backend";
+  activeProfile = profiles[activeProfileSlug];
+  pdfFilename = activeProfileSlug === "backend" ? "Ravi-K-Gupta-Resume.pdf" : `Ravi-K-Gupta-Resume-${activeProfileSlug}.pdf`;
+  pdfPath = `./assets/${pdfFilename}`;
+  showTargetSelector = urlParams.get("target") === "1";
+
   root.innerHTML = `
     <canvas id="animatedLogoBg"></canvas>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -911,7 +964,7 @@ if (root) {
 
   // Ambient floating background logos animation
   initAnimatedLogoBackground();
-}
+})();
 
 function initAnimatedLogoBackground() {
   const canvas = document.getElementById("animatedLogoBg");

@@ -1,0 +1,99 @@
+heading: Open Source Contributions
+items:
+  - name: Laravel Licensing
+    description: >-
+      A production-ready Laravel package for generating, managing, activating, and validating software licenses directly
+      inside your application. License keys are hashed before storage (never plaintext in the database), activations are
+      seat-controlled, and the entire lifecycle creation, validation, activation, revocation, and expiry is covered by
+      typed exceptions and dispatchable events.
+    version: 1.0.0
+    stats:
+      downloads: 1+
+      phpVersion: PHP ^8.1
+      license: MIT
+      tests: Covered
+    techStack:
+      - Laravel 10/11/12
+      - Bcrypt key hashing
+      - Seat-based activations
+      - Polymorphic ownership
+      - Event-driven architecture
+    links:
+      - label: Packagist
+        href: https://packagist.org/packages/devravik/laravel-licensing
+      - label: GitHub
+        href: https://github.com/devravik/laravel-licensing
+  - name: Laravel Licensing Starter
+    description: >-
+      A starter kit demonstrating devravik/laravel-licensing - a Laravel package for generating, managing, activating,
+      and validating software licenses. This project combines Laravel Breeze (authentication) with a full license
+      management dashboard so you can see the complete workflow in action.
+    techStack:
+      - Laravel Breeze
+      - License management dashboard
+      - Full workflow demonstration
+      - API endpoints
+      - Demo data & examples
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/laravel-licensing-starter
+  - name: Laravel Extended Resources
+    description: >-
+      A Laravel API resources extension that lets you define multiple named formats using PHP 8 attributes, modify
+      serialized data on the fly, use helpers like only()/except(), and set the HTTP status code from the resource while
+      still feeling native to Laravel.
+    techStack:
+      - Laravel 10/11/12
+      - PHP 8.1+
+      - API Resources
+      - PHP 8 attributes
+      - Response helpers
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/extended-resources
+      - label: Packagist
+        href: https://packagist.org/packages/devravik/extended-resources
+  - name: RedditRadar
+    description: >-
+      Self-hosted Reddit lead discovery and AI analysis for engineers. Monitors subreddits for hiring posts and founder
+      pain points, scores them against a custom engineer profile, pre-filters noise before LLM inference, and tracks
+      outreach - a lightweight alternative to expensive SaaS lead tools.
+    techStack:
+      - Next.js 16 (App Router)
+      - Prisma 7 + PostgreSQL
+      - Tailwind CSS + shadcn/ui
+      - OpenAI / OpenRouter / Groq
+      - Reddit JSON API
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/RedditRadar
+  - name: Go License API
+    description: >-
+      High-performance, self-hosted license validation service built in Go. Covers everything from simple plugin
+      licensing to large-scale SaaS enforcement: multi-tenant isolation, seat tracking, offline licenses (Ed25519), key
+      rotation, webhooks, and audit logging. Validation runs entirely from an in-memory cache with no DB in the hot
+      path, targeting sub-millisecond p95 latency.
+    techStack:
+      - Go 1.21+
+      - PostgreSQL 14+
+      - Redis (optional L2 cache)
+      - Ed25519 offline signing
+      - Docker + Kubernetes
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/go-license-api
+  - name: TalkBridge
+    description: >-
+      Real-time video calls with live AI-translated captions - no app, no account, just a link. Speech is transcribed
+      via Deepgram Nova-2 and translated by Azure Cognitive Services in under 500ms end-to-end, overlaid as live
+      captions on the video feed. Supports 10 languages with an LLM fallback when Azure is unavailable.
+    techStack:
+      - Go (Fiber) + Gorilla WebSocket
+      - Next.js 14, TypeScript, Tailwind CSS
+      - WebRTC P2P video and audio
+      - Deepgram Nova-2 streaming STT
+      - Azure Cognitive Services Translator
+      - PostgreSQL
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/TalkBridge

@@ -1,0 +1,30 @@
+heading: Featured Project
+projects:
+  - name: Genexr Analytics
+    role: Senior Backend Engineer
+    period: 2025 - Present
+    description: >-
+      Multi-tenant analytics platform that sits behind other SaaS products. I’m responsible for the API design, data
+      model, and tenant isolation strategy so each customer gets clean dashboards and exports without ever seeing anyone
+      else’s data.
+    bullets:
+      - >-
+        Architected high-throughput event and metrics data models enabling 1M+ daily event writes with sub-50ms query
+        latency.
+      - Constructed Go (Fiber) services delivering RESTful APIs with sub-10ms median response times.
+      - >-
+        Implemented tenant-aware routing, RBAC authorization, and data isolation across 100+ active multi-tenant
+        databases.
+      - Ran background queues processing 50k+ daily automated aggregations, scheduled reports, and CSV exports.
+      - >-
+        Optimized PostgreSQL analytics schema with custom indexes and partitioning, reducing query execution times by
+        60%.
+    techStack:
+      - Go (Fiber) services
+      - Next.js reporting dashboard
+      - PostgreSQL analytics schema
+      - Multi-tenant routing & auth
+      - Background jobs & exports
+    links:
+      - label: Genexr Analytics
+        href: https://genexr.com

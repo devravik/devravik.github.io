@@ -1,0 +1,16 @@
+name: Ravi K Gupta
+title: Backend Systems Engineer · Multi-Tenant SaaS Architecture
+tagline: Laravel & Go backend engineer focused on SaaS products that have to stay fast and predictable.
+location: Noida, Uttar Pradesh, India
+openToWork: true
+highlights:
+  - Working on web backends since 2014
+  - Most of my time goes into multi-tenant SaaS and internal product tooling
+  - Care a lot about stability, data design, and clear APIs
+actions:
+  - label: Email
+    href: mailto:dev.ravikgupt@gmail.com
+  - label: LinkedIn
+    href: https://www.linkedin.com/in/ravi-k-dev
+  - label: GitHub
+    href: https://github.com/devravik

@@ -1,0 +1,238 @@
+heading: Featured Projects
+items:
+  - name: Genexr Analytics
+    category: Product
+    role: Senior Backend Engineer
+    period: 2026 - Present
+    layout: hero
+    description: >-
+      Analytics and reporting layer for SaaS products. It exposes a clean API for sending events and gives each tenant
+      its own dashboards, charts, and exports.
+    image: ./assets/projects/genexr-example-001.webp
+    techStack:
+      - Go (Fiber) services behind a simple HTTP API
+      - Next.js reporting dashboard
+      - PostgreSQL schema tuned for analytics queries
+      - Tenant-aware routing, auth, and data isolation
+      - Background jobs for aggregations and exports
+    links:
+      - label: Genexr Analytics
+        href: https://genexr.com
+  - name: Fonefix Repair Management System
+    category: Digital Transformation
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: half
+    description: >-
+      Backend behind a large device repair business - handles bookings, job state, technician updates, and the
+      operational reporting the team runs their day on.
+    image: ./assets/projects/fonefix-example-001.webp
+    techStack:
+      - Workflow-driven backend design
+      - Data modeling for the full repair lifecycle
+      - Job and technician scheduling
+      - Internal reporting for branches and teams
+    links:
+      - label: Live site
+        href: https://fonefix.co.nz/
+  - name: GigHQ
+    category: Digital Businesses
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: half
+    description: >-
+      Community and booking platform that connects musicians with hospitality venues, with feeds, profiles, and event
+      workflows.
+    image: ./assets/projects/gighq-example-001.webp
+    techStack:
+      - Community and booking workflows
+      - Artist, venue, and event data modeling
+      - Search across artists and gigs
+      - Payment flows for bookings
+    links:
+      - label: Live site
+        href: https://www.gighq.co.nz/
+  - name: Planolitix
+    category: Financial Tools
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: third
+    description: >-
+      Financial diagnostic tool that uses cashflow modeling to show clients how their position changes across different
+      life stages.
+    image: ./assets/projects/planolitix-example-001.webp
+    techStack:
+      - Financial data modeling
+      - Long-horizon cashflow calculations
+      - Graph-based reporting
+      - Performance-focused SQL tuning
+    links:
+      - label: Live site
+        href: http://planolitix.com/
+  - name: Moneyguide
+    category: Financial Tools
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: third
+    description: Retirement and planning tool that lets advisers compare scenarios and generate client-friendly reports.
+    image: ./assets/projects/moneyguide-example-001.webp
+    techStack:
+      - Scenario modeling for retirement planning
+      - Adviser-facing reporting and exports
+      - Document generation and summaries
+      - Secure handling of client data
+    links:
+      - label: Live site
+        href: https://www.moneyguide.co.nz/
+  - name: Skillsnacks
+    category: Digital Learning
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: third
+    description: >-
+      Microlearning platform for retail sales teams, with snack-sized lessons and coaching activities behind a
+      subscription model.
+    image: ./assets/projects/skillsnacks-example-001.webp
+    techStack:
+      - Subscription access model
+      - Learning content and assessment data structures
+      - Engagement and progress tracking
+      - Multi-tenant delivery for different brands
+    links:
+      - label: Live site
+        href: https://www.skillsnacks.com/
+  - name: Vetty
+    category: Digital Businesses
+    role: Senior Backend Engineer · Waggingtail
+    period: Ongoing
+    layout: half
+    description: Subscription e-commerce platform for pet treatments, handling recurring orders, billing, and fulfillment.
+    image: ./assets/projects/vetty-example-001.webp
+    techStack:
+      - Subscription billing engine
+      - Order and fulfillment workflows
+      - Inventory and logistics integrations
+      - Customer notification flows
+    links:
+      - label: Live site
+        href: https://vetty.co.nz/
+  - name: AttendAssist
+    category: Product
+    role: Independent Software Developer
+    period: 2025 - Present
+    layout: half
+    description: Attendance management app focused on making the daily check-in/out process simple for teachers and teams.
+    image: ./assets/projects/attendassist-example-001.webp
+    techStack:
+      - React Native (Expo)
+      - Mobile-first API design
+      - Attendance data modeling
+      - Auth and role management
+      - CI/CD for mobile and backend
+    links:
+      - label: Live site
+        href: https://devravik.github.io/attendassist/
+      - label: Play Store
+        href: https://play.google.com/store/apps/details?id=com.devravik.attendassist
+  - name: KundaliLabs
+    category: Product
+    role: Independent Software Developer
+    period: 2025 - Present
+    layout: hero
+    description: >-
+      AI-powered Vedic astrology platform using Swiss Ephemeris for all calculations and GPT-4o for interpretations.
+      Covers Janam Kundli, daily horoscope, Panchang, Dasha timeline, Kundli matching, and numerology across 10 Indian
+      languages. Available as a live web app and a mobile app on the Play Store.
+    image: ./assets/projects/kundalilabs-example.webp
+    techStack:
+      - FastAPI (Python) backend
+      - React + Vite frontend
+      - PostgreSQL
+      - Swiss Ephemeris for Jyotish calculations
+      - OpenAI GPT-4o for AI interpretations
+      - React Native mobile app
+    links:
+      - label: Live site
+        href: https://kundalilabs.com
+      - label: Play Store
+        href: https://play.google.com/store/apps/details?id=com.kundalilabs.app
+      - label: GitHub
+        href: https://github.com/devravik/kundalilabs
+  - name: RedditRadar
+    category: Open Source
+    role: Independent Software Developer
+    period: '2025'
+    layout: half
+    description: >-
+      Self-hosted Reddit lead discovery and AI analysis. Monitors subreddits for hiring posts and founder pain points,
+      scores them against a custom engineer profile, pre-filters noise before LLM inference, and tracks outreach through
+      a NEW → CONTACTED → REPLIED → ARCHIVED pipeline.
+    image: ./assets/projects/redditradar-example.webp
+    techStack:
+      - Next.js 16 (App Router)
+      - Prisma 7 + PostgreSQL
+      - Tailwind CSS + shadcn/ui
+      - AI scoring via OpenAI / OpenRouter / Groq
+      - Reddit JSON API with rate-limit-aware pacing
+      - Docker + self-hosted deployment
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/RedditRadar
+  - name: Go License API
+    category: Open Source
+    role: Independent Software Developer
+    period: '2025'
+    layout: half
+    description: >-
+      High-performance, self-hosted license validation service built in Go. Designed for SaaS products, desktop apps,
+      plugins, and indie tools - handles multi-tenant isolation, seat-based licensing, offline Ed25519 verification,
+      webhooks, audit logging, and key rotation. Validation runs entirely from an in-memory L1 cache with no DB in the
+      hot path.
+    image: ./assets/projects/go-license-api-example.webp
+    techStack:
+      - Go 1.21+
+      - PostgreSQL 14+ (control plane only)
+      - Redis (optional L2 cache)
+      - Ed25519 offline license signing
+      - Worker pool + bounded queue
+      - Docker + Kubernetes
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/go-license-api
+  - name: Top Places India
+    category: Product
+    role: Senior Backend Engineer
+    period: '2026'
+    layout: half
+    description: >-
+      Travel discovery platform that helps people explore Indian destinations, itineraries, and lesser-known spots in
+      one place.
+    image: ./assets/projects/topplacesindia-example-001.webp
+    techStack:
+      - Next.js application shell
+      - Supabase / PostgreSQL data layer
+      - Destination search and filters
+      - Caching and incremental rendering
+    links:
+      - label: Live site
+        href: https://www.topplacesindia.com/
+  - name: TalkBridge
+    category: Open Source
+    role: Independent Software Developer
+    period: '2025'
+    layout: half
+    description: >-
+      Real-time video calls with live AI-translated captions - no app, no account, just a link. Deepgram Nova-2
+      transcribes speech and Azure Cognitive Services translates, with captions pushed back over WebSocket in under
+      500ms end-to-end. Supports 10 languages with an LLM fallback translation path.
+    image: ./assets/projects/talkbridge-example.webp
+    techStack:
+      - Go (Fiber) + Gorilla WebSocket
+      - Next.js 14, TypeScript, Tailwind CSS
+      - WebRTC P2P (STUN/TURN)
+      - Deepgram Nova-2 streaming STT
+      - Azure Cognitive Services Translator
+      - PostgreSQL + Docker
+    links:
+      - label: GitHub
+        href: https://github.com/devravik/TalkBridge

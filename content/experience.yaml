@@ -1,0 +1,90 @@
+heading: Experience
+summary: Over 12+ years of hands-on backend & systems engineering experience (2014 - Present).
+roles:
+  - company: Waggingtail Technology Limited
+    website: https://www.waggingtail.co/
+    title: Senior Software Engineer · Full-time
+    location: Delhi, India · Remote
+    period: Oct 2018 - Present
+    summary: >-
+      Lead backend engineer across several client products - responsible for backend direction, architecture, and
+      keeping systems healthy as traffic and scope grow.
+    bullets:
+      - Architected backend infrastructure and relational schemas for 8+ enterprise SaaS products.
+      - Engineered 60+ RESTful API endpoints in Laravel and Go (Fiber) with 99.9% production uptime.
+      - Designed tenant isolation architectures securing data partitions across 100+ active client instances.
+      - Reduced API response times by up to 65% and cut report query runtimes from 3.5s to under 180ms.
+      - Configured Redis queues, offloading 100k+ daily background tasks and eliminating UI thread blocking.
+      - Integrated 10+ payment gateways and third-party APIs, reducing transaction drop rates by 40%.
+      - Automated GitHub Actions CI/CD pipelines across AWS and Vercel, trimming deployment times to <10 mins.
+      - Mentored 5+ junior developers and led code reviews, reducing post-release bug rates by ~30%.
+    products:
+      - Fonefix - device repair service platform (repair workflows, job tracking, technician updates).
+      - Vetty - pet treatment and subscription-based food platform.
+      - Planolitix / Moneyguide - financial services and retirement planning tools.
+      - GigHQ & K3HR - community and artist booking platforms with feed-style features.
+      - Skillsnacks - microlearning platform.
+      - Teraumahi - private community platform.
+    techStack:
+      - Laravel
+      - Go (Fiber)
+      - Vue.js
+      - Next.js
+      - MySQL
+      - Redis
+      - AWS
+      - DigitalOcean
+  - company: Infoicon Technologies
+    website: https://www.infoicontechnologies.com/
+    title: Senior Programmer
+    location: Noida, Uttar Pradesh, India · On-site
+    period: Jun 2015 - Oct 2018
+    summary: >-
+      Backend-focused developer on multiple client projects, usually responsible for APIs and data-heavy parts of the
+      system.
+    bullets:
+      - Built 30+ RESTful APIs for 10+ web applications, serving 50k+ monthly active users.
+      - Created modular PHP/Laravel components, shortening developer onboarding cycles by 35%.
+      - Optimized slow SQL queries and database indexes, reducing average page render times by 40%.
+      - Constructed search and filtering modules indexing 100k+ catalog records with sub-second retrieval.
+      - Integrated 15+ third-party APIs handling over 25k daily webhook transactions.
+      - Provisioned background task queues processing 50k+ daily automated reports and data syncs.
+    techStack:
+      - PHP
+      - Laravel
+      - MySQL
+      - JavaScript
+  - company: Webzesty Pvt Ltd
+    website: https://webzesty.net
+    title: Sr. Web Developer
+    location: Delhi, India · On-site
+    period: Apr 2014 - Jun 2015
+    summary: Worked on full-stack web applications using PHP frameworks and JavaScript frontends.
+    bullets:
+      - Authored 20+ core backend features and services using Laravel and CodeIgniter across client apps.
+      - Structured and normalized 15+ MySQL database schemas with zero data integrity issues.
+      - Established 25+ RESTful JSON endpoints connecting Laravel backends with Vue.js interfaces.
+      - Built interactive UI components with Vue.js, reducing user interaction load times by 30%.
+      - Remediated 100+ bug tickets and performance bottlenecks, upholding 99%+ production uptime.
+    techStack:
+      - Laravel
+      - CodeIgniter
+      - Vue.js
+      - MySQL
+      - JavaScript
+  - company: SunHill Systems Pvt Ltd
+    website: https://www.sunhill.in/
+    title: Web Developer
+    location: Delhi, India · On-site
+    period: Jan 2014 - Apr 2014
+    summary: First role in web development, focused on server-side features and smaller enhancements.
+    bullets:
+      - Assisted in building server-side features and data logic for 5+ web application projects.
+      - Programmed REST API endpoints connecting PHP backends with third-party web services.
+      - Wrote optimized MySQL queries to securely store and retrieve high-volume user data.
+      - Rectified 30+ issue tickets and delivered feature additions ahead of sprint milestones.
+      - Partnered with senior developers to establish clean code modularity and application security.
+    techStack:
+      - PHP
+      - JavaScript
+      - MySQL

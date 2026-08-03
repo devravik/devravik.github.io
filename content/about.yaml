@@ -1,0 +1,17 @@
+heading: About
+paragraphs:
+  - >-
+    I’ve been working on backend systems since 2014, mostly for SaaS products and web apps that can’t afford to fall
+    over when traffic spikes.
+  - >-
+    Day to day I’m in Laravel and Go (Fiber): designing APIs, shaping data models, and fixing the parts that usually
+    hurt first - slow queries, missing indexes, noisy background jobs, and brittle integrations.
+  - >-
+    I like being close to the product and building backends that still make sense a few years later, not just for the
+    next release. I’m open to remote backend roles and longer-term work with teams building real products.
+focusAreas:
+  - Designing and evolving multi-tenant architectures.
+  - Keeping APIs versioned and stable as features change.
+  - Making search, reporting, and analytics fast enough to feel instant.
+  - Tuning queries and indexes instead of only throwing hardware at the problem.
+  - Using queues, workers, and Redis to keep UIs responsive under load.
