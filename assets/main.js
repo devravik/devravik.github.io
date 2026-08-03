@@ -225,6 +225,36 @@ const renderSkillChip = (label) => {
   return `<span class="chip chip-soft">${media}<span>${label}</span></span>`;
 };
 
+// Simple local math captcha. Digits 2-9 with only + / - so it stays easy for
+// people. The answer is kept ONLY in JS memory (never in the DOM), the question
+// is drawn via CSS pseudo-content so it can't be selected or read from
+// textContent, and the whole check is client-side only — it pairs with
+// Web3Forms server-side spam filtering and the access key gate.
+let currentCaptcha = null;
+const captchaChallenge = () => {
+  let a = 2 + Math.floor(Math.random() * 8);
+  let b = 2 + Math.floor(Math.random() * 8);
+  const minus = Math.random() < 0.5;
+  let ans;
+  if (minus) {
+    if (a < b) { const t = a; a = b; b = t; }
+    ans = a - b;
+  } else {
+    ans = a + b;
+  }
+  return { a: String(a), b: String(b), op: minus ? "-" : "+", ans: String(ans) };
+};
+const applyCaptcha = () => {
+  const qEl = document.getElementById("workFormCaptchaQ");
+  const inEl = document.getElementById("wf-captcha");
+  if (!qEl) return;
+  currentCaptcha = captchaChallenge();
+  qEl.setAttribute("data-a", currentCaptcha.a);
+  qEl.setAttribute("data-b", currentCaptcha.b);
+  qEl.setAttribute("data-op", currentCaptcha.op);
+  if (inEl) inEl.value = "";
+};
+
 if (root) {
   root.innerHTML = `
     <canvas id="animatedLogoBg"></canvas>
@@ -593,18 +623,22 @@ if (root) {
 
         <section id="contact" class="section">
           <div class="section-inner">
-            ${sectionHeader("07", "Get in Touch", site.contact.heading, "CONTACT & PROFESSIONAL PROFILES")}
+            ${sectionHeader("07", "Get in Touch", "Let’s Work Together", "CONTACT & PROFESSIONAL PROFILES")}
             <div class="section-body two-column">
               <div>
                 <p class="body-text">
                   I’m ${site.contact.openToWork ? "currently open to" : "selective about"
-    } new backend roles, especially remote positions on SaaS or product teams.
+    } new backend roles, especially remote positions on SaaS or product teams. Have a project in mind or an opening on your team - send a note and I’ll reply within a day.
                 </p>
                 <div class="contact-actions" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;">
                   <a href="mailto:${site.contact.email}" class="btn btn-primary">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     <span>${site.contact.email}</span>
                   </a>
+               
+                </div>
+                <div class="contact-actions" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;">
+                
                   <a href="${pdfPath}" download="${pdfFilename}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-download-pdf" title="Download Executive Resume PDF (${activeProfile.name})">
                     <svg class="btn-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                     <span>Download PDF</span>
@@ -614,8 +648,6 @@ if (root) {
                     <span>Print Resume</span>
                   </button>
                 </div>
-              </div>
-              <div class="section-side">
                 <ul class="contact-list">
                   <li>
                     <span class="contact-item-icon">
@@ -655,6 +687,44 @@ if (root) {
       })
       .join("")}
                 </ul>
+              </div>
+              <div class="section-side">
+                <form id="workForm" class="work-form" action="https://api.web3forms.com/submit" method="POST">
+                  <input type="hidden" name="access_key" value="${site.contact.web3formsKey}" />
+                  <input type="hidden" name="subject" value="New message from devravik.github.io portfolio" />
+                  <input type="hidden" name="from_name" value="Portfolio Contact" />
+                  <input type="checkbox" name="botcheck" class="work-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                  <h3 class="section-subheading">Send a message</h3>
+                  <div class="work-form-field">
+                    <label class="work-form-label" for="wf-name">Name</label>
+                    <input class="work-form-input" id="wf-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+                  </div>
+                  <div class="work-form-field">
+                    <label class="work-form-label" for="wf-email">Email</label>
+                    <input class="work-form-input" id="wf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+                  </div>
+                  <div class="work-form-field">
+                    <label class="work-form-label" for="wf-message">Message</label>
+                    <textarea class="work-form-input" id="wf-message" name="message" rows="5" required placeholder="Tell me about your project or role..."></textarea>
+                  </div>
+                  ${(() => {
+      const c = captchaChallenge();
+      currentCaptcha = c;
+      return `
+                  <div class="work-form-field">
+                    <label class="work-form-label" for="wf-captcha">Security check</label>
+                    <div class="work-form-captcha-row">
+                      <span class="work-form-captcha-q" id="workFormCaptchaQ" data-a="${c.a}" data-b="${c.b}" data-op="${c.op}"></span>
+                      <input class="work-form-input work-form-captcha-input" id="wf-captcha" name="captcha" type="text" inputmode="numeric" autocomplete="off" required placeholder="Answer" aria-label="Solve the math question shown to verify you are human" />
+                      <button type="button" class="work-form-captcha-refresh" id="workFormCaptchaRefresh" aria-label="New security question" title="New question">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                      </button>
+                    </div>
+                  </div>`;
+    })()}
+                  <button type="submit" class="btn btn-primary work-form-submit">Send message</button>
+                  <p class="work-form-status" id="workFormStatus" role="status" aria-live="polite"></p>
+                </form>
               </div>
             </div>
             <div class="print-contact-section">
@@ -783,6 +853,61 @@ if (root) {
       }
     }
   });
+
+  // Web3Forms contact form (front-end only, no server)
+  const workForm = document.getElementById("workForm");
+  if (workForm) {
+    const statusEl = document.getElementById("workFormStatus");
+    const captchaRefresh = document.getElementById("workFormCaptchaRefresh");
+    if (captchaRefresh) {
+      captchaRefresh.addEventListener("click", () => {
+        applyCaptcha();
+        if (statusEl) {
+          statusEl.textContent = "";
+          statusEl.className = "work-form-status";
+        }
+      });
+    }
+    workForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const setStatus = (msg, cls) => {
+        if (!statusEl) return;
+        statusEl.textContent = msg;
+        statusEl.className = "work-form-status" + (cls ? " " + cls : "");
+      };
+      const accessKey = workForm.querySelector('input[name="access_key"]').value.trim();
+      if (!accessKey) {
+        setStatus(`Contact form isn’t wired up yet — email me directly at ${site.contact.email}.`, "work-form-status-error");
+        return;
+      }
+      const captchaInput = workForm.querySelector("#wf-captcha");
+      if (
+        !captchaInput ||
+        !currentCaptcha ||
+        !captchaInput.value.trim() ||
+        captchaInput.value.trim() !== currentCaptcha.ans
+      ) {
+        setStatus("Incorrect security answer — please solve the check to send.", "work-form-status-error");
+        return;
+      }
+      setStatus("Sending…");
+      try {
+        const res = await fetch(workForm.action, {
+          method: "POST",
+          body: new FormData(workForm),
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          setStatus("Thanks! Your message is on its way - I’ll get back to you soon.", "work-form-status-ok");
+          workForm.reset();
+        } else {
+          setStatus(`Couldn’t send that just now. Please email me directly at ${site.contact.email}.`, "work-form-status-error");
+        }
+      } catch (err) {
+        setStatus(`Network error. Please email me directly at ${site.contact.email}.`, "work-form-status-error");
+      }
+    });
+  }
 
   // Ambient floating background logos animation
   initAnimatedLogoBackground();

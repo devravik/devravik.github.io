@@ -1113,6 +1113,13 @@ img {
   display: flex;
   gap: 12px;
   align-items: center;
+  min-width: 0;
+}
+
+.contact-list a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-item-icon {
@@ -1136,6 +1143,147 @@ img {
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+/* Contact form (Web3Forms, front-end only) */
+.work-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(165deg, rgba(17, 20, 29, 0.85), rgba(11, 13, 19, 0.92));
+  border: 1px solid var(--border-subtle);
+}
+
+.work-form-hp {
+  display: none !important;
+}
+
+.work-form-captcha-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.work-form-captcha-q {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 86px;
+  padding: 0 14px;
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.work-form-captcha-q::before {
+  content: attr(data-a) " " attr(data-op) " " attr(data-b) " = ?";
+}
+
+.work-form-captcha-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.work-form-captcha-refresh {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-soft);
+  color: var(--muted);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.work-form-captcha-refresh:hover {
+  color: var(--accent);
+  border-color: var(--border-strong);
+  background: rgba(240, 138, 93, 0.08);
+}
+
+.work-form-captcha-refresh:active svg {
+  transform: rotate(120deg);
+}
+
+.work-form-captcha-refresh svg {
+  transition: transform 0.25s ease;
+}
+
+.work-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-form-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 600;
+}
+
+.work-form-input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.work-form-input:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.work-form-input::placeholder {
+  color: var(--faint);
+}
+
+textarea.work-form-input {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.work-form-submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.work-form-status {
+  margin: 0;
+  font-size: 0.88rem;
+  min-height: 1.2em;
+  color: var(--muted);
+}
+
+.work-form-status-ok {
+  color: #7ee2a8;
+}
+
+.work-form-status-error {
+  color: var(--danger);
 }
 
 /* Footer */

@@ -1003,6 +1003,7 @@ export const site = {
         phone: "+91-8285893766",
         location: "Noida, Uttar Pradesh, India",
         openToWork: true,
+        web3formsKey: "84472d97-c563-4a33-bb35-1f16a8dc752c",
         links: [
             {
                 label: "LinkedIn",
