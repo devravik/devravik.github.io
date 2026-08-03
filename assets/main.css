@@ -1024,8 +1024,8 @@ img {
 }
 
 .company-logo {
-  width: 34px;
-  height: 34px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.04);

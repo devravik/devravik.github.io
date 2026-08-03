@@ -267,10 +267,10 @@ if (root) {
           <nav class="topbar-nav">
             <a href="#about">About</a>
             <a href="#tech">Tech</a>
+            <a href="#education">Education</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contributions">Contributions</a>
-            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
